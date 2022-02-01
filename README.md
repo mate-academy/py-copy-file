@@ -5,7 +5,7 @@
 Write a function `copy_file` that will copy a file in current directory 
 like Linux cp command: `cp file.txt file-copy.txt`. Function take only one
 argument `command`, that is string with command `cp`, file name to copy and new file
-name, separated by `" "`
+name, separated by spaces.
 
 - It must do nothing in case the user is trying to copy file to file with the same
 name.
