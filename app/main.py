@@ -4,9 +4,9 @@ def copy_file(command: str):
     new_file = sep_command[2]
 
     if file != new_file:
-        with open(file, "r") as f:
-            with open(new_file, "w") as f2:
-                f2.write(str(f.read()))
+        with open(file, "r") as source:
+            with open(new_file, "w") as copy:
+                copy.write(str(source.read()))
 
 
 if __name__ == '__main__':
