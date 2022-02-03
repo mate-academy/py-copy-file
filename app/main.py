@@ -1,6 +1,6 @@
 def copy_file(command):
-    ls = command.split()
-    if ls[0] == "cp" and ls[1] != ls[2]:
+    usercommand = command.split()
+    if usercommand[0] == "cp" and usercommand[1] != usercommand[2]:
         with open(f"{ls[1]}", "r") as fin:
             with open(ls[2], "w") as fout:
                 for line in fin:
