@@ -1,8 +1,6 @@
 def copy_file(command):
     operator, file, new_file = command.split()
-    if operator != "cp":
-        return
-    if file == new_file:
+    if operator != "cp" or file == new_file:
         return
 
     with open(file, 'r') as f:
