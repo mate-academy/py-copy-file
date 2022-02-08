@@ -1,8 +1,8 @@
 def copy_file(command):
-    command = command.split(' ')
-    if command[1] != command[2]:
-        with open(f'{command[1]}', 'r') as f:
-            with open(f'{command[2]}', 'w') as fc:
+    command_data = command.split(' ')
+    if command_data[1] != command_data[2]:
+        with open(f'{command_data[1]}', 'r') as f:
+            with open(f'{command_data[2]}', 'w') as fc:
                 fc.write(f.read())
 
 
