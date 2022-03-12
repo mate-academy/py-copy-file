@@ -1,4 +1,5 @@
 def copy_file(command: str):
+
     new_command = command.split()
     file = new_command[1]
     new_file = new_command[2]
