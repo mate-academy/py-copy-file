@@ -1,8 +1,11 @@
-def copy_file(command):
-    old_file = command.split()[1]
-    new_file = command.split()[2]
+def copy_file(command: str):
 
-    if old_file != new_file:
-        with open(old_file, "r") as source:
-            with open(new_file, "w") as destination:
-                destination.write(source.read())
+    new_command = command.split()
+
+    file = new_command[1]
+    new_file = new_command[2]
+
+    if file != new_file:
+        with open(file, "r") as origin:
+            with open(new_file, "w") as copy:
+                copy.write(str(origin.read()))
