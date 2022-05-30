@@ -1,4 +1,4 @@
-def copy_file(command):
+def copy_file(command: str):
     command = command.split()
     if command[0] == "sp" and command[1] != command[2]:
         with open(command[1], "r") as old_file:
