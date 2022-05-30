@@ -6,5 +6,3 @@ def copy_file(command: str):
         with open(parsed[1], "r") as f1:
             with open(parsed[2], "w") as f2:
                 f2.write(f1.read())
-                f2.close()
-            f1.close()
