@@ -15,11 +15,10 @@ Example:
 copy_file("cp file.txt file.txt")  # Does nothing
 
 copy_file("cp file.txt new_file.txt")
-open("file.txt").read() == open("new_file.txt").read()  # True
+open("app/file.txt").read() == open("app/new_file.txt").read()  # True
 ```
-**Note**: It is good practice to use one context manager inside another:
+**Note**: Example how to open two files:
 ```python
-with open(..., "r") as f:
-    with open(..., "w") as f2:
-        ...
+with open(..., "r") as file_in, open(..., "w") as file_out:
+    ...
 ```
