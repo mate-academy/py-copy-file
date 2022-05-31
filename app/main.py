@@ -4,4 +4,3 @@ def copy_file(command: str):
         with open(name1, 'r') as f1:
             with open(name2, 'w') as f2:
                 f2.write(f1.read())
-
