@@ -17,7 +17,7 @@ copy_file("cp file.txt file.txt")  # Does nothing
 copy_file("cp file.txt new_file.txt")
 open("file.txt").read() == open("new_file.txt").read()  # True
 ```
-**Note**: Example how to open two files:
+**Note**: You can use two contexts managers simultaneously by separating them by a comma:
 ```python
 with open(..., "r") as file_in, open(..., "w") as file_out:
     ...
