@@ -1,10 +1,7 @@
 def copy_file(command: str):
-    cmdList = command.split()
-    if cmdList[1] == cmdList[2]:
+    cmd_list = command.split()
+    if cmd_list[1] == cmd_list[2]:
         print("Same file")
     else:
-        with open(cmdList[1], "r") as fin, open(cmdList[2], "w+") as fout:
+        with open(cmd_list[1], "r") as fin, open(cmd_list[2], "w+") as fout:
             fout.write(fin.read())
-
-
-copy_file("cp file.txt file2.txt")
