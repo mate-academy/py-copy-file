@@ -1,9 +1,5 @@
 def copy_file(command: str):
-    list_of_commands = command.split()
-    start = list_of_commands[1]
-    end = list_of_commands[2]
-
-    if start != end:
-        with open(start, "r") as start_f:
-            with open(end, "w") as end_f:
-                end_f.write(start_f.read())
+    file = command.split()
+    if file[1] != file[2] and file[0] == "cp":
+        with open(file[1], "r") as start_f, open(file[2], "w") as end_f:
+            end_f.write(start_f.read())
