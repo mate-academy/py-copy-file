@@ -1,5 +1,6 @@
 def copy_file(command):
-    with open(command[3:12], 'r') as old, open(command[12:], 'a') as new:
+    command = command[3:].split(" ")
+    with open(command[0], 'r') as old, open(command[1], 'a') as new:
         if old != new:
             for line in old:
                 new.write(line)
