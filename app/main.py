@@ -5,4 +5,4 @@ def copy_file(command):
                 open(copy_list[2], "w") as file_out:
             file_out.write(file_in.read())
     else:
-        return 0
+        return
