@@ -1,1 +1,7 @@
-# write your code here
+def copy_file(command):
+    file_names = command.split()
+    print(file_names)
+    with open(file_names[1], "r") as file_out, \
+            open(file_names[2], "w") as file_in:
+        context = file_out.read()
+        file_in.write(context)
