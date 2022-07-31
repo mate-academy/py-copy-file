@@ -1,1 +1,5 @@
-# write your code here
+import os
+
+
+def copy_file(command):
+    os.system(command)
