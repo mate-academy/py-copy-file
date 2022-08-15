@@ -4,5 +4,5 @@ def copy_file(command: str):
     copy_name = com_ls[2]
     if current_name != copy_name:
         with open(current_name, "r") as file_in, \
-                open(current_name, "w") as file_out:
+                open(copy_name, "w") as file_out:
             file_out.write(file_in.read())
