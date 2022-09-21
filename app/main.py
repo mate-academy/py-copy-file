@@ -1,4 +1,4 @@
-def copy_file(command):
+def copy_file(command: str) -> None:
     command = command.split()[1:]
     if command[0] == command[1]:
         return None
