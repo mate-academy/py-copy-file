@@ -3,6 +3,6 @@ def copy_file(command):
     new_file = command.split()[2]
     if file_to_copy == new_file:
         return
-    with open(file_to_copy, "r") as file_one, open(new_file, "a") as file_two:
-        for line in file_one:
-            file_two.write(line)
+    with open(file_to_copy, "r") as source, open(new_file, "a") as destination:
+        for line in source:
+            destination.write(line)
