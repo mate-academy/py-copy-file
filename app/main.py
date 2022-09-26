@@ -4,6 +4,3 @@ def copy_file(command):
     with open(file1, "r") as file_in, open(file2, "w") as file_out:
         if file_in.name != file_out.name:
             file_out.write(file_in.read())
-
-
-print(copy_file("cp file.txt new_file.txt"))
