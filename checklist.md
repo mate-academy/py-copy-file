@@ -1,5 +1,9 @@
 # Сheck Your Code Against the Following Points
 
+## Code Efficiency
+
+Make sure you check that the `cp` input command is correct.
+
 ## Code Style
 
 1. Use one style of quotes in your code. Double quotes are preferable.
