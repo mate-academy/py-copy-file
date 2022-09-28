@@ -3,5 +3,4 @@ def copy_file(string: str) -> None:
 
     if from_file != to_file and command == "cp":
         with open(from_file, "r") as file_in, open(to_file, "w") as file_out:
-            content = file_in.read()
-            file_out.write(content)
+            file_out.write(file_in.read())
