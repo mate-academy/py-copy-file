@@ -1,4 +1,6 @@
 def copy_file(command: str):
+    if command[1] == command[2]:
+        return
     list_name = command.split()
     if list_name[0] != "cp":
         print("Wrong command!")
