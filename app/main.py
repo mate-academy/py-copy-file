@@ -1,7 +1,7 @@
 def copy_file(command: str):
-    if command[1] == command[2]:
-        return
     list_name = command.split()
+    if list_name[1] == list_name[2]:
+        return
     if list_name[0] != "cp":
         print("Wrong command!")
     with open(list_name[1], "r") as file_orig,\
