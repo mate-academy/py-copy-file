@@ -1,7 +1,7 @@
 def copy_file(command_line: str) -> None:
-    _, source_name, destination_name = command_line.split(" ")
+    command, source_name, destination_name = command_line.split(" ")
 
-    if source_name == destination_name:
+    if source_name == destination_name or command != "cp":
         return
 
     with (open(source_name, "r") as source,
