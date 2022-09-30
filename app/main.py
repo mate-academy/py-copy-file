@@ -5,7 +5,7 @@ def copy_file(command: str) -> None | str:
 
     if command[0] != "cp":
         return "Error: unknown command"
-    if original != copy_original:
+    if original == copy_original:
         return
 
     with open(original, "r") as file_in, open(copy_original, "w") as file_out:
