@@ -1,5 +1,5 @@
 def copy_file(line: str) -> str:
-    command, old_file, new_file = line.split(" ")[1:]
+    command, old_file, new_file = line.split(" ")
 
     if command != "cp" or old_file == new_file:
         return "Incorrect command or your file names are the same!"
