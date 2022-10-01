@@ -1,12 +1,10 @@
-def copy_file(command: str):
+def copy_file(command: str) -> None:
     com_list = command.split
-    old_name = com_list[1]
-    new_name = com_list[2]
+    old_file = com_list[1]
+    new_file = com_list[2]
 
-    if com_list[0] != 'cp':
-        return
-    if old_name == new_name:
+    if com_list[0] != 'cp' or old_file == new_file:
         return
 
-    with open(old_name, 'r') as original, open(new_name, 'w') as copied:
-        copied.write(original.read())
+    with open(old_file, 'r') as original, open(new_file, 'w') as file_copy:
+        file_copy.write(original.read())
