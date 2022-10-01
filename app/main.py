@@ -2,7 +2,7 @@ def copy_file(line: str):
     command, old_file, new_file = line.split(" ")
 
     if old_file == new_file:
-        return "Incorrect command or your file names are the same!"
+        return "Your file names are the same!"
     if command != "cp":
         return
 
