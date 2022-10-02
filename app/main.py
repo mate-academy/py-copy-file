@@ -1,4 +1,4 @@
-def copy_file(command: str):
+def copy_file(command: str) -> None:
     command_name, file1, file2 = command.split(" ")
     if command_name == "cp":
         if file1 != file2:
