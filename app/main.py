@@ -6,4 +6,4 @@ def copy_file(command: str) -> None:
         with open(command_list[1], "r") as file_in,\
                 open(command_list[2], "w") as file_out:
             lines = file_in.readlines()
-            file_out.write(lines)
+            file_out.writelines(lines)
