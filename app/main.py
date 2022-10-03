@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    com_list = command.split
+    com_list = command.split()
     old_file = com_list[1]
     new_file = com_list[2]
 
