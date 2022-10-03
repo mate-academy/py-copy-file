@@ -6,7 +6,7 @@ def copy_file(command: str):
     file2 = command.split()[2]
 
     if file1 == file2:
-        return f"{file1} already exists"
+        return f'file with name "{file1}" already exists'
 
     with open(file1, "r") as f1, open(file2, "w") as f2:
         if f2 is f1:
