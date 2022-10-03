@@ -1,8 +1,9 @@
 def copy_file(command: str):
-    lst_separated = command.split(" ")
-    if lst_separated[0] != "cp" or lst_separated[1] == lst_separated[2]:
+    splited_command = command.split(" ")
+    if splited_command[0] != "cp" or splited_command[1] == splited_command[2]:
         return
 
-    with open(lst_separated[1], "r") as f, open(lst_separated[2], "a") as s:
-        for line in f:
-            s.write(line)
+    with open(splited_command[1], "r") as source, \
+         open(splited_command[2], "a") as result:
+        for line in source:
+            result.write(line)
