@@ -1,11 +1,12 @@
 def copy_file(command: str):
-    cmd_list = command.split()
-    cmd = cmd_list[0]
-    old_file = cmd_list[1]
-    new_file = cmd_list[2]
+    command = command.split()
+    cmd = command[0]
+    old_file = command[1]
+    new_file = command[2]
 
     if old_file == new_file or cmd != "cp":
         return print("Something wrong!")
-    else:
-        with open(old_file, "r") as file, open(new_file, "w") as new_file:
-            new_file.write(file.read())
+
+    with open(old_file, "r") as source_file, \
+            open(new_file, "w") as destination_file:
+        destination_file.write(source_file.read())
