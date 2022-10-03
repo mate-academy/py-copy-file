@@ -1,9 +1,9 @@
-def copy_file(command: str) -> str | None:
+def copy_file(command: str) -> None:
     result = command.split(" ")
     file = result[1]
     copy_of_file = result[2]
     if result[0] != "cp":
-        return f"{result[0]} is unidentified"
+        return
     if file == copy_file:
         return
 
