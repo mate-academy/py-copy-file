@@ -1,18 +1,14 @@
-def copy_file(command: str):
-    if command.split()[0] != "cp":
-        return f"unknown command: {command.split()[0]}"
+def copy_file(command: str) -> str | None:
+    command_list = command.split()
 
-    file1 = command.split()[1]
-    file2 = command.split()[2]
+    if command_list[0] != "cp":
+        return f"unknown command: {command_list[0]}"
 
-    if file1 == file2:
-        return f'file with name "{file1}" already exists'
+    file_to_copy = command_list[1]
+    copy_of_file = command_list[2]
 
-    with open(file1, "r") as f1, open(file2, "w") as f2:
-        if f2 is f1:
-            return f"{f1} already exists"
+    if file_to_copy == copy_of_file:
+        return f'file with name "{file_to_copy}" already exists'
 
-        f2.write(f1.read())
-
-
-copy_file("cp test_lorem.txt new_lorem.txt")
+    with open(file_to_copy, "r") as file_original, open(copy_of_file, "w") as file_copy:
+        file_copy.write(file_original.read())
