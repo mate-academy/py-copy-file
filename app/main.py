@@ -2,9 +2,10 @@ import os.path
 
 
 def copy_file(command: str) -> None:
-    if command.split()[0] == "cp":
-        if command.split()[1] != command.split()[2]:
-            if os.path.exists(command.split()[1]):
-                with open(command.split()[1], "r") as file_in,\
-                        open(command.split()[2], "w") as file_out:
-                    file_out.write(file_in.read())
+    operation, source_file, target_file = command.split()
+    if (operation == "cp") and \
+            (source_file != target_file) and \
+            os.path.exists(source_file):
+        with open(source_file, "r") as file_in, \
+                open(target_file, "w") as file_out:
+            file_out.write(file_in.read())
