@@ -1,5 +1,5 @@
 def copy_file(command: str):
-    if command:
+    if command and command != "del":
         names = command.split(" ")
         with open(f"{names[1]}", "r") as file, \
                 open(f"{names[2]}", "w") as f_copy:
