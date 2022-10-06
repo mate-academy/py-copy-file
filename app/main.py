@@ -1,9 +1,9 @@
-def copy_file(command: str):
+def copy_file(command: str) -> None:
     names = command.split()
-    cd_command = names[0]
-    file = names[1]
-    file_copy = names[2]
-    if file != file_copy and cd_command == "cd":
-        with open(file, "r") as file_in, open(file_copy, "w") as file_out:
+    cp_command = names[0]
+    old_file = names[1]
+    new_file = names[2]
+    if old_file != new_file and cp_command == "cp":
+        with open(old_file, "r") as file_in, open(new_file, "w") as file_out:
             content = file_in.read()
             file_out.write(content)
