@@ -1,4 +1,4 @@
-def copy_file(command: str):
+def copy_file(command: str) -> str:
     if command == "cp":
         names = command.split(" ")
         with open(f"{names[1]}", "r") as file, \
