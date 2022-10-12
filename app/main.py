@@ -6,11 +6,13 @@ def copy_file(user_command: str) -> None:
             command[1] == command[2]:
         return
 
+    buffer_size = 2048  # just for example
+
     with open(command[1], "rb") as src_obj, open(command[2], "wb") as dest_obj:
-        byte = src_obj.read(1)
-        while byte:
-            dest_obj.write(byte)
-            byte = src_obj.read()
+        buffer = src_obj.read(buffer_size)
+        while buffer:
+            dest_obj.write(buffer)
+            buffer = src_obj.read()
 
 
 if __name__ == "__main__":
