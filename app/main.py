@@ -1,10 +1,7 @@
-def copy_file(command: str) -> list:
-    result = command.split()
-    with open(result[1], "r") as file_in, open(result[2], "w") as file_out:
-        if result[1] == result[2]:
-            return []
-        result = file_in.read()
-        file_out.write(result)
-
-
-copy_file("cp file.txt file2.txt")
+def copy_file(command: str) -> None:
+    file_name = command.split()
+    if file_name[1] != file_name[2]:
+        with open(file_name[1], "r") as file_in, \
+             open(file_name[2], "w") as file_out:
+            result = file_in.read()
+            file_out.write(result)
