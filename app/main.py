@@ -5,5 +5,5 @@ def copy_file(command: str) -> None:
     if action != "cp" or old_file == new_file:
         return
     with open(old_file, "r") as file_in, open(new_file, "w") as file_out:
-        file = file_in.read()
-        file_out.write(file)
+        result_file = file_in.read()
+        file_out.write(result_file)
