@@ -1,4 +1,4 @@
-def copy_file(command: str):
+def copy_file(command: str) -> None:
     if not "cp" in command:
         print("Does nothing")
         return
