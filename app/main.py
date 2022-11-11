@@ -1,4 +1,4 @@
-def copy_file(command: str):
+def copy_file(command: str) -> None:
     file = command.split(" ")[1]
     new_file = command.split(" ")[2]
     if file == new_file:
