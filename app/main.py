@@ -8,7 +8,7 @@ def copy_file(command: str) -> None:
     if file == new_file:
         raise EqualNamesError("File names have not to be equal!!!")
 
-    elif command == "cp":
+    if command == "cp":
         with open(file, "r") as \
                 old_file, open(new_file, "w") as new_file:
             read_file = old_file.read()
