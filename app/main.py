@@ -2,7 +2,7 @@ from os.path import exists
 
 
 def copy_file(command: str) -> None:
-    tokens = command.split(" ")
+    tokens = command.split()
 
     if len(tokens) != 3:
         return
