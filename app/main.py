@@ -3,6 +3,8 @@ import shutil
 
 def copy_file(command: str) -> None:
     command = command.split()
-    with open(command[1], "r"), open(command[2], "a"):
-        if f"{command[1]}" != f"{command[2]}" and command[0] == "cp":
-            shutil.copyfile(f"{command[1]}", f"{command[2]}")
+
+    if command[1] != command[2] and command[0] == "cp":
+        with (open(command[1], "r") as file_in,
+              open(command[2], "a") as file_out):
+            shutil.copyfile(file_in.name, file_out.name)
