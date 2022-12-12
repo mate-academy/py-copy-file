@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
-    split_command = command.split()
-    old_file, new_file = split_command[1], split_command[2]
+    old_file, new_file = command.split()[1], command.split()[2]
+    print(old_file, new_file)
     if old_file != new_file:
         with open(old_file) as old, open(new_file, "w") as new:
             reader = old.read()
