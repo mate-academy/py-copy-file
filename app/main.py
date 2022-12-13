@@ -1,7 +1,6 @@
 def copy_file(command: str) -> None:
 
-    first_name = command.split()[1]
-    second_name = command.split()[2]
+    first_name, second_name = command.split()[1], command.split()[2]
 
     if first_name != second_name:
 
