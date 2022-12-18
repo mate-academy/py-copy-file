@@ -1,7 +1,8 @@
 # write your code here
 def copy_file(command: str) -> None:
-    commands = command.split()
-    first_name, second_name = commands[1], commands[2]
+     first_name, second_name = command.split()
+
+
 
     if first_name != second_name:
 
