@@ -1,11 +1,11 @@
 # write your code here
 def copy_file(command: str) -> None:
-     first_name, second_name = command.split()
+     command = command.split()
 
 
 
-    if first_name != second_name:
+    if command[1] != command[2]:
 
-        with open(first_name, "r") as file_in, \
-                open(second_name, "w") as file_out:
+        with open(command[1], "r") as file_in, \
+                open(command[2], "w") as file_out:
             file_out.write(file_in.read())
