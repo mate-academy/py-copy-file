@@ -4,5 +4,3 @@ def copy_file(command: str) -> None:
         return
     with open(command[1], "r") as file_in, open(command[2], "w") as file_out:
         file_out.write(file_in.read())
-
-copy_file("cp test.txt test2.txt")
