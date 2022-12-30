@@ -4,6 +4,6 @@ def copy_file(command: str) -> None:
         return
     if file == file_copy:
         return
-    with open(file, "r") as f1, open(file, "w") as f2:
-        for line in f1:
-            f2.write(line)
+    with open(file, "r") as file_in, open(file, "w") as file_out:
+        for line in file_in:
+            file_out.write(line)
