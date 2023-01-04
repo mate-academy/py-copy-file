@@ -1,6 +1,5 @@
-import shutil
-
-
 def copy_file(command: str) -> None:
-    if command.split()[1] != command.split()[2]:
-        shutil.copy(f"{command.split()[1]}", f"{command.split()[2]}")
+    if command.split()[0] == "cp" and command.split()[1] != command.split()[2]:
+        with open(f"{command.split()[1]}", "r") as \
+                file_in, open(f"{command.split()[2]}", "w") as file_out:
+            file_out.write(file_in.read())
