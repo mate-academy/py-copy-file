@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
-    name_list = command.split(" ")
-    if name_list[1] != name_list[2]:
-        with open(name_list[1], "r") as file_get:
+    command_list = command.split()
+    if command_list[1] != command_list[2]:
+        with open(command_list[1], "r") as file_get, \
+                open(command_list[2], "w") as file_write:
             info = file_get.read()
-        with open(name_list[2], "w") as file_write:
             file_write.write(info)
