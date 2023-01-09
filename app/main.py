@@ -1,6 +1,7 @@
 def copy_file(command: str) -> None:
-    name_comand, original_file, new_file = command.split()
-
+    command_name, original_file, new_file = command.split()
+    if command_name != "cp":
+        return
     if original_file != new_file:
         with open(original_file, "r") as file_get, \
                 open(new_file, "w") as file_write:
