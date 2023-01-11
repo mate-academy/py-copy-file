@@ -6,5 +6,3 @@ def copy_file(command: str) -> None:
                 open(f"{file2_name}", "a") as file_out:
             for line in file_in:
                 file_out.write(line)
-    else:
-        return
