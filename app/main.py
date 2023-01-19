@@ -7,5 +7,4 @@ def copy_file(command: str) -> None:
                 open(file_out, "w") as copy_of_file
             ):
                 lines = file_to_copy.readlines()
-                for line in lines:
-                    copy_of_file.writelines(line)
+                copy_of_file.writelines(lines)
