@@ -1,4 +1,4 @@
-def copy_file(command: str):
+def copy_file(command: str) -> None:
     cp, current_file, copied_file = command.split()
     if cp == "cp" and copied_file != current_file:
         with open(f"{current_file}", "r") as file_in, \
