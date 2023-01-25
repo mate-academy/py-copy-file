@@ -1,9 +1,9 @@
 def copy_file(command: str) -> None:
-    if len(command.split(" ")) == 3:
-        cmd, source, target = command.split(" ")
-        if cmd == "cp" and source != target:
+    splitted = command.split()
+    if len(splitted) == 3:
+        if splitted[0] == "cp" and splitted[1] != splitted[2]:
             with (
-                open(source, "r") as src_file,
-                open(target, "w") as tg_file
+                open(splitted[1], "r") as source_file,
+                open(splitted[2], "w") as target_file
             ):
-                tg_file.write(src_file.read())
+                target_file.write(source_file.read())
