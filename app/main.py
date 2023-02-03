@@ -1,13 +1,16 @@
 def copy_file(command: str) -> None:
-    comm_list = command.split(" ")
 
-    if comm_list[0].strip() == "cp":
-        if comm_list[1].strip() != comm_list[2].strip():
-            if len(comm_list) == 3:
-                with open(comm_list[1], "r") as file_old, open(
-                        comm_list[2],
+    if len(command.split()) == 3:
+        action, source_file, copied_file = command.split()
+
+        if action == "cp":
+
+            if source_file != copied_file:
+
+                with open(source_file, "r") as source_file, open(
+                        copied_file,
                         "w"
-                ) as file_new:
-                    file_new.write(file_old.read())
+                ) as copied_file:
+                    copied_file.write(source_file.read())
 
     return
