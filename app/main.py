@@ -1,5 +1,8 @@
 def copy_file(command: str) -> None:
 
+    if command.count(" ") > 2 or command.count(" ") < 2:
+        return "wrong command"
+
     command, old_file, new_file = command.split(" ")
     if old_file == new_file:
         return
