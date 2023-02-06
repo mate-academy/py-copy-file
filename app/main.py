@@ -11,7 +11,6 @@ def copy_file(command: str) -> None:
     if source_f == result_f:
         raise TypeError(f"{source_f} and {result_f} are the same file")
     else:
-        with open(source_f,"r") as source, open(result_f, "w") as result:
+        with open(source_f, "r") as source, open(result_f, "w") as result:
             for line in source:
                 result.write(line)
-
