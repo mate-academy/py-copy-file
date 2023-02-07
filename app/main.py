@@ -3,8 +3,8 @@ def copy_file(command: str) -> None:
         raise TypeError(f"the command should have 3 arguments,"
                         f" got {len(command.split())} instead")
     if "cp" not in command.split():
-        raise TypeError(f"the command should have 'cp' keyword, "
-                        f"got '%s' instead" % command.split()[0])
+        raise TypeError("the command should have 'cp' keyword, "
+                        "got '%s' instead" % command.split()[0])
     source_f, result_f = command.split()[1], \
         command.split()[2]
     if source_f == result_f:
