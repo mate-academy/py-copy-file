@@ -1,4 +1,3 @@
-# write your code here
 def copy_file(command: str) -> None:
     command_type, source, destination = command.split()
     if command_type == "cp":
