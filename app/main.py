@@ -6,7 +6,7 @@ def copy_file(command: str) -> None:
     destination = parts[2]
     if source == destination:
         return
-    with(
+    with (
         open(source, "r") as file_in,
         open(destination, "w") as file_out
     ):
