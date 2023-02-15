@@ -6,5 +6,4 @@ def copy_file(command: str) -> None:
             open(f"{command[2]}", "w") as file_copy
         ):
             file_copy.write(file.read())
-    else:
-        return
+
