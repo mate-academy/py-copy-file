@@ -7,7 +7,3 @@ def copy_file(command: str) -> None:
             open(new_file_name, "w") as file_out:
         read_content = file_in.read()
         file_out.write(read_content)
-
-
-if __name__ == "__main__":
-    copy_file("cp file.txt new_file.txt")
