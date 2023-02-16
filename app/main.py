@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    copy, file_name, new_file_name = command.split()[1:]
+    copy, file_name, new_file_name = command.split()
     if copy != "cp":
         raise AttributeError(f"Name of copy command "
                              f"should be 'cp', not {copy}")
