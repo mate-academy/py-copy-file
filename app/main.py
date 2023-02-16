@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
     try:
-        command, file_original, file_copy = command.split(" ")
+        command, file_original, file_copy = command.split()
         if command != "cd" or file_original == file_copy:
             raise ValueError
     except ValueError:
