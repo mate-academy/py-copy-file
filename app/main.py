@@ -3,9 +3,11 @@ def copy_file(command: str) -> None:
     # Split command line into three parts
     cmd, file_name, copy_file_name = command.split()
 
-    # Raise exception for invalid input
+    # Do nothing when user is trying to copy file to file with the same name
     if file_name == copy_file_name:
-        raise ValueError("File names should be different")
+        return
+
+    # Raise exception for invalid command
     if cmd != "cp":
         raise ValueError(f"Wrong command, {cmd} != 'cp'")
 
