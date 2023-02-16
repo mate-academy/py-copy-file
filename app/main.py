@@ -7,7 +7,10 @@ def copy_file(command: str) -> None:
 
         if command == "cp" and file_name_to_copy != new_file_name:
             with open(f"{file_name_to_copy}", "r") as file_name_to_copy:
-                shutil.copyfile(f"{file_name_to_copy.name}", f"{new_file_name}")
+                shutil.copyfile(
+                    f"{file_name_to_copy.name}",
+                    f"{new_file_name}"
+                )
 
     except FileNotFoundError:
         pass
