@@ -1,6 +1,10 @@
 def copy_file(command: str) -> None:
-    command = command.split(" ")
-    if len(command) != 3 or command[0] != "cd" or command[1] == command[2]:
+    try:
+        command, file_original, file_copy = command.split(" ")
+        if command != "cd" or file_original == file_copy:
+            raise ValueError
+    except ValueError:
+        print("Wrong command!")
         return None
-    with open(command[1], "r") as original, open(command[2], "w") as copy:
+    with open(file_original, "r") as original, open(file_copy, "w") as copy:
         copy.write(original.read())
