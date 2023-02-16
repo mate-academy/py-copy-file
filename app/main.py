@@ -1,27 +1,15 @@
 import shutil
-from typing import Any
-from app.errors import (
-    IncorrectCommand,
-    IncorrectCopyCommand,
-    IncorrectSecondFilename,
-    FileNotExists
-)
-from app.validator import command_validator
 
 
-def copy_file(command: str) -> Any:
-    inner_command = command.split()
+def copy_file(command: str) -> None:
     try:
-        command_validator(inner_command)
-    except IncorrectCommand:
-        print("Incorrect input of command in general")
-    except IncorrectCopyCommand:
-        print("Incorrect command for copying")
-    except FileNotExists:
-        print("The file to copy does not exist")
-    except IncorrectSecondFilename:
-        print("Input a new name for the file")
-    else:
-        with open(f"{inner_command[1]}", "r") as file_1:
-            shutil.copyfile(f"{file_1.name}", f"{inner_command[2]}")
-        print("File copying is complete!")
+        command, file_name_to_copy, new_file_name = command.split()
+
+        if command == "cp" and file_name_to_copy != new_file_name:
+            with open(f"{file_name_to_copy}", "r") as file_name_to_copy:
+                shutil.copyfile(f"{file_name_to_copy.name}", f"{new_file_name}")
+
+    except FileNotFoundError:
+        pass
+    except ValueError:
+        pass
