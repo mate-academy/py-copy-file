@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    func, file_1, directory = command.split()
-    if file_1 != directory and func == "cp":
-        with open(file_1, "r") as old_file, open(directory, "w") as copy:
+    command, file, directory = command.split()
+    if file != directory and command == "cp":
+        with open(file, "r") as old_file, open(directory, "w") as copy:
             copy.write(old_file.read())
