@@ -1,4 +1,4 @@
-def copy_file(command: str):
+def copy_file(command: str) -> None:
     res = command.split(" ")
     if res[0] == "cp":
         with open(res[1], "r") as source:
