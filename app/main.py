@@ -1,9 +1,10 @@
 def copy_file(command: str) -> None:
     command = command.split()
-    if len(command) == 3 and command[1] != command[2]:
-        with open(command[1]) as file1:
+    file_name = command[1]
+    file_copy_name = command[2]
+    if len(command) == 3 and file_name != file_copy_name:
+        with open(file_name) as file1:
             file1 = file1.read()
-            file_empty = len(file1)
-            if file_empty != 0:
-                with open(command[2], "w") as file2:
-                    file2.write(file1)
+            if len(file1) != 0:
+                with open(file_copy_name, "w") as file_copy:
+                    file_copy.write(file1)
