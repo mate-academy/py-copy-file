@@ -1,18 +1,13 @@
-import shutil
-
-
 def copy_file(command: str) -> None:
     try:
-        command, file_name_to_copy, new_file_name = command.split()
+        command, file_to_copy, new_file = command.split()
 
-        if command == "cp" and file_name_to_copy != new_file_name:
-            with open(f"{file_name_to_copy}", "r") as file_name_to_copy:
-                shutil.copyfile(
-                    f"{file_name_to_copy.name}",
-                    f"{new_file_name}"
-                )
+        if command == "cp" and file_to_copy != new_file:
+            with open(file_to_copy, "r") as file_to_copy,\
+                    open(new_file, "w") as new_file:
+                new_file.write(file_to_copy.read())
 
     except FileNotFoundError:
-        pass
+        print("File to copy does not exist")
     except ValueError:
-        pass
+        print("Incorrect command input")
