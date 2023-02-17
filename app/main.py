@@ -1,9 +1,11 @@
 def copy_file(command: str) -> None:
-    if command.split()[1] == command.split()[2]:
+    cp, origin, copy = command.split()
+
+    if origin == copy or cp == "cp":
         return None
 
     with (
-        open(command.split()[1], "r") as origin,
-        open(command.split()[2], "w") as copy
+        open(origin, "r") as origin,
+        open(copy, "w") as copy
     ):
         copy.write(origin.read())
