@@ -1,5 +1,4 @@
 def copy_file(command: str) -> None:
-    # cp file.txt file-copy.txt
     if len(command.split()) != 3 or command[:3] != "cp ":
         return 0
     name_f_in = command.split()[1]
