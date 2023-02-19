@@ -8,4 +8,7 @@ def copy_file(command: str) -> None:
                     with open(file_copy, "w") as file_copy:
                         file_copy.write(file1)
     except ValueError:
-        print("The string must have: command 'cp', file name to copy and new file name")
+        print(
+            "The string must have:"
+            " command 'cp', file name to copy and new file name"
+        )
