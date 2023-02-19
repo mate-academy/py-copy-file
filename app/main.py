@@ -1,10 +1,11 @@
 def copy_file(command: str) -> None:
-    command = command.split()
-    file_name = command[1]
-    file_copy_name = command[2]
-    if len(command) == 3 and file_name != file_copy_name:
-        with open(file_name) as file1:
-            file1 = file1.read()
-            if len(file1) != 0:
-                with open(file_copy_name, "w") as file_copy:
-                    file_copy.write(file1)
+    try:
+        cp, original_file, file_copy = command.split()
+        if original_file != file_copy:
+            with open(original_file) as file1:
+                file1 = file1.read()
+                if len(file1) != 0:
+                    with open(file_copy, "w") as file_copy:
+                        file_copy.write(file1)
+    except ValueError:
+        print("The string must have: command 'cp', file name to copy and new file name")
