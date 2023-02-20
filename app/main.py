@@ -1,8 +1,8 @@
 def copy_file(command: str) -> None:
-    commands = command.split()
-    if commands[0] == "cp" and commands[1] != commands[2]:
+    comnd, in_file, out_file = command.split()
+    if comnd == "cp" and in_file != out_file:
         with (
-            open(commands[1], "r") as file_in,
-            open(commands[2], "w") as file_out
+            open(in_file, "r") as file_in,
+            open(out_file, "w") as file_out
         ):
             file_out.write(file_in.read())
