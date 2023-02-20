@@ -1,8 +1,6 @@
 def copy_file(command: str) -> None:
-    res = command.split(" ")
-    if res[0] == "cp":
-        with open(res[1], "r") as source:
+    result = command.split(" ")
+    if result[0] == "cp":
+        with open(result[1], "r") as source, open(result[2], "w") as target:
             data = source.read()
-
-        with open(res[2], "w") as target:
             target.write(data)
