@@ -1,10 +1,7 @@
-def copy_file(command: str) -> any:
-    first_file = command.split()[1]
-    second_file = command.split()[2]
+def copy_file(command: str) -> None:
+    copy_command, copy_file, new_file = command.split()[2]
 
-    if first_file.split(".")[0] == second_file.split(".")[0]:
-        return "Does nothing"
-
-    with open(first_file, "r") as first_f, open(second_file, "a") as second_f:
-        for line in first_f:
-            second_f.write(line)
+    if copy_file != new_file and copy_command == "cp":
+        with open(copy_file, "r") as from_f, open(copy_file, "a") as in_f:
+            for line in from_f:
+                in_f.write(line)
