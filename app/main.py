@@ -5,4 +5,4 @@ def copy_file(command: str) -> None:
 
     from shutil import copyfile
 
-    copyfile('first.txt', 'second.txt')
+    copyfile("first.txt', 'second.txt")
