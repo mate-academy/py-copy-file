@@ -7,6 +7,3 @@ def copy_file(command: str) -> None:
                     open(new_file, "w") as file_out:
                 content_to_copy = file_in.read()
                 file_out.write(content_to_copy)
-
-
-copy_file("text.txt new_text.txt")
