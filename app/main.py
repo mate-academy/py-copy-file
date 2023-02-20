@@ -1,8 +1,8 @@
-def copy_file(command):
+def copy_file(command: str) -> None:
     file_names = command.split()
 
-    first_file, second_file = file_names[1], file_names[2]
+    first, second = file_names[1], file_names[2]
 
-    if first_file == second_file:
-        with open(first_file, "r") as file_in, open(second_file, "w") as file_out:
+    if first == second:
+        with open(first, "r") as file_in, open(second, "w") as file_out:
             file_out.write(file_in.read())
