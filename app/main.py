@@ -3,7 +3,7 @@ import os
 
 def copy_file(command: str) -> None:
     components = command.split()
-    if len(components) != 3:
+    if len(components) != 3 or components[0] != "cp":
         raise ValueError("Invalid command format. "
                          "Usage: cp <source_file> <destination_file>")
 
@@ -16,5 +16,7 @@ def copy_file(command: str) -> None:
     if not os.path.exists(source_file):
         raise ValueError(f"Source file '{source_file}' does not exist")
 
-    with open(source_file, "rb") as fsrc, open(destination_file, "wb") as fdst:
-        fdst.write(fsrc.read())
+    with open(source_file, "rb") as sourcefile, \
+            open(destination_file, "wb") as destin_file:
+        destin_file.write(sourcefile.read())
+
