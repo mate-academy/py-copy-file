@@ -1,6 +1,5 @@
 def copy_file(command: str) -> None:
-    temp = command.split(" ")
-    if temp[0] != "cp" or temp[1] == temp[2]:
-        return 0
-    with open(f"{temp[1]}", "r") as source, open(f"{temp[2]}", "w") as copy:
-        copy.write(source.read())
+    arg_command, source_file, copy_name = command.split()
+    if arg_command == "cp" and source_file != copy_name:
+        with open(source_file, "r") as source, open(copy_name, "w") as copy:
+            copy.write(source.read())
