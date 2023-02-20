@@ -5,5 +5,3 @@ def copy_file(command: str) -> None:
         with (open(first_file, "r") as from_first,
               open(second_new_file, "w") as to_second):
             to_second.write(first_file.read())
-            for line in from_first:
-                to_second.write(line)
