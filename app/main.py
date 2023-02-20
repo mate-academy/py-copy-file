@@ -1,12 +1,16 @@
 def copy_file(command: str) -> None:
-    command_words = command.split()
-    if (
-            len(command_words) == 3
-            and command_words[0] == "cp"
-            and command_words[1] != command_words[2]
-    ):
+    try:
+        cp_command, file_in_name, file_out_name = command.split()
+        if cp_command != "cp" or file_in_name == file_out_name:
+            raise ValueError
         with (
-            open(command_words[1], "r") as file_in,
-            open(command_words[2], "w") as file_out
+            open(file_in_name, "r") as file_in,
+            open(file_out_name, "w") as file_out
         ):
             file_out.write(file_in.read())
+    except ValueError:
+        print(
+            "Your command must consist of: keyword 'cp',"
+            " file name to copy and new file name, "
+            "separated by spaces"
+        )
