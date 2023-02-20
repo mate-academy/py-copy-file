@@ -8,9 +8,11 @@ def copy_file(command: str) -> None:
         raise ValueError("Invalid command format. "
                          "Usage: cp <source_file> <destination_file>")
 
-    if source_file == destination_file:
-        if not os.path.exists(source_file):
-            raise ValueError(f"Source file '{source_file}' does not exist")
+    if not os.path.exists(source_file):
+        raise ValueError(f"Source file '{source_file}' does not exist")
+
+    if os.path.abspath(source_file) == os.path.abspath(destination_file):
+        raise ValueError("Source and destination files are the same")
 
     with open(source_file, "rb") as sourcefile, (
             open(destination_file, "wb")
