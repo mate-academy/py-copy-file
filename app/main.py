@@ -1,4 +1,4 @@
-def copy_file(command: str = "cp file.txt file-copy.txt") -> None:
+def copy_file(command: str) -> None:
     command_name, old_file_name, new_file_name = command.split()
     if old_file_name != new_file_name and command_name == "cp":
         with (open(old_file_name, "r") as old_file,
