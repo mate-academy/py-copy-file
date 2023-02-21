@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
-    interim = command.split()
-    command_file = interim[0]
-    copied_file = interim[1]
+    if len(command) != 3:
+        raise ValueError("Invalid command value")
+    interim, command_file, copied_file = command
     file_to_copy = interim[2]
     if command_file == "cp" and copied_file != file_to_copy:
         with (
