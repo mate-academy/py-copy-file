@@ -1,20 +1,15 @@
-from app.error import WrongCommandError, SameNameError, ArgumentsError
-
-
 def copy_file(command: str) -> None:
 
     command = command.split(" ")
 
-    if command[0] != "cp":
-        raise WrongCommandError("Incorrect command")
+    command_name = command[0]
+    copied_file = command[1]
+    new_file_name = command[2]
 
-    if command[1] == command[2]:
-        raise SameNameError("The copy should be renamed")
+    if command_name != "cp" or \
+            copied_file == new_file_name or len(command) != 3:
+        return
 
-    if len(command) != 3:
-        raise ArgumentsError(
-            "'Command', 'file name' and 'new file' name should be provided"
-        )
-
-    with open(command[1], "r") as file_in, open(command[2], "w") as file_out:
+    with open(copied_file, "r") as file_in, \
+            open(new_file_name, "w") as file_out:
         file_out.write(file_in.read())
