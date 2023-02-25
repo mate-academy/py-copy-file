@@ -5,6 +5,3 @@ def copy_file(command: str) -> None:
     else:
         with open(line[1], "r") as file_in, open(line[2], "w") as file_out:
             file_out.write(file_in.read())
-
-
-copy_file("cp file.txt new_file.txt")
