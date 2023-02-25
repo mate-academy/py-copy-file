@@ -1,11 +1,11 @@
 def copy_file(command: str) -> None:
-    sep_command = command.split(" ")
-    if len(sep_command) == 3:
-        if sep_command[1] != sep_command[2] and sep_command[0] == "cp":
+    command_list = command.split(" ")
+    if len(command_list) == 3:
+        if command_list[1] != command_list[2] and command_list[0] == "cp":
             try:
                 with (
-                    open(sep_command[1], "r") as file_in,
-                    open(sep_command[2], "w") as file_out
+                    open(command_list[1], "r") as file_in,
+                    open(command_list[2], "w") as file_out
                 ):
                     file_out.write(file_in.read())
             except FileNotFoundError:
