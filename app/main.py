@@ -1,6 +1,10 @@
 def copy_file(command: str) -> None:
-    cp, file_1, file_2 = command.split()
+    split_command = command.split()
+    input_command, source_file_path, destination_file_path = split_command
 
-    if cp == "cp" and file_1 != file_2:
-        with open(file_1, "r") as file_in, open(file_2, "w") as file_out:
+    if (len(split_command) == 3
+            and input_command == "cp"
+            and source_file_path != destination_file_path):
+        with open(source_file_path, "r") as file_in, open(
+                destination_file_path, "w") as file_out:
             file_out.write(file_in.read())
