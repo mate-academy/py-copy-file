@@ -1,4 +1,4 @@
-def copy_file(command):
+def copy_file(command: str) -> None:
 
     str_line = command.split()
     if str_line[1] != str_line[2]:
