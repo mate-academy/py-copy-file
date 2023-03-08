@@ -1,10 +1,10 @@
 def copy_file(command: str) -> None:
 
     str_line = command.split()
-    if str_line[1] != str_line[2]:
-        with open(str_line[1], "r") as \
-                file_in, open(str_line[2], "w") as file_out:
+    file_read = str_line[1]
+    file_write = str_line[2]
+    if file_read != file_write:
+        with (open(file_read, "r") as file_in,
+                open(file_write, "w") as file_out):
             txt = file_in.read()
             file_out.write(txt)
-        file_in.close()
-        file_out.close()
