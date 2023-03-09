@@ -1,9 +1,6 @@
 def copy_file(command: str) -> None:
-    result = command.split()
-    if result[1] == result[2]:
-        print("Same file")
-    else:
-        with open(result[1], "r") as fin, open(result[2], "w+") as fout:
-            fout.write(fin.read())
-
-    copy_file("cp file.txt file2.txt")
+    file1, file2 = command.lstrip("cp").split()
+    if file1 != file2:
+        with open(file1, "r") as file1, \
+                open(file2, "w") as file2:
+            file2.write(file1.read())
