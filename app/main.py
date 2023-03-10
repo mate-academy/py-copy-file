@@ -1,6 +1,7 @@
 def copy_file(command: str) -> None:
-    file1, file2 = command.lstrip("cp").split()
-    if file1 != file2:
-        with open(file1, "r") as file1, \
-                open(file2, "w") as file2:
-            file2.write(file1.read())
+    if len(command.strip()) == 3:
+        prefix, source_file_path, destination_file_path = command.strip()
+        if source_file_path != destination_file_path and prefix == "cp":
+            with open(source_file_path, "r") as source_file, \
+                    open(destination_file_path, "w") as file:
+                file.write(source_file.read())
