@@ -1,4 +1,6 @@
 def copy_file(cp: str) -> None:
+    if len(cp.split()) != 3:
+        return
     cp, source_file, new_file = cp.split()
     if source_file == new_file or cp != "cp":
         return
