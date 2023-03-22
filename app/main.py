@@ -7,4 +7,3 @@ def copy_file(command: str) -> None:
                 open(file_copy, "w") as write
             ):
                 write.write(read.read())
-      
