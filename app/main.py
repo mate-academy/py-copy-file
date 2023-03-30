@@ -1,9 +1,9 @@
-def copy_file(cp: str) -> None:
-    tokens = cp.split()
-    if len(tokens) != 3:
-        raise ValueError("Invalid command")
-    source_file, dest_file = tokens[1], tokens[2]
-    if source_file == dest_file:
-        return
-    with open(source_file, "r") as file_in, open(dest_file, "w") as file_out:
-        file_out.write(file_in.read())
+def copy_file(command: str) -> None:
+    if len(command.split()) == 3:
+        command, file_original, file_copy = command.split()
+        if command == "cp" and file_original != file_copy:
+            with (
+                open(file_original, "r") as read,
+                open(file_copy, "w") as write
+            ):
+                write.write(read.read())
