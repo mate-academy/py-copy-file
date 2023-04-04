@@ -1,11 +1,14 @@
 def copy_file(command: str) -> None:
     update_command = command.split()
+    command_flag = update_command[0]
+    current_file = update_command[1]
+    file_copy = update_command[2]
     if len(update_command) == 3:
-        if update_command[1] == update_command[2]:
+        if current_file == file_copy:
             raise TypeError(
-                f"{update_command[1]} are the same name {update_command[2]}"
+                f"{current_file} are the same name {file_copy}"
             )
-        if update_command[0] == "cp":
-            with open(update_command[1], "r") as parent_file, \
-                    open(update_command[2], "w") as file_copy:
+        if command_flag == "cp":
+            with open(current_file, "r") as parent_file, \
+                    open(file_copy, "w") as file_copy:
                 file_copy.write(parent_file.read())
