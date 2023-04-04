@@ -1,8 +1,6 @@
 def copy_file(command: str) -> None:
     update_command = command.split()
-    command_flag = update_command[0]
-    current_file = update_command[1]
-    file_copy = update_command[2]
+    command_flag, current_file, file_copy = update_command
     if len(update_command) == 3:
         if current_file == file_copy:
             raise TypeError(
