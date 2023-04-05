@@ -1,11 +1,10 @@
 def copy_file(command: str) -> None:
-    if len(command.split()) != 3:
+    command_sep = command.split()
+    if len(command_sep) != 3:
         raise ValueError("Missed some arguments.")
-    cp, file_in, file_out = command.split()
+    cp, file_in, file_out = command_sep[0], command_sep[1], command_sep[2]
     if cp != "cp":
         raise ValueError("Incorrect command.")
-    if file_in == file_out:
-        raise ValueError("Incorrect FileIn and FileOut.")
-    with open(file_in, "r") as f_in, open(file_out, "w") as f_out:
-        for line in f_in:
-            f_out.write(line)
+    if file_in != file_out:
+        with open(file_in, "r") as f_in, open(file_out, "w") as f_out:
+            f_out.write(f_in.read())
