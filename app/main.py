@@ -2,7 +2,7 @@ def copy_file(command: str) -> None:
     command_sep = command.split()
     if len(command_sep) != 3:
         raise ValueError("Missed some arguments.")
-    cp, file_in, file_out = command_sep[0], command_sep[1], command_sep[2]
+    cp, file_in, file_out = command_sep
     if cp != "cp":
         raise ValueError("Incorrect command.")
     if file_in != file_out:
