@@ -5,7 +5,8 @@ def copy_file(command: str) -> None:
     command, source_path, destination_path = command_split
     if command != "cp" or source_path == destination_path:
         return
-    with \
-            open(source_path, "r") as file_in, \
-            open(destination_path, "w") as file_out:
-        file_out.write(file_in.read())
+    with (
+        open(source_path, "r") as source,
+        open(destination_path, "w") as destination
+    ):
+        source.write(destination.read())
