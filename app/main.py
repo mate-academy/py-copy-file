@@ -9,4 +9,3 @@ def copy_file(command: str) -> None:
             new_file.write(text_to_copy)
 
 
-copy_file("cp text.txt new_file1.txt")
