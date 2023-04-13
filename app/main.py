@@ -9,7 +9,3 @@ def copy_file(command: str) -> None:
     f2.write(str(date))
     f1.close()
     f2.close()
-
-
-copy_file("cp file.txt file2.txt")
-copy_file("cp file.txt file.txt")
