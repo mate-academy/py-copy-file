@@ -5,6 +5,6 @@ def copy_file(command: str) -> None:
         if current_file == file_copy:
             return
         if command_flag == "cp":
-            with open(current_file, "r") as parent_file, \
-                    open(file_copy, "w") as file_copy:
+            with (open(current_file, "r") as parent_file,
+                  open(file_copy, "w") as file_copy):
                 file_copy.write(parent_file.read())
