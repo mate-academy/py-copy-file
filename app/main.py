@@ -7,7 +7,7 @@ def copy_file(command: str) -> None:
     if src_file_path == dst_file_path:
         raise
     if args[0] != "cp":
-        raise
+        raise TypeError(f"invalid command specified")
     with (
 
             open(src_file_path, "r") as file_in,
