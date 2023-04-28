@@ -6,6 +6,8 @@ def copy_file(command: str) -> None:
     dst_file_path = args[2]
     if src_file_path == dst_file_path:
         raise
+    if args[0] != "cp":
+        raise
     with (
 
             open(src_file_path, "r") as file_in,
