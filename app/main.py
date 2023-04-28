@@ -5,7 +5,7 @@ def copy_file(command: str) -> None:
     src_file_path = args[1]
     dst_file_path = args[2]
     if src_file_path == dst_file_path:
-        raise
+        raise TypeError(f"{src_file_path} and {dst_file_path} are the same file ")
     if args[0] != "cp":
         raise TypeError(f"invalid command specified")
     with (
