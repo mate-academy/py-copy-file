@@ -1,9 +1,11 @@
 def copy_file(command: str) -> None:
     new_list = command.split()
-    if new_list[1] == new_list[2]:
+    file_needs_copy = new_list[1]
+    new_copy_of_file = new_list[2]
+    if file_needs_copy == new_copy_of_file:
         return
     with (
-        open(new_list[1], "r") as file_need_to_copy,
-        open(new_list[2], "w") as copied_file
+        open(file_needs_copy, "r") as file_1,
+        open(new_copy_of_file, "w") as file_2
     ):
-        copied_file.write(file_need_to_copy.read())
+        file_2.write(file_1.read())
