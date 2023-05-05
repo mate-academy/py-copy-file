@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
     text = command.split()
     cp, from_file, to_file = text
-    if "cp" not in cp or len(text) != 3:
+    if "cp" != cp or len(text) != 3:
         print("Invalid command. Usage: cp {from_file} {to_file}")
         return
     if from_file == to_file:
