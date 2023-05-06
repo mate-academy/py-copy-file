@@ -6,7 +6,7 @@ def copy_file(command: str) -> None:
     if split_command[0] != "cp":
         raise ValueError
     if split_command[1] == split_command[2]:
-        raise ValueError
+        return
 
     _, input_file, output_file = split_command
     with open(input_file, "rb") as f_in, open(output_file, "wb") as f_out:
