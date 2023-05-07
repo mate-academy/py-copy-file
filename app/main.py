@@ -10,5 +10,6 @@ def copy_file(command: str) -> None:
             "Your command is wrong, try this format: 'cp file1.txt file2.txt'")
     if input_path == output_path:
         return
-    with open(input_path, "rb") as f_in, open(output_path, "wb") as f_out:
-        f_out.write(f_in.read())
+    with open(input_path, "rb") as file_in, open(output_path,
+                                                 "wb") as file_out:
+        file_out.write(file_in.read())
