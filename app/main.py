@@ -6,7 +6,7 @@ def copy_file(command: str) -> None | str:
         return "Command is not exist"
     if source_path == destination_path:
         return "The name of copied file is the same as original name"
-    with open(source_path, "r") as original, open(
+    with open(source_path, "r") as source_file, open(
         destination_path, "w"
-    ) as copied:
-        copied.write(original.read())
+    ) as target_file:
+        target_file.write(source_file.read())
