@@ -1,6 +1,12 @@
-def copy_file(command: str) -> None:
-    files = command.split()
-    with open(files[1], "r") as f_in, open(files[2], "w") as f_out:
-        if f_in.name == f_out.name:
-            return
-        f_out.write(f_in.read())
+def copy_file(command: str) -> None | str:
+    if len(command.split()) != 3:
+        return "Incorrect command is printed"
+    cmd, source_path, destination_path = command.split()
+    if cmd != "cp":
+        return "Command is not exist"
+    if source_path == destination_path:
+        return "The name of copied file is the same as original name"
+    with open(source_path, "r") as original, open(
+        destination_path, "w"
+    ) as copied:
+        copied.write(original.read())
