@@ -4,9 +4,9 @@ def copy_file(command: str) -> None:
     if len(command_parts) != 3:
         return
 
-    command_line, start, end = command_parts
-    if start == end or command_line != "cp":
+    command_line, source_path, destination_path = command_parts
+    if source_path == destination_path or command_line != "cp":
         return
 
-    with open(start, "r") as f_start, open(end, "w") as f_end:
-        f_end.write(f_start.read())
+    with open(source_path, "r") as src, open(destination_path, "w") as dst:
+        dst.write(src.read())
