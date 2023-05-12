@@ -1,10 +1,12 @@
-def copy_file(cp: str) -> None:
-    without_cp = cp.split()
-    file_1 = without_cp[1]
-    file_2 = without_cp[2]
+def copy_file(command: str) -> None:
+    if "cp" not in command:  # перевірка на наявність команди cp в command
+        return
+    split_command = command.split()
+    print(split_command)  # перевірка на наявність 3 аргументів в split_command
+    file_1 = split_command[1]
+    file_2 = split_command[2]
     if file_1 == file_2:
         return
-    with open(file_1, "r") as file1:
-        with open(file_2, "w") as file2:
-            for line in file1:
-                file2.write(line)
+    with open(file_1, "r") as file_in, open(file_2, "w") as file_out:
+        for line in file_in:
+            file_out.write(line)
