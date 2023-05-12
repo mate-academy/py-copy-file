@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
     split_command = command.split()
-    if len(split_command) != 3:
+    if len(split_command) != 3 or split_command[0] != "cp":
         return
     print(split_command)  # перевірка на наявність 3 аргументів в split_command
     original_file = split_command[1]
