@@ -7,8 +7,8 @@ def copy_file(command: str) -> None:
         commands[1] != commands[2]
     ):
         with (
-            open(f"{commands[1]}", "r") as source_file,
-            open(f"{commands[2]}", "w") as copy_file
+            open(commands[1], "r") as source_file,
+            open(commands[2], "w") as copy_file
         ):
             content = source_file.read()
             copy_file.write(f"{content}")
