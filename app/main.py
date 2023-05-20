@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    if len(command.split(" ")) != 3:
+    if len(command.split(" ")) != 3 or not command.split(" ")[0] == "cp":
         return
     in_name, out_name = command.split(" ")[1:]
     if in_name == out_name:
