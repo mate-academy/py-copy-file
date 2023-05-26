@@ -1,5 +1,9 @@
 def copy_file(command: str) -> None:
-    cmd, file1, file2, args = command.split(maxsplit=3)
+    try:
+        cmd, file1, file2 = command.split()
+    except ValueError:
+        print("Command must have 2 arguments")
+        return
     if file1 == file2:
         return
 
