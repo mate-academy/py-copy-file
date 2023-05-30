@@ -5,8 +5,8 @@ def copy_file(command: str) -> None:
         if source_file == file_to_write:
             return
 
-        with open(source_file, "r") as source, \
-                open(file_to_write, "w") as write_file:
+        with (open(source_file, "r") as source,
+                open(file_to_write, "w") as write_file):
             write_file.write(source.read())
 
 
