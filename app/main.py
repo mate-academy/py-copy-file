@@ -2,7 +2,7 @@ def copy_file(command: str) -> None:
     try:
         command, current_file_name, new_file_name = command.split()
     except ValueError:
-        print("Command must have 2 arguments")
+        print("Command must have 3 arguments")
         return
     if current_file_name == new_file_name or command != "cp":
         return
