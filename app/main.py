@@ -9,8 +9,7 @@ def check_command_string(line: str) -> None:
 def copy_file(line: str) -> None:
     check_command_string(line)
     line_lst = line.split()
-    input_file_name = line_lst[1]
-    output_file_name = line_lst[2]
+    input_file_name, output_file_name = line_lst[1:]
     with (open(input_file_name, "r") as file_in,
           open(output_file_name, "a") as file_out):
         file_out.write(file_in.read())
