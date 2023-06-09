@@ -1,7 +1,7 @@
 from os import path
 
 
-def copy_file(command: str) -> str or None:
+def copy_file(command: str) -> None:
 
     try:
         cmd, main_file, new_file = command.split()
