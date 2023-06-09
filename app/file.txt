@@ -1,0 +1,23 @@
+import shutil
+
+def copy_file(source, destination):
+    try:
+        shutil.copy2(source, destination)
+        print(f"Файл {source} скопійовано до {destination}")
+    except FileNotFoundError:
+        print("Помилка: Файл не знайдено")
+    except IsADirectoryError:
+        print("Помилка: Переданий шлях є директорією")
+    except Exception as e:
+        print(f"Помилка: {str(e)}")
+
+# Використання функції copy_file для копіювання файлу
+source_file = "path/to/source/file.txt"
+destination_file = "path/to/destination/file-copy.txt"
+copy_file(source_file, destination_file)
+
+У цьому прикладі використовується модуль shutil, який надає функціональність для копіювання файлів. Функція copy_file отримує два параметри - шлях до вихідного файлу (source) та шлях до файлу, в який треба скопіювати (destination).
+
+У випадку успішного копіювання, програма виводить повідомлення про успішну операцію. У випадку виникнення помилок, програма виводить відповідне повідомлення про помилку.
+
+Замість "path/to/source/file.txt" та "path/to/destination/file-copy.txt" ви повинні вказати реальні шляхи до ваших файлів.
