@@ -7,8 +7,8 @@ def copy_file(command: str) -> bool:
     if file != new_file:
         try:
             with open(file) as file, open(new_file, "a+") as new_file:
-                for line in file:
-                    new_file.write(line)
+                new_file.write(file.read())
+
         except (FileNotFoundError, PermissionError):
             return False
         else:
