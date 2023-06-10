@@ -1,8 +1,5 @@
 def copy_file(command: str) -> bool:
-    if len(command.split(" ")) != 3:
-        return False
-
-    if not command.startswith("cp"):
+    if not command.startswith("cp") or len(command.split(" ")) != 3:
         return False
 
     file, new_file = command.split(" ")[1:]
@@ -16,3 +13,4 @@ def copy_file(command: str) -> bool:
             return False
         else:
             return True
+    return False
