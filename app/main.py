@@ -13,7 +13,7 @@ def copy_file(command: str) -> None:
 
     try:
         open(file_name_in)
-    except (FileExistsError, PermissionError) as e:
+    except (FileNotFoundError, PermissionError) as e:
         raise f"Error {e}. The file does not exist or can not be read"
 
     with (open(file_name_in) as file_in,
