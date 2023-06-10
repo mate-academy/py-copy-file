@@ -14,7 +14,7 @@ def copy_file(command: str) -> None:
         if command[0] == "cp":
             if command[1] != command[2]:
                 with (open(command[1], "r") as source,
-                    open(command[2], "w") as new_file):
+                      open(command[2], "w") as new_file):
                     new_file.write(source.read())
                 print("Copying done!")
                 return
