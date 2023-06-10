@@ -1,14 +1,13 @@
 def copy_file(command: str) -> None:
     command_list = command.split(" ")
 
-    if len(command_list) < 3:
+    if len(command_list) < 3 or not command.startswith("cp"):
         return
 
-    cmd = command_list[0]
     file_name_in = command_list[1]
     file_name_out = command_list[2]
 
-    if file_name_in == file_name_out or cmd != "cp":
+    if file_name_in == file_name_out:
         return
 
     try:
