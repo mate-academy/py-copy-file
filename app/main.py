@@ -6,9 +6,13 @@ def copy_file(command: str) -> None:
         cmd, file_to_copy, new_file = command.split()
 
         if cmd != "cp":
-            raise ValueError("Wrong command! You should use 'cp' to copy your file.")
+            raise ValueError(
+                "Wrong command! You should use 'cp' to copy your file."
+            )
         if file_to_copy == new_file:
-            raise ValueError("Wrong new file name! You can't copy file to itself!")
+            raise ValueError(
+                "Wrong new file name! You can't copy file to itself!"
+            )
         if not path.exists(file_to_copy):
             raise FileNotFoundError("Source file doesn't exist!")
 
