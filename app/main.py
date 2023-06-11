@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
     command = command.split()
     if len(command) != 3:
-        raise ValueError("Command shold have three arguments")
+        raise ValueError("Command should have three arguments")
     if command[0] != "cp":
         raise ValueError("It is not cp command")
     if command[1] != command[2]:
