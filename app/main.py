@@ -9,6 +9,6 @@ def copy_file(command: str) -> None | str:
                   open(new_file_name, "w") as new_file):
                 new_file.write(old_file.read())
         except FileNotFoundError:
-            print(f"There is no file with name {old_file_name}")
+            return f"There is no file with name {old_file_name}"
         except PermissionError:
-            print(f"You don't have permission to file {old_file_name}")
+            return f"You don't have permission to file {old_file_name}"
