@@ -1,8 +1,7 @@
 def copy_file(command: str) -> None | str:
-    if not command.startswith("cp ") or len(command.split(" ")) != 3:
+    cmd_name, old_file_name, new_file_name = command.split(" ")
+    if cmd_name != "cp" or len(command.split(" ")) != 3:
         return "Entered incorrect command!!!"
-    old_file_name = command.split(" ")[1]
-    new_file_name = command.split(" ")[2]
     if old_file_name != new_file_name:
         try:
             with (open(old_file_name, "r") as old_file,
