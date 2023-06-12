@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    com, first_file, second_file = command.split("")
+    com, first_file, second_file = command.split()
     if first_file == second_file:
         print("The files have the same names. Copy error!")
         return
