@@ -1,7 +1,6 @@
 def copy(command: str) -> None:
-    command = command.split()
-    if command[1] == command[2] or command[0] != "cp":
-        return
-    with open(command[1], "r") as file_in, open(command[2], "w") as file_out:
-        for line in file_in:
-            file_out.write(line)
+    cmd, file_name, new_file_name = command.split()
+    if file_name == new_file_name or cmd != "cp":
+        print("Does nothing")
+    with open(file_name, "r") as file_in, open(new_file_name, "w") as file_out:
+        file_out.write(file_in.read())
