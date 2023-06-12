@@ -6,10 +6,10 @@ class CopyCommandSyntaxError(Exception):
 
 
 def copy_file(command: str) -> None:
-    command = command.split()
-
-    if command[0] != "cp":
+    if not command.startswith("cp"):
         raise CopyCommandSyntaxError("Copy command not found")
+
+    command = command.split()
 
     if len(command) != 3:
         raise CopyCommandSyntaxError(
@@ -19,12 +19,10 @@ def copy_file(command: str) -> None:
             "cp file.txt file-copy.txt"
         )
 
-    file_to_copy = command[1]
+    cp_command, file_to_copy, new_file = command
 
     if not path.exists(file_to_copy):
         raise FileNotFoundError(f"File {file_to_copy} does not exist")
-
-    new_file = command[-1]
 
     if file_to_copy != new_file:
         with open(file_to_copy, "r") as source, open(new_file, "w") as copy:
