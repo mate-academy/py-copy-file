@@ -17,8 +17,6 @@ def copy_file(command: str) -> None:
                 print("Copying done!")
             except FileNotFoundError as e:
                 print(e)
-        else:
-            print("File with the same name cannot be copied!")
     else:
         raise CommandError(f"Unknown command: {cmd}\n"
                            "Did you mean 'cp'?")
