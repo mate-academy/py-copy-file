@@ -21,6 +21,4 @@ def copy_file(command: str) -> None:
             print("File with the same name cannot be copied!")
     else:
         raise CommandError(f"Unknown command: {cmd}\n"
-                            "Did you mean 'cp'?")
-
-
+                           "Did you mean 'cp'?")
