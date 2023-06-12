@@ -10,4 +10,4 @@ def copy_file(command: str) -> None:
                       open(file_name_out, "w") as file_out):
                     file_out.write(file_in.read())
             except (FileNotFoundError, PermissionError) as e:
-                raise e
+                return str(e)
