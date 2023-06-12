@@ -1,5 +1,7 @@
 def copy_file(command: str) -> None:
     cmd, file_in, file_out = command.split()
+    if cmd != "cp":
+        return
     try:
         with (open(file_in, "r") as file_in,
               open(file_out, "x") as file_out):
