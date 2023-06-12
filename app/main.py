@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None | str:
-    cmd_name, old_file_name, new_file_name = command.split(" ")
-    if cmd_name != "cp" or len(command.split(" ")) != 3:
+    cmd_name, old_file_name, new_file_name = command.split()
+    if cmd_name != "cp" or len(command.split()) != 3:
         return "Entered incorrect command!!!"
     if old_file_name != new_file_name:
         try:
