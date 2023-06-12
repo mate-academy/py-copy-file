@@ -1,23 +1,13 @@
 def copy_file(command: str) -> None:
-    command_list = command.split(" ")
+    command_list = command.split()
 
-    if len(command_list) < 3 or not command.startswith("cp"):
-        return
+    if len(command_list) == 3 or command.startswith("cp "):
+        _, file_name_in, file_name_out = command_list
 
-    file_name_in = command_list[1]
-    file_name_out = command_list[2]
-
-    if file_name_in == file_name_out:
-        return
-
-    try:
-        open(file_name_in)
-    except (FileNotFoundError, PermissionError) as e:
-        raise f"Error {e}. The file does not exist or can not be read"
-
-    with (open(file_name_in) as file_in,
-          open(file_name_out, "w") as file_out):
-        file_content = file_in.read()
-        file_out.write(file_content)
-
-    return
+        if file_name_in != file_name_out:
+            try:
+                with (open(file_name_in) as file_in,
+                      open(file_name_out, "w") as file_out):
+                    file_out.write(file_in.read())
+            except (FileNotFoundError, PermissionError) as e:
+                raise f"Error {e}. The file does not exist or can not be read"
