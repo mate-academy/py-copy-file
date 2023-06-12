@@ -1,10 +1,15 @@
 def copy_file(command: str) -> None:
-    target_file, new_file = command.split()[1:]
-    if target_file == new_file:
-        return
+    cmd, target_file, new_file = command.split()
+    if cmd != "cp":
+        raise ValueError("Command not found.")
+    if not target_file.endswith(".txt") or not new_file.endswith(".txt"):
+        raise FileNotFoundError("File is not found")
 
-    with open(target_file, "r") as file_in, open(new_file, "w") as file_out:
-        file_out.write(file_in.read())
+    if target_file != new_file:
+
+        with (open(target_file, "r") as file_in,
+              open(new_file, "w") as file_out):
+            file_out.write(file_in.read())
 
 
 if __name__ == "__main__":
