@@ -7,7 +7,7 @@ def copy_file(command: str) -> None:
         command = command.split()
         if len(command) != 3:
             raise CommandError("Unsupported format of command")
-        
+
         cmd, file_name, new_file_name = command
         if cmd == "cp" and file_name != new_file_name:
             with (open(file_name, "r") as source,
