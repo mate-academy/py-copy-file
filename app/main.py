@@ -1,17 +1,15 @@
 def copy_file(command: str) -> None:
     parts = command.split()
     if len(parts) != 3:
-        print("Invalid command!")
-        return
+        return print("Invalid command!")
+    cmd, old_file, new_file = parts
 
-    if parts[1] == parts[2]:
-        print("The source file and destination file have the same name!")
-        return
+    if old_file == new_file:
+        return print("The source and destination files have the same name!")
 
     try:
-        with open(parts[1], "r") as source_file, \
-                open(parts[2], "w") as dest_file:
-            dest_file.write(source_file.read())
+        with open(old_file, "r") as source, open(new_file, "w") as dest:
+            dest.write(source.read())
             print("Copied successfully!")
     except FileNotFoundError:
         print("Source file not found!")
