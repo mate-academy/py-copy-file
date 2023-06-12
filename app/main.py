@@ -14,9 +14,9 @@ def copy_file(command: str) -> None:
                     open(new_file_name, "w") as new_file):
                 new_file.write(source.read())
             print("Copying done!")
-
-        raise CommandError(f"Unknown command: {command[0]}\n"
-                           "Did you mean 'cp'?")
+        else:
+            raise CommandError(f"Unknown command: {cmd}\n"
+                               "Did you mean 'cp'?")
 
     except FileNotFoundError as e:
         print(e)
