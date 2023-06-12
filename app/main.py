@@ -2,9 +2,10 @@ def copy_file(command: str) -> None:
     command = command.split()
     if len(command) != 3:
         raise ValueError("Command should have three arguments")
-    if command[0] != "cp":
+    cp, file_from, file_in = command
+    if cp != "cp":
         raise ValueError("It is not cp command")
-    if command[1] != command[2]:
-        with (open(command[1], "r") as source,
-              open(command[2], "w") as copy):
+    if file_from != file_in:
+        with (open(file_from, "r") as source,
+              open(file_in, "w") as copy):
             copy.write(source.read())
