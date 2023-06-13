@@ -7,5 +7,3 @@ def copy_file(command: str) -> None:
             file_out.write(file_in.read())
             print(f"The data was successfully copied from the "
                   f"{first_file} to a {second_file}")
-    print("Copy error! The command should be 'cp' "
-          "and the files should have different names!")
