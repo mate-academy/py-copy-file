@@ -1,6 +1,5 @@
 def copy_file(command: str) -> None:
-    copied_file = command.split()[1]
-    new_file = command.split()[2]
+    copied_file, new_file = command.split()[1:]
 
     if copied_file != new_file:
         with (open(copied_file, "r") as c_file,
