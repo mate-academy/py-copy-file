@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    if len(command.split()) < 3:
+    if len(command.split()) != 3:
         return
     copy_file_command, sour_file, des_file = command.split()
 
