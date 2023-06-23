@@ -6,9 +6,3 @@ def copy_file(command: str) -> None:
             with (open(file_in_name, "r") as file_in,
                   open(file_out_name, "w") as file_out):
                 file_out.write(file_in.read())
-
-
-file = open("file.txt", "w")
-file.write("17:00 14/09/2022 value error")
-file.close()
-copy_file("cp file.txt new_file.txt")
