@@ -1,6 +1,9 @@
 def copy_file(command: str) -> None:
     parts = command.split()
 
+    if len(parts) < 3 or parts[0] != "copy":
+        return
+
     source_file = parts[1]
     destination_file = parts[2]
 
@@ -12,7 +15,3 @@ def copy_file(command: str) -> None:
 
     with open(destination_file, "w") as file_out:
         file_out.write(content)
-
-
-copy_file("cp file.txt new_file.txt")
-print(open("file.txt").read() == open("new_file.txt").read())
