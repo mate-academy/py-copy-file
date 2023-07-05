@@ -9,13 +9,4 @@ def copy_file(argument: str) -> tuple:
             shutil.copy(src_path, dst_path)
             print("Copied")
             if open(src_path).read() == open(dst_path).read():
-                with open(src_path, "r"), open(dst_path, "w"):
-                    pass
-            else:
-                print("файли не однакові")
-        else:
-            print("файли однакові")
-            return
-
-
-copy_file("Copied file.txt txtа7.txt")
+                return
