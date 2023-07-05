@@ -1,10 +1,13 @@
 def copy_file(command: str) -> None:
     words = command.split()
-    file1 = words[1]
-    file2 = words[2]
+    if len(words) >= 3:
+        in_file_name = words[1]
+        out_file_name = words[2]
+    else:
+        return "Incorrect command!"
 
-    if file1 == file2:
+    if in_file_name == out_file_name:
         return
 
-    with open(file1, "r") as file_in, open(file2, "w") as file_out:
+    with open(in_file_name, "r") as file_in, open(out_file_name, "w") as file_out:
         file_out.write(file_in.read())
