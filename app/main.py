@@ -6,7 +6,9 @@ def copy_file(command: str) -> None:
 
     _, source_name, copy_name = command_parts
 
-    with open(source_name, "r") as source_file,\
-            open(copy_name, "w") as copy_file:
-        content = source_file.read()
-        copy_file.write(content)
+    if source_name == copy_name:
+        return
+
+    with (open(source_name, "r") as source_file,
+          open(copy_name, "w") as copy_file):
+        copy_file.write(source_file.read())
