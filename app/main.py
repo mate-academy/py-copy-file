@@ -1,5 +1,12 @@
 def copy_file(command: str) -> None:
-    with open(command.split()[1] + ".txt", "r") as text_file,\
-            open(command.split()[2], "w") as copy_text_file:
-        content = text_file.read()
-        copy_text_file.write(content)
+    command_parts = command.split()
+
+    if len(command_parts) != 3 or command_parts[0] != "cp":
+        return
+
+    _, source_name, copy_name = command_parts
+
+    with open(source_name, "r") as source_file,\
+            open(copy_name, "w") as copy_file:
+        content = source_file.read()
+        copy_file.write(content)
