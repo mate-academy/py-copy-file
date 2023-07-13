@@ -3,8 +3,8 @@ def copy_file(command: str) -> None:
     if len(file_split) != 3:
         print("Invalid command. Usage: cp <source_file> <destination_file>")
         return
-    _, file_in_name, file_out_name = file_split
-    if file_split[0] != "cp":
+    command_name, file_in_name, file_out_name = file_split
+    if command_name != "cp":
         print("Invalid command. Usage: cp <source_file> <destination_file>")
         return
     if file_in_name != file_out_name:
