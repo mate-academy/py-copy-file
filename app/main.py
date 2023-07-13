@@ -1,7 +1,12 @@
 def copy_file(command: str) -> None:
     file_split = command.split()
-    file_in_name = file_split[1]
-    file_out_name = file_split[2]
+    if len(file_split) != 3:
+        print("Invalid command. Usage: cp <source_file> <destination_file>")
+        return
+    _, file_in_name, file_out_name = file_split
+    if file_split[0] != "cp":
+        print("Invalid command. Usage: cp <source_file> <destination_file>")
+        return
     if file_in_name != file_out_name:
         with open(
                 file_in_name, "r") as file_in, open(
