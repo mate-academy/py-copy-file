@@ -7,5 +7,4 @@ def copy_file(command: str) -> None:
             file_to.write(file_from.read())
 
 
-
 print(copy_file("cp file.txt new_file.txt"))
