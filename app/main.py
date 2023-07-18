@@ -1,7 +1,8 @@
 def copy_file(command: str) -> None:
-    if len(command) != 3:
+    splitted_file = command.split()
+    if len(splitted_file) != 3:
         return
-    command, file_from, file_to = command.split()
+    command, file_from, file_to = splitted_file
     if command != "cp":
         return
     if file_from == file_to:
