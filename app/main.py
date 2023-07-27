@@ -6,7 +6,10 @@ def copy_file(command: str) -> None:
 
     _, source_file, destination_file = parts
 
-    with (open(source_file, "r") as file_in,
-          open(destination_file, "w") as file_out):
+    print("Source File:", source_file)
+    print("Destination File:", destination_file)
+
+    with open(source_file, "r") as file_in, \
+            open(destination_file, "w") as file_out:
         content = file_in.read()
         file_out.write(content)
