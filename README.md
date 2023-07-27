@@ -3,7 +3,7 @@
 - Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before starting.
 
 Write a function `copy_file` that will copy a file in current directory 
-like Linux cp command: `cp file.txt file-copy.txt`. Function take only one
+like Linux cp command: `file.txt file-copy.txt`. Function take only one
 argument `command`, that is string with command `cp`, file name to copy and new file
 name, separated by spaces.
 
