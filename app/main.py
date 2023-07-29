@@ -1,13 +1,11 @@
 def copy_file(command: str) -> None:
     parts = command.split()
+    print(parts)
 
     if len(parts) < 3 or parts[0] != "copy" or parts[1] == parts[2]:
         return
 
     _, source_file, destination_file = parts
-
-    print("Source File:", source_file)
-    print("Destination File:", destination_file)
 
     with open(source_file, "r") as file_in, \
             open(destination_file, "w") as file_out:
