@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    #did I understand correctly?
+    # did I understand correctly?
     if len(command.split()) == 3:
         command, file_out, file_in = command.split()
         if command == "cp" and file_out != file_in:
