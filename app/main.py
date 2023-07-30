@@ -1,4 +1,4 @@
-def copy_file(command, file_out, file_in: str) -> None:
+def copy_file(command: str) -> None:
     #did I understand correctly?
     if len(command.split()) == 3:
         command, file_out, file_in = command.split()
