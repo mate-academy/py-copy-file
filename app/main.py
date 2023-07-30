@@ -1,5 +1,8 @@
 def copy_file(command: str) -> None:
-    source, destination = command.split()[1:]
+    args_list = command.split()
+    if len(args_list) != 3 or args_list[0] != "cp":
+        return
+    source, destination = args_list[1:]
     if source == destination:
         return
     with open(source, "r") as source_file,\
