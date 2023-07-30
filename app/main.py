@@ -1,4 +1,5 @@
 def copy_file(command: str) -> None:
+    # I don't understand what else can be done?
     command, file_out, file_in = command.split()
     if command == "cp" and file_out != file_in:
         with open(file_out, "r") as file_from, open(file_in, "w") as file_to:
