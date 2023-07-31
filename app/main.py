@@ -1,6 +1,5 @@
 def copy_file(command: str) -> None:
     parts = command.split()
-    print(parts)
 
     if len(parts) < 3 or parts[0] != "copy" or parts[1] == parts[2]:
         return
@@ -9,5 +8,4 @@ def copy_file(command: str) -> None:
 
     with open(source_file, "r") as file_in, \
             open(destination_file, "w") as file_out:
-        content = file_in.read()
-        file_out.write(content)
+        file_out.write(file_in.read())
