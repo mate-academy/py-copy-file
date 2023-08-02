@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
 
-    todolist = command.split()
-    cmd, file_name, file_copy_name = todolist
+    parts = command.split()
+    cmd, file_name, file_copy_name = parts
     if cmd == "cp":
         if file_name != file_copy_name:
             with open(file_name, "r") as content_out, \
