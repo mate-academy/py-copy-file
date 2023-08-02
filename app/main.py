@@ -1,8 +1,8 @@
 def copy_file(command: str) -> None:
-    if "cp" in command:
-        todolist = command.split()
-        *other, file_name, file_copy_name = todolist
 
+    todolist = command.split()
+    cmd, file_name, file_copy_name = todolist
+    if cmd == "cp":
         if file_name != file_copy_name:
             with open(file_name, "r") as content_out, \
                     open(file_copy_name, "w") as content_in:
