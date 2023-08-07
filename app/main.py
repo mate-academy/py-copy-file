@@ -3,8 +3,7 @@ def copy_file(command: str) -> None:
     if len(command) != 3:
         print("Enter the correct command.")
         return
-    file_copy = command[1]
-    file_paste = command[2]
+    _, file_copy, file_paste = command
     if file_copy == file_paste:
         return
     with open(file_copy, "r") as file_in, open(file_paste, "w") as file_out:
