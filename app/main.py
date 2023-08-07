@@ -1,5 +1,8 @@
 def copy_file(command: str) -> None:
     command = command.split()
+    if len(command) != 3:
+        print("Enter the correct command.")
+        return
     file_copy = command[1]
     file_paste = command[2]
     if file_copy == file_paste:
