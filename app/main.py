@@ -1,1 +1,10 @@
-# write your code here
+def copy_file(command: str) -> None:
+    command = command.split()
+    if len(command) != 3:
+        print("Enter the correct command.")
+        return
+    cmd, file_copy, file_paste = command
+    if file_copy != file_paste and cmd == "cp":
+        with (open(file_copy, "r") as file_in,
+              open(file_paste, "w") as file_out):
+            file_out.write(file_in.read())
