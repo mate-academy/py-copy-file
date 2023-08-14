@@ -24,6 +24,3 @@ def copy_file(command: str) -> None:
             print("Copy successfully")
     else:
         print("Command not found")
-
-
-copy_file("cp text1.txt text.txt")
