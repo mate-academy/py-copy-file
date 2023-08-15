@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    arguments = command.split(" ")
+    arguments = command.split()
 
     if len(arguments) > 0 and arguments[0] == "cp":
         if len(arguments) < 2:
