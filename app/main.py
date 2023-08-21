@@ -1,7 +1,7 @@
-def copy_file(command: str):
-    listed = command.split()
-    if listed[1] == listed[2]:
+def copy_file(command: str) -> None:
+    files = command.split()
+    if files[1] == files[2]:
         return
 
-    with open(listed[1], "r") as file_in, open(listed[2], "w") as file_out:
+    with open(files[1], "r") as file_in, open(files[2], "w") as file_out:
         file_out.write(file_in.read())
