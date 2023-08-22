@@ -4,8 +4,7 @@ def copy_file(command: str) -> None:
         print("Invalid command format. Use: cp source_file target_file")
         return
 
-    source_file_name = parts[1]
-    target_file_name = parts[2]
+    source_file_name, target_file_name = parts[1:2]
 
     if source_file_name == target_file_name:
         print("Source and target file names are the same. "
@@ -13,8 +12,8 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(source_file_name, "r") as source, \
-             open(target_file_name, "w") as target:
+        with (open(source_file_name, "r") as source,
+              open(target_file_name, "w") as target):
             target.write(source.read())
         print(f"File '{source_file_name}' has "
               f"been copied to '{target_file_name}'.")
