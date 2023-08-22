@@ -4,15 +4,15 @@ def copy_file(command: str) -> None:
         print("Invalid command format")
         return
 
-    source_file = parts[1]
-    destination_file = parts[2]
+    s_file = parts[1]
+    d_file = parts[2]
 
-    if source_file == destination_file:
+    if s_file == d_file:
         print("Source file and destination file names are the same")
         return
 
     try:
-        with open(source_file, "r") as file_in, open(destination_file, "w") as file_out:
+        with open(s_file, "r") as file_in, open(d_file, "w") as file_out:
             file_out.write(file_in.read())
             print("File copied successfully")
     except FileNotFoundError:
