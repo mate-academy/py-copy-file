@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
-    file1 = command.split()[1]
-    file2 = command.split()[2]
-    if file1 != file2:
-        with open(file1, "r") as file_in, open(file2, "w") as file_out:
+    cmd, file, new_file = command.split()
+
+    if cmd == "cp" and file != new_file:
+        with open(file, "r") as file_in, open(new_file, "w") as file_out:
             file_out.write(file_in.read())
