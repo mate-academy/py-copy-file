@@ -11,6 +11,3 @@ def copy_file(command: str) -> bool:
 
     return open("file.txt").read() == open("new_file.txt").read()
 
-
-
-copy_file("cp file.txt new_file.txt")
