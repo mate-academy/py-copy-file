@@ -2,8 +2,8 @@ import os
 
 
 def copy_file(command: str) -> None:
-    if len(command.split()) == 3:
-        command, current_file, new_file = command.split()
+    if len(result_of_split := command.split()) == 3:
+        command, current_file, new_file = result_of_split
         if command == "cp" and (
             current_file != new_file and os.path.exists(current_file)
         ):
