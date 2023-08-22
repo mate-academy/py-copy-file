@@ -10,4 +10,3 @@ def copy_file(command: str) -> bool:
                     file.write(content)
 
     return open("file.txt").read() == open("new_file.txt").read()
-
