@@ -4,6 +4,10 @@ def copy_file(command: str) -> None:
     if old_file == file_copy and command == "cp":
         return
 
+    if command != "cp":
+        print("Provide the correct command!")
+        return
+
     with open(old_file, "r") as file_in, open(file_copy, "w") as file_out:
         content = file_in.read()
         file_out.write(content)
