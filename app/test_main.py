@@ -1,7 +1,6 @@
 import os.path
 
 import app.main as main
-
 import pytest
 
 
@@ -20,7 +19,7 @@ def check_files(first_file: str, second_file: str) -> bool:
 
 
 @pytest.mark.parametrize(
-    "command, first_file, second_file,bool_result",
+    "command, first_file, second_file, bool_result",
     [
         pytest.param(
             "cp file.txt file.txt",
@@ -57,5 +56,10 @@ def test_copy_files(
 ) -> None:
     main.copy_file(command)
     assert check_files(first_file, second_file) == bool_result
-    if second_file != "file.txt" and os.path.exists(second_file):
+
+    if (
+        bool_result
+        and first_file != second_file
+        and os.path.exists(second_file)
+    ):
         os.remove(second_file)
