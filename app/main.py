@@ -13,7 +13,6 @@ def copy_file(command: str) -> str:
 
     try:
         with open(source_file, "r") as file1, open(target_file, "w") as file2:
-            new_file = file1.read()
-            file2.write(new_file)
+            file2.write(file1.read())
     except Exception as e:
         print(f"An error occurred: {str(e)}")
