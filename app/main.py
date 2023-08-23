@@ -1,11 +1,19 @@
-def copy_file(command: str, target_file: str, source_file: str) -> str:
+def copy_file(command: str) -> str:
     parts = command.split()
-    if len(parts) != 3 or parts != "cp":
-        return "Invalid command. Please provide a valid 'cp' command."
 
-    if source_file[1] == target_file[2]:
+    if len(parts) != 3 or parts[0] != "cp":
+        print("Invalid command. Please provide a valid 'cp' command.")
         return
 
-    with open(source_file, "r") as file1, open(target_file, "w") as file2:
-        new_file = file1.read()
-        file2.write(new_file)
+    source_file, target_file = parts[1], parts[2]
+
+    if source_file == target_file:
+        print("Source and target file paths are the same. No action taken.")
+        return
+
+    try:
+        with open(source_file, "r") as file1, open(target_file, "w") as file2:
+            new_file = file1.read()
+            file2.write(new_file)
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
