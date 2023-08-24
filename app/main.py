@@ -1,10 +1,9 @@
 def copy_file(command: str) -> None:
-    parts = command.split()
-    if len(parts) != 3 or parts[0] != "cp":
+    action, source_file_name, target_file_name = command.split(maxsplit=2)
+
+    if action != "cp":
         print("Invalid command format. Use: cp source_file target_file")
         return
-
-    source_file_name, target_file_name = parts[1:2]
 
     if source_file_name == target_file_name:
         print("Source and target file names are the same. "
