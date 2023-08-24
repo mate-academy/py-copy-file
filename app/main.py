@@ -1,10 +1,11 @@
 def copy_file(command: str) -> None:
-    parts_of_command = command.split()
-    if len(parts_of_command) != 3 or parts_of_command[0] != "cp":
+
+    try:
+        cp_command, file, copy_of_file = command.split()
+    except ValueError:
         return
 
-    file, copy_of_file = parts_of_command[1], parts_of_command[2]
-    if file == copy_of_file:
+    if file == copy_of_file or cp_command != "cp":
         return
 
     with open(file, "r") as source, open(copy_of_file, "w") as copy:
