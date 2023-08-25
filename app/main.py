@@ -3,16 +3,16 @@ class InvalidCommandFormat(Exception):
 
 
 def copy_file(command: str) -> None:
-    command = command.split()
+    command, old_file, copy_file = command.split()
 
-    if command[0] != "cp":
+    if command != "cp":
         raise InvalidCommandFormat(
             "Please provide a command like 'cp file.txt file-copy.txt'"
         )
 
-    if command[1] != command[2]:
-        with (open(command[1], "r") as file_in,
-              open(command[2], "w") as file_out):
+    if old_file != copy_file:
+        with (open(old_file, "r") as file_in,
+              open(copy_file, "w") as file_out):
             content = file_in.read()
             file_out.write(content)
             print("OK")
