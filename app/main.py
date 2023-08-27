@@ -7,7 +7,8 @@ def copy_file(command: str) -> None:
 
     # Check if the command has the correct format
     if len(parts) != 3 or parts[0] != "cp":
-        print("Invalid command format. Please use 'cp source_file target_file'.")
+        print("Invalid command format. "
+              "Please use 'cp source_file target_file'.")
         return
 
     source_file = parts[1]
@@ -24,7 +25,8 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(source_file, "rb") as file_in, open(target_file, "wb") as file_out:
+        with open(source_file, "rb") as file_in, \
+                open(target_file, "wb") as file_out:
             file_out.write(file_in.read())
         print(f"File '{source_file}' copied to '{target_file}' successfully.")
     except Exception as e:
