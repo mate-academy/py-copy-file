@@ -1,17 +1,35 @@
-import shutil
+import os
 
 
-def copy_file(source_file: str, target_file: str) -> None:
+def copy_file(command: str) -> None:
+    # Split the command into parts
+    parts = command.split()
+
+    # Check if the command has the correct format
+    if len(parts) != 3 or parts[0] != "cp":
+        print("Invalid command format. Please use 'cp source_file target_file'.")
+        return
+
+    source_file = parts[1]
+    target_file = parts[2]
+
+    # Check if the source and target files are the same
+    if source_file == target_file:
+        print("Source and target files are the same. Nothing to do.")
+        return
+
+    # Check if the source file exists
+    if not os.path.exists(source_file):
+        print(f"Source file '{source_file}' does not exist.")
+        return
 
     try:
-        shutil.copy(source_file, target_file)
+        with open(source_file, "rb") as file_in, open(target_file, "wb") as file_out:
+            file_out.write(file_in.read())
         print(f"File '{source_file}' copied to '{target_file}' successfully.")
-    except FileNotFoundError:
-        print(f"Source file '{source_file}' does not exist.")
-    except IsADirectoryError:
-        print(f"'{source_file}' is a directory, not a file.")
     except Exception as e:
         print(f"An error occurred: {e}")
 
 
-copy_file("file.txt", "file-copy.txt")
+copy_file("cp file.txt file-copy.txt")
+print(open("file.txt").read() == open("file-copy.txt").read())
