@@ -25,13 +25,13 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(source_file, "rb") as file_in, \
-                open(target_file, "wb") as file_out:
+        with (open(source_file, "rb") as file_in,
+              open(target_file, "wb") as file_out):
             file_out.write(file_in.read())
         print(f"File '{source_file}' copied to '{target_file}' successfully.")
     except Exception as e:
         print(f"An error occurred: {e}")
 
 
-copy_file("cp file.txt file-copy.txt")
-print(open("file.txt").read() == open("file-copy.txt").read())
+if __name__ == "__main__":
+    copy_file("cp file.txt file-copy.txt")
