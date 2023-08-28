@@ -12,9 +12,16 @@ def copy_file(command: str) -> None:
 
     try:
         with (open(source_file_name, "r") as source,
-              open(target_file_name, "w") as target):
+              open(target_file_name, "w") as target
+              ):
             target.write(source.read())
         print(f"File '{source_file_name}' has "
               f"been copied to '{target_file_name}'.")
+
     except FileNotFoundError:
         print(f"Source file '{source_file_name}' not found.")
+
+
+with (open("file.txt", "r") as source,
+      open("new_file.txt", "w") as target):
+    print(target.write(source.read()))
