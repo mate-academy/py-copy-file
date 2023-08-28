@@ -11,8 +11,7 @@ def copy_file(command: str) -> None:
               "Please use 'cp source_file target_file'.")
         return
 
-    source_file = parts[1]
-    target_file = parts[2]
+    source_path, target_path = parts[1:]
 
     # Check if the source and target files are the same
     if source_file == target_file:
