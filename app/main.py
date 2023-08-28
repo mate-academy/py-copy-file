@@ -1,11 +1,7 @@
 def copy_file(command: str) -> None:
     command, old_file, file_copy = command.split()
 
-    if old_file == file_copy and command == "cp":
-        return
-
-    if command != "cp":
-        print("Provide the correct command!")
+    if old_file == file_copy or command != "cp":
         return
 
     with open(old_file, "r") as file_in, open(file_copy, "w") as file_out:
