@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
 
-    if len(command) == 3:
+    if len(command.split()) == 3 and command.split()[0] == "cp":
         cd, file_name, new_file = command.split()
 
         if file_name == new_file:
