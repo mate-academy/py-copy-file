@@ -3,7 +3,7 @@ def copy_file(command: str) -> None:
 
     if command_cp == "cp" and command_file != command_new_file:
         with (
-            open(command_file, "r") as source,
-            open(command_new_file, "w") as target
+            open(command_file, "r") as file_in,
+            open(command_new_file, "w") as file_out
         ):
-            command_new_file.write(command_file.read())
+            file_out.write(file_in.read())
