@@ -13,4 +13,3 @@ def copy_file(command: str):
 
     with open(source, 'r') as file_in, open(dest, 'w') as file_out:
         file_out.write(file_in.read())
-
