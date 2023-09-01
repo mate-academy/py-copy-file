@@ -1,4 +1,4 @@
-def copy_file(command: str):
+def copy_file(command: str) -> None:
 
     parts = command.split()
 
@@ -11,5 +11,5 @@ def copy_file(command: str):
     if source == dest:
         return
 
-    with open(source, 'r') as file_in, open(dest, 'w') as file_out:
+    with open(source, "r") as file_in, open(dest, "w") as file_out:
         file_out.write(file_in.read())
