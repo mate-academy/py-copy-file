@@ -13,9 +13,11 @@ class CommandError(CustomError):
 def copy_file(command: str) -> None:
     if command[0] == "cp":
         raise NameCommandError
-    command = command.split(" ")
+    command = command.split()
+
     if len(command) != 3:
         raise CommandError
+
     if command[1] == command[2]:
         pass
 
