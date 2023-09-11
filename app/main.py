@@ -1,5 +1,5 @@
 def copy_file(command: str) -> str:
-    if len(command) != 3 and command != "cp":
+    if len(command) != 3 and command[0] != "cp":
         raise ValueError("Invalid command format")
     old_file, new_file = command.split()[1:]
     if old_file == new_file:
