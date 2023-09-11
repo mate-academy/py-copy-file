@@ -20,8 +20,8 @@ def copy_file(command: str) -> None:
         print(f"Source file '{source_file}' does not exist.")
         return
 
-    with open(source_file, "rb") as file_in, \
-            open(destination_file, "wb") as file_out:
+    with open(source_file, "rb") as file_in, (
+            open(destination_file, "wb") as file_out):
         file_out.write(file_in.read())
 
     print(f"File {source_file}' copied to "
