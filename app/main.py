@@ -20,8 +20,7 @@ def copy_file(command: str) -> None:
         return
 
     if not os.path.exists(source_file):
-        print(f"Source file '{source_file}' does not exist.")
-        return
+        raise ValueError(f"Source file '{source_file}' does not exist.")
 
     with open(source_file, "rb") as file_in, open(
             destination_file, "wb") as file_out:
