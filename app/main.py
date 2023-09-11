@@ -1,5 +1,7 @@
 def copy_file(command: str) -> str:
     old_file, new_file = command.split()[1:]
+    if len(old_file) != 3 and old_file != "cp":
+        raise ValueError("Invalid command format")
     if old_file == new_file:
         return f"The file '{old_file}' already exists with the same name"
 
