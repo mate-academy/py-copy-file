@@ -5,9 +5,9 @@ def copy_file(command: str) -> None:
     parts = command.split()
 
     if len(parts) != 3:
-        raise ValueError("Invalid command. Usage: cp source_file destination_file")
-    
-    
+        raise ValueError("Invalid command. Usage: "
+                         "cp source_file destination_file")
+
     _, source_file, destination_file = parts
 
     if source_file == destination_file:
