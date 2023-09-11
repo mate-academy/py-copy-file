@@ -8,9 +8,6 @@ def copy_file(command: str) -> None:
     raise Exception("Invalid command. Usage: cp source_file destination_file")
 else:
     _, source_file, destination_file = parts
-    # Now you have the source_file and destination_file variables
-    print("Source File:", source_file)
-    print("Destination File:", destination_file)
 
     if source_file == destination_file:
         print("Source and destination files "
