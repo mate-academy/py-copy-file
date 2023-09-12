@@ -12,7 +12,7 @@ def copy_file(command: str) -> None:
 
     _, source_file, destination_file = parts
 
-    if source_file == destination_file:
+    if parts[0] == 'cp' and source_file == destination_file:
         raise ValueError(
             "Source and destination files "
             "have the same name. Doing nothing."
