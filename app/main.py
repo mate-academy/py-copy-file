@@ -13,11 +13,10 @@ def copy_file(command: str) -> None:
     _, source_file, destination_file = parts
 
     if source_file == destination_file:
-        print(
+        raise ValueError(
             "Source and destination files "
             "have the same name. Doing nothing."
         )
-        return
 
     if not os.path.exists(source_file):
         raise ValueError(f"Source file '{source_file}' does not exist.")
