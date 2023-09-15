@@ -1,6 +1,9 @@
 def copy_file(command: str) -> None:
     parts = command.split(" ")
-    print(parts)
+
+    if len(parts) < 3 or parts[0] != "cp":
+        return
+
     source_path = parts[1]
     destination_path = parts[2]
 
@@ -8,9 +11,8 @@ def copy_file(command: str) -> None:
         return
 
     with open(source_path, "r") as file_in, \
-            open(destination_path, "w") as file_out:
-        for line in file_in:
-            file_out.write(line)
+         open(destination_path, "w") as file_out:
+        file_out.writelines(file_in.readlines())
 
 
 if __name__ == "__main__":
