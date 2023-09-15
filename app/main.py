@@ -7,7 +7,8 @@ def copy_file(command: str) -> None:
     if source_path == destination_path:
         return
 
-    with open(source_path, "r") as file_in, open(destination_path, "w") as file_out:
+    with open(source_path, "r") as file_in, \
+            open(destination_path, "w") as file_out:
         for line in file_in:
             file_out.write(line)
 
