@@ -16,7 +16,7 @@ Example:
 copy_file("cp file.txt file.txt")  # Does nothing
 
 copy_file("cp file.txt new_file.txt")
-open("app/file.txt").read() == open("new_file.txt").read()  # True
+open("file.txt").read() == open("new_file.txt").read()  # True
 ```
 **Note**: You can use two contexts managers simultaneously by separating them by a comma:
 ```python
