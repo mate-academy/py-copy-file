@@ -11,6 +11,7 @@ name, separated by spaces.
 name.
 - Function must copy the whole content to new file.
 Example:
+
 ```python
 copy_file("cp file.txt file.txt")  # Does nothing
 
