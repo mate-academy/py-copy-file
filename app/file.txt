@@ -1,1 +1,1 @@
-rrrr
+cp file.txt new_file.txt
