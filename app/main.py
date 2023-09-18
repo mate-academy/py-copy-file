@@ -12,4 +12,4 @@ def copy_file(command: str) -> None:
         pass
 
 
-copy_file("cp file.txt new_file.txt")
+# copy_file() запуск функции
