@@ -6,6 +6,5 @@ def copy_file(command: str) -> None:
                 open(files_names[1], "r") as file_in,
                 open(files_names[2], "w") as file_out
             ):
-                if files_names[1] != files_names[2]:
-                    original_file = file_in.read()
-                    file_out.write(original_file)
+                original_file = file_in.read()
+                file_out.write(original_file)
