@@ -1,11 +1,11 @@
 def copy_file(command: str) -> None:
-    command_split = command.split()
-    if len(command_split) == 3:
-        if command_split[0] == "cp" and command_split[1] != command_split[2]:
+    files_names = command.split()
+    if len(files_names) == 3:
+        if files_names[0] == "cp" and files_names[1] != files_names[2]:
             with (
-                open(command_split[1], "r") as file_in,
-                open(command_split[2], "w") as file_out
+                open(files_names[1], "r") as file_in,
+                open(files_names[2], "w") as file_out
             ):
-                if command_split[1] != command_split[2]:
+                if files_names[1] != files_names[2]:
                     original_file = file_in.read()
                     file_out.write(original_file)
