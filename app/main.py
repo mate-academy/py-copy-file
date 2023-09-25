@@ -15,7 +15,6 @@ def check_command(func: callable) -> callable:
 def copy_file(command: str) -> None:
     source_name, target_name = command.split(" ")[1:3]
     if source_name == target_name:
-        return None
+        return
     with open(source_name, "r") as source, open(target_name, "w") as target:
-        source_content = source.read()
-        target.write(source_content)
+        target.write(source.read())
