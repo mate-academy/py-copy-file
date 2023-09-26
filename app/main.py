@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    name1 = command.split()[1]
-    name2 = command.split()[2]
-    with open(name1) as f1, open(name2, "w") as f2:
-        f2.write(f1.read())
+    source_file_name = command.split()[1]
+    new_file_name = command.split()[2]
+    with open(source_file_name) as file, open(new_file_name, "w") as new_file:
+        new_file.write(file.read())
