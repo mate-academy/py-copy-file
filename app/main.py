@@ -10,5 +10,6 @@ def copy_file(command: str) -> None:
     if source_file == destination_file:
         return
 
-    with open(source_file, "r") as source, open(destination_file, "w") as destination:
+    with (open(source_file, "r") as source,
+          open(destination_file, "w") as destination):
         copyfileobj(source, destination)
