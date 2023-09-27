@@ -1,4 +1,5 @@
-from typing import Callable
+from typing import Any, Callable
+from functools import wraps
 
 
 class CommandError(Exception):
@@ -6,7 +7,8 @@ class CommandError(Exception):
 
 
 def check_command(func: Callable) -> Callable:
-    def wrapper(command: str) -> Callable:
+    @wraps(func)
+    def wrapper(command: str) -> Any:
         if command.split()[0] != "cp" or len(command.split()) < 3:
             raise CommandError("Please enter valid command!")
         return func(command)
@@ -16,7 +18,7 @@ def check_command(func: Callable) -> Callable:
 
 @check_command
 def copy_file(command: str) -> None:
-    source_name, target_name = command.split()[1:3]
+    _, source_name, target_name = command.split()
     if source_name != target_name:
         with (open(source_name, "r") as source,
               open(target_name, "w") as target):
