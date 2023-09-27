@@ -1,4 +1,4 @@
-from shutil import copy
+from shutil import copyfileobj
 
 
 def copy_file(command: str) -> None:
