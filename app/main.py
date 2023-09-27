@@ -3,14 +3,16 @@ class NameCommandError(Exception):
 
 
 class CommandError(Exception):
-    """The error of missing three elements in the team"""
+    """The command must contain exactly 3 elements. Some elements are missing or in excess."""
 
 
 def copy_file(command: str) -> None:
-    if len(command.split()) != 3:
+    command_split = command.split()
+
+    if len(command_split) != 3:
         raise CommandError
 
-    name_command, source_file_name, new_file_name = command.split()
+    name_command, source_file_name, new_file_name = command_split
 
     if name_command != "cp":
         raise NameCommandError
