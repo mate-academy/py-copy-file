@@ -1,9 +1,12 @@
+from typing import Callable
+
+
 class CommandError(Exception):
     """Checks command input for right format."""
 
 
-def check_command(func: callable) -> callable:
-    def wrapper(command: str) -> callable:
+def check_command(func: Callable) -> Callable:
+    def wrapper(command: str) -> Callable:
         if command.split()[0] != "cp" or len(command.split()) < 3:
             raise CommandError("Please enter valid command!")
         return func(command)
