@@ -4,7 +4,7 @@ def copy_file(command: str) -> None:
     except ValueError:
         raise
     if command == "cp" and source_file != second_file:
-        with(
+        with (
             open(source_file, "r") as source,
             open(second_file, "w") as second
         ):
