@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
-    vul = command.split()
-    if vul[1] == vul[2] and vul[0] == "cp":
-        return
-    with open(vul[1], "r") as file_in, open(vul[2], "w") as file_out:
-        file_out.write(file_in.read())
+    command_list = command.split()
+    if command_list[0] == "cp" and command_list[1] != command_list[2]:
+        with open(command_list[1], "r") as file_in,\
+             open(command_list[2], "w") as file_out:
+            file_out.write(file_in.read())
