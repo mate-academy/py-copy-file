@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
     command_name, file, file_to_copy = command.split()
-    if command_name != "cd":
+    if command_name != "cp":
         print("This command not exist")
         return
     try:
