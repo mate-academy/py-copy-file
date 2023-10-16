@@ -1,8 +1,5 @@
 def copy_file(command: str) -> str:
-    command_part = command.split()
-    command = command_part[0]
-    path_origin = command_part[1]
-    path_copy = command_part[2]
+    command, path_origin, path_copy = command.split()
 
     if path_origin != path_copy and command == "cp":
         with (open(path_origin, "r") as file_in,
