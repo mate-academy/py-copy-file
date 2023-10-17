@@ -8,8 +8,5 @@ def copy_file(command: str) -> None:
 
 
 def validate_cp_command(cp_command: list) -> bool:
-    if cp_command[0] != "cp":
-        return False
-    if cp_command[1] == cp_command[2]:
-        return False
-    return True
+    if cp_command[1] != cp_command[2]:
+        return True
