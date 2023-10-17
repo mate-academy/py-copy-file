@@ -1,15 +1,14 @@
 def copy_file(command: str) -> None:
 
-    commands_data = command.split()
-    first_file = commands_data[1]
-    second_file = commands_data[2]
+    command, first_file, second_file = command.split()
 
-    if first_file == second_file:
-        return
+    if first_file != second_file:
 
-    with open(first_file, "r") as file_in, open(second_file, "w") as file_out:
-        content_of_first_file = []
-        for line in file_in:
-            content_of_first_file.append(line)
+        with (open(first_file, "r") as file_in,
+              open(second_file, "w") as file_out):
 
-        file_out.writelines(content_of_first_file)
+            content_of_first_file = []
+            for line in file_in:
+                content_of_first_file.append(line)
+
+            file_out.writelines(content_of_first_file)
