@@ -1,8 +1,6 @@
 def copy_file(command: str) -> None:
-    splitted = command.split()
+    command_teg, old_file, new_file = command.split()
 
-    if splitted[0] == "cp" and splitted[1] != splitted[2]:
-        file1 = splitted[1]
-        file2 = splitted[2]
-        with open(file1, "r") as file_in, open(file2, "w") as file_out:
+    if command_teg == "cp" and old_file != new_file:
+        with open(old_file, "r") as file_in, open(new_file, "w") as file_out:
             file_out.write(file_in.read())
