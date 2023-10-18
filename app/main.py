@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    operation, old_file, new_file = command.split(" ")
+    operation, old_file, new_file = command.split()
     if operation == "cp" and old_file != new_file:
         with (open(old_file, "r") as file_in,
               open(new_file, "w") as file_out):
