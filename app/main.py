@@ -1,9 +1,15 @@
 def copy_file(command: str) -> None:
-    command_parts = command.split()
+    command, old_file, new_file = command.split()
 
-    if len(command_parts) == 3 and command_parts[0] == "cp":
-        command_type, source_file, copied_file = command_parts
-        if source_file != copied_file:
-            with (open(source_file, "r") as file_in,
-                  open(copied_file, "w") as file_out):
-                file_out.write(file_in.read())
+    if len(command.split()) == 3 and command == "cp":
+        if old_file != new_file:
+            try:
+                with (open(old_file, "r") as file_in,
+                      open(new_file, "w") as file_out):
+                    data = file_in.read()
+                    file_out.write(data)
+                print(f"Copying completed: {old_file} -> {new_file}")
+            except FileNotFoundError:
+                print("Error: File not found")
+        else:
+            print("Error: Source and destination file names are the same")
