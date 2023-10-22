@@ -1,22 +1,11 @@
 def copy_file(command: str) -> None:
-    parts = command.split()
-    if len(parts) == 3 and parts[0] == "cp":
-        source_file = parts[1]
-        destination_file = parts[2]
+    command_list = command.split()
 
-        if source_file == destination_file:
-            print("Source and destination file names are the same."
-                  " Nothing to copy.")
-        else:
-            try:
-                with (open(source_file, "rb") as source,
-                      open(destination_file, "wb") as destination):
-                    destination.write(source.read())
-                print(f"File '{source_file}'"
-                      f" copied to '{destination_file}' successfully.")
-            except FileNotFoundError:
-                print(f"File '{source_file}' not found.")
-            except Exception as e:
-                print(f"An error occurred: {e}")
-    else:
-        print("Invalid command format. Use 'cp source_file destination_file'")
+    if len(command_list) == 3 and command_list[0] == "cp":
+        _, source_file, copied_file = command_list
+
+        if source_file != copied_file:
+            with (open(source_file, "r") as file,
+                  open(copied_file, "w") as copied_file):
+                content = file.read()
+                copied_file.write(content)
