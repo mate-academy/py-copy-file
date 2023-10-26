@@ -10,7 +10,9 @@ class CommandError(Error):
     pass
 
 
-def copy_file(command: str, statring_file_name: str, final_file_name: str) -> None:
+def copy_file(command: str,
+              statring_file_name: str,
+              final_file_name: str) -> None:
     if command != "cp":
         raise CommandError("You privided the wrong command")
     if statring_file_name == final_file_name:
