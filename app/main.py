@@ -1,8 +1,8 @@
 def copy_file(command: str) -> None:
-    # Split the command into parts
     command_parts = command.split()
 
-    if command_parts[0] != "cp" or command_parts[1] == command_parts[2]:
+    command1, command2, command3 = command_parts
+    if command1 != "cp" or command2 == command3:
         return
 
     with (open(command_parts[1], "r") as file_in,
