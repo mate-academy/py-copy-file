@@ -1,10 +1,6 @@
 def copy_file(command: str) -> None:
-    command_parts = command.split()
-
-    command, source, destination = command_parts
-    if command != "cp" or source == destination:
+    text = command.split()
+    if text[0] != "cp" or text[1] == text[2]:
         return
-
-    with (open(command_parts[1], "r") as file_in,
-          open(command_parts[2], "w") as file_out):
-        file_out.write(file_in.read())
+    with open(text[1], "r") as file1, open(text[2], "w") as file2:
+        file2.write(file1.read())
