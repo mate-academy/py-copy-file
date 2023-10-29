@@ -6,6 +6,6 @@ def copy_file(command: str) -> None:
 
     source_file, destination_file, action = command_parts
 
-    with (open(source_file, "r") as file_in,
-          open(destination_file, "w") as file_out):
-        file_out.write(file_in.read())
+    with (open(source_file, "r") as source,
+          open(destination_file, "r") as f):
+        f.write(source.read())
