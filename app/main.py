@@ -4,7 +4,9 @@ def copy_file(command: str) -> None:
     if len(command_parts) != 3:
         return
 
-    source_file, destination_file, action = command_parts
+    action, source_file, destination_file = command_parts
+    if action != "cp" or source_file == destination_file:
+        return
 
     with (open(source_file, "r") as source,
           open(destination_file, "r") as f):
