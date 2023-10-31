@@ -6,8 +6,8 @@ def copy_file(command: str) -> None:
 
     action, source_file, destination_file = command_parts
     if action != "cp" or source_file == destination_file:
-        return
+        raise
 
     with (open(source_file, "r") as source,
-          open(destination_file, "r") as f):
-        f.write(source.read())
+          open(destination_file, "r") as file):
+        file.write(source.read())
