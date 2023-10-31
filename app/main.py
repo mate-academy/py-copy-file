@@ -1,6 +1,8 @@
-def copy_file(command: str) -> None:
-    text = command.split()
-    if text[0] != "cp" or text[1] == text[2]:
-        return
-    with open(text[1], "r") as file1, open(text[2], "w") as file2:
-        file2.write(file1.read())
+def copy_file(string: str) -> None:
+    names = string.split(" ")
+    if names[0] == "cp":
+        if names[1] != names[2]:
+            with open(names[1], "r") as first_file:
+                content = first_file.read()
+            with open(names[2], "w") as second_file:
+                second_file.write(content)
