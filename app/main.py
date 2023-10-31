@@ -4,10 +4,10 @@ def copy_file(command: str) -> None:
     if len(command_parts) != 3:
         return
 
-    action, source_file, destination_file = command_parts
-    if action != "cp" or source_file == destination_file:
-        raise
+    action, source_filename, destination_filename = command_parts
+    if action != "cp" or source_filename == destination_filename:
+        raise f"You have an error"
 
-    with (open(source_file, "r") as source,
-          open(destination_file, "r") as file):
-        file.write(source.read())
+    with (open(source_filename, "r") as source_file,
+          open(destination_filename, "r") as destination_file):
+        destination_file.write(source_file.read())
