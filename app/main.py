@@ -4,7 +4,8 @@ def copy_file(command: str) -> None:
     new_filename = parts[2]
 
     if len(parts) != 3:
-        print("Invalid command format. Follow this structure: cp filename.txt copied_filename.txt")
+        print(f"Invalid command format. Follow this structure:"
+              f"cp filename.txt copied_filename.txt")
         return
 
     if parts[0] == "cp" and old_filename != new_filename:
