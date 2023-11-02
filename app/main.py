@@ -1,12 +1,12 @@
 def copy_file(command: str) -> None:
     parts = command.split()
 
-    if len(parts) != 3 or parts[0] != "cp":
+    if len(parts) != 3:
         return
 
-    main_file, for_copy_file = parts[1], parts[2]
+    command_name, main_file, for_copy_file = parts
 
-    if main_file == for_copy_file:
+    if main_file == for_copy_file or command_name != "cp":
         return
 
     with open(main_file, "r") as source, open(for_copy_file, "w") as copy:
