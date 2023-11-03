@@ -6,10 +6,9 @@ def copy_file(command: str) -> None:
               "cp filename.txt copied_filename.txt")
         return
 
-    old_filename = parts[1]
-    new_filename = parts[2]
+    command, old_filename, new_filename = parts
 
-    if parts[0] == "cp" and old_filename != new_filename:
+    if command == "cp" and old_filename != new_filename:
 
         with (
             open(old_filename, "r") as file_in,
