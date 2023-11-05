@@ -1,8 +1,12 @@
 def copy_file(command: str) -> None:
-    file_to_copy = command.split(" ")[1]
-    new_file = command.split(" ")[2]
+    parts = command.split()
 
-    if file_to_copy == new_file:
+    if len(parts) != 3:
+        return
+
+    cp, file_to_copy, new_file = parts
+
+    if file_to_copy == new_file or cp != "cp":
         return
 
     with (open(file_to_copy, "r") as file_in,
