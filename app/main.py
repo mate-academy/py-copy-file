@@ -6,7 +6,7 @@ def copy_file(command: str) -> None:
         print("Invalid command")
         return
 
-    if components[1] == components[2]:
+    if file_in == file_out:
         print("No action to be taken")
         return
 
