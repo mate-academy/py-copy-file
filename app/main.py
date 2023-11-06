@@ -17,5 +17,5 @@ def copy_file(command: str) -> None:
         destination_file.write(source_file.read())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     copy_file("cp file.txt file-copy.txt")
