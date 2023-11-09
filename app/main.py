@@ -4,9 +4,9 @@ def copy_file(command: str) -> None:
     source_file, destination_file = parts[1], parts[2]
 
     if (
-            what_command == "cp" and
-            len(parts) == 3 and
-            source_file != destination_file
+            what_command == "cp"
+            and len(parts) == 3
+            and source_file != destination_file
     ):
 
         with (
