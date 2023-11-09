@@ -1,8 +1,13 @@
 def copy_file(command: str) -> None:
     parts = command.split()
+    what_command = parts[0]
+    source_file, destination_file = parts[1], parts[2]
 
-    if parts[0] == "cp" and len(parts) == 3 and parts[1] != parts[2]:
-        source_file, destination_file = parts[1], parts[2]
+    if (
+            what_command == "cp" and
+            len(parts) == 3 and
+            source_file != destination_file
+    ):
 
         with (
             open(source_file, "r") as file_in,
