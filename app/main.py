@@ -1,4 +1,6 @@
-# write your code here
+from contextlib import ExitStack
+
+
 def copy_file(cmd: str) -> None:
     cmd_list = cmd.split()
 
@@ -6,7 +8,7 @@ def copy_file(cmd: str) -> None:
         _, existing_file, new_file = cmd_list
 
         if existing_file != new_file:
-
-            with open(existing_file, "r") as file_in:
-                with open(new_file, "w") as file_out:
-                    file_out.write(file_in.read())
+            with ExitStack() as stack:
+                file_in = stack.enter_context(open(existing_file, "r"))
+                file_out = stack.enter_context(open(new_file, "w"))
+                file_out.write(file_in.read())
