@@ -1,5 +1,6 @@
 def copy_file(command: str) -> None:
-    if command.split(" ")[1] != command.split(" ")[2]:
-        with open(command.split(" ")[1], "r") as source:
-            with open(command.split(" ")[2], "w") as copied_file:
+    temp_arr = command.split(" ")
+    if len(temp_arr) == 3 and temp_arr[1] != temp_arr[2]:
+        with open(temp_arr[1], "r") as source:
+            with open(temp_arr[2], "w") as copied_file:
                 copied_file.write(source.read())
