@@ -1,15 +1,11 @@
-def copy_file(command: str) -> None | str:
-    file_names = command.split()
-
+def copy_file(command: str) -> None:
+    command, old_file, new_file = command.split()
     if (
-            len(file_names) != 3
-            or file_names[1] == file_names[2]
-            or file_names[0] != "cp"
+            old_file == new_file
+            or command != "cp"
     ):
-        return "invalid format"
-
-    old_file, new_file = file_names[1], file_names[2]
+        raise Exception
 
     with open(old_file, "r") as file_to_copy, open(new_file, "w") as new_file:
-        file_content = file_to_copy.readlines()
+        file_content = file_to_copy.read()
         new_file.write("".join(file_content))
