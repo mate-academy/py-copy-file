@@ -4,7 +4,7 @@ def copy_file(command: str) -> None:
             old_file == new_file
             or command != "cp"
     ):
-        raise Exception
+        return
 
     with open(old_file, "r") as file_to_copy, open(new_file, "w") as new_file:
         file_content = file_to_copy.read()
