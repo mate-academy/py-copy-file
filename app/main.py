@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
-    files = command.split()
-    if files[1] != files[2]:
-        with open(files[1], "r") as file_in, open(files[2], "w") as file_out:
+    file_names = command.split()
+    if file_names[1] != file_names[2]:
+        with open(file_names[1], "r") as file_in, open(file_names[2], "w") as file_out:
             lines = file_in.readlines()
             for line in lines:
                 file_out.write(line)
