@@ -1,9 +1,12 @@
 def copy_file(command: str) -> None:
-    command_split = command.split()
-    if command_split[0] == "cp":
-        if command_split[1] != command_split[2]:
-            with (
-                open(command_split[2], "w") as new_file,
-                open(command_split[1], "r") as old_file
-            ):
-                new_file.write(old_file.read())
+    parts = command.split()
+    if (
+        parts[0] == "cp" and
+        parts[1] != parts[2] and
+        len(parts) == 3
+    ):
+        with (
+            open(parts[2], "w") as new_file,
+            open(parts[1], "r") as old_file
+        ):
+            new_file.write(old_file.read())
