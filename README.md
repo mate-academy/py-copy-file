@@ -11,11 +11,12 @@ name, separated by spaces.
 name.
 - Function must copy the whole content to new file.
 Example:
+
 ```python
 copy_file("cp file.txt file.txt")  # Does nothing
 
 copy_file("cp file.txt new_file.txt")
-open("file.txt").read() == open("new_file.txt").read()  # True
+open("app/file.txt").read() == open("new_file.txt").read()  # True
 ```
 **Note**: You can use two contexts managers simultaneously by separating them by a comma:
 ```python
