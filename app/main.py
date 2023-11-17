@@ -9,16 +9,24 @@ def copy_file(command: str) -> None:
 
             if source_file != destination_file:
                 try:
-                    with open(source_file, "r") as file_in, open(destination_file, "w") as file_out:
+                    with open(source_file, "r") as file_in, \
+                            open(destination_file, "w") as file_out:
                         file_out.write(file_in.read())
-                    print(f'File "{source_file}" copied to "{destination_file}"')
+                    print(f'File "{source_file}" '
+                          f'copied to "{destination_file}"')
                 except FileNotFoundError:
                     print(f"Source file {source_file} does not exist")
 
                 else:
-                    print("Source and destination file names are the same. Doing nothing.")
+                    print(
+                        "Source and destination file names are the same. "
+                        "Doing nothing."
+                    )
             else:
-                print("Invalid command format. Use 'cp source_file destination_file.'")
+                print(
+                    "Invalid command format. "
+                    "Use 'cp source_file destination_file.'"
+                )
 
 
 copy_file("cp file.txt file.txt")
