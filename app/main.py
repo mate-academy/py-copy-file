@@ -2,7 +2,7 @@ def copy_file(command: str) -> None:
     # Split the command into arguments
     args = command.split()
 
-    if len(args) != 4 or args[0] != "cp":
+    if len(args) != 3 or args[0] != "cp":
         print("Invalid command. "
               "Please use the format: cp source_file destination_file")
         return
