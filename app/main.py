@@ -1,10 +1,12 @@
 def copy_file(command: str) -> None:
-    arguments = command.split()
-    if (command.startswith("cp ")
-            and len(arguments) == 3
-            and arguments[1] != arguments[2]):
-        file1 = open(arguments[1], "r")
-        file2 = open(arguments[2], "w")
-        file2.write(file1.read())
-        file1.close()
-        file2.close()
+    command_elements = command.split()
+    _command = command_elements[0]
+    file_to_copy = command_elements[1]
+    file_to_write = command_elements[2]
+    if (_command == "cp"
+            and len(command_elements) == 3
+            and file_to_copy != file_to_write):
+
+        with (open(file_to_copy, "r") as f_to_copy,
+              open(file_to_write, "w") as f_to_write):
+            f_to_write.write(f_to_copy.read())
