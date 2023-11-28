@@ -1,4 +1,8 @@
 def copy_file(command: str) -> None:
+    if len(command.split(" ")) != 3:
+        print("Command not found")
+        return
+
     command, file_name, new_file_name = command.split(" ")
 
     if file_name != new_file_name:
@@ -8,3 +12,5 @@ def copy_file(command: str) -> None:
 
         except FileNotFoundError:
             print("File not found")
+
+copy_file("cp file.txt ne_file.txt")
