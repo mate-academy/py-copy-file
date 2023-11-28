@@ -3,9 +3,7 @@ def copy_file(command: str) -> None:
     command_split = command.split()
 
     if len(command_split) == 3:
-        file_command = command_split[0]
-        original = command_split[1]
-        copy = command_split[2]
+        file_command, original, copy = command_split
 
         if (original != copy) and (file_command == "cp"):
             with (
