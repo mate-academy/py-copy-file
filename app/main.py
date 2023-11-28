@@ -12,5 +12,3 @@ def copy_file(command: str) -> None:
 
         except FileNotFoundError:
             print("File not found")
-
-copy_file("cp file.txt ne_file.txt")
