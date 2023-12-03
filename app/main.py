@@ -1,7 +1,10 @@
 def copy_file(command: str) -> None:
-    list_of_tokens = command.split()
-    if list_of_tokens[1] == list_of_tokens[2]:
+    tokens = command.split()
+
+    if tokens[1] == tokens[2]:
         return None
-    with open(list_of_tokens[1], "r") as file_in, \
-            open(list_of_tokens[2], "w") as file_out:
-        file_out.write(file_in.read())
+
+    if tokens[0] != "cp" and len(tokens) != 3:
+        with open(tokens[1], "r") as file_in, \
+                open(tokens[2], "w") as file_out:
+            file_out.write(file_in.read())
