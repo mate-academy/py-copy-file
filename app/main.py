@@ -1,9 +1,15 @@
 def copy_file(command: str) -> None:
-    command_list = command.split()
-    if len(command_list) == 3:
-        user_command, user_file, copy_user_file = command_list
-    if user_command == "cp":
-        with (open(user_file, "r") as file_in,
-              open(copy_user_file, "w") as file_out):
-            if user_file != copy_user_file:
-                file_out.write(file_in.read())
+    commands = command.split()
+    if not len(commands) == 3:
+        raise ValueError("Three variables are required: "
+                         "command, current filename, new filename.")
+    else:
+        cmd, name_file, new_name_file = commands
+    if cmd != "cp":
+        raise ValueError("Invalid command. There must be: cp.")
+    elif name_file == new_name_file:
+        raise ValueError("The filenames must be different.")
+    else:
+        with (open(name_file, "r") as file_in,
+              open(new_name_file, "w") as file_out):
+            file_out.write(file_in.read())
