@@ -7,5 +7,3 @@ def copy_file(command: str) -> None:
         if f_in != f_out:
             tmp = file_in.read()
             file_out.write(tmp)
-
-
