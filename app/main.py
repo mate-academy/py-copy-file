@@ -2,6 +2,8 @@ def copy_file(command: str) -> None:
     if not command.startswith("cp"):
         return
     command = command.split()[1:]
+    if len(command) != 2:
+        return
     file_source, file_new = command
     if file_source == file_new:
         return
