@@ -1,5 +1,9 @@
 def copy_file(command: str) -> None:
     command, fname_to_copy, new_fname = command.split(" ")
+
+    if not command == "cp":
+        pass
+
     if fname_to_copy == new_fname:
         pass
 
