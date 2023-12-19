@@ -1,9 +1,8 @@
 def copy_file(command: str) -> None:
     command = command.split()
-    file_to_copy_name = command[1]
-    new_file_name = command[2]
+    cp, file_to_copy_name, new_file_name = command
 
-    if not file_to_copy_name == new_file_name:
+    if cp == "cp" and not file_to_copy_name == new_file_name:
         with (
             open(file_to_copy_name, "r") as file_in,
             open(new_file_name, "w") as file_out
