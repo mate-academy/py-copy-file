@@ -5,7 +5,7 @@ def copy_file(command: str) -> None:
     command_file = command.split()
 
     if len(command_file) != 3 or command_file[0] != "cp":
-        print("Wrong command!")
+        return
 
     src_f = command_file[1]
     dest_f = command_file[2]
