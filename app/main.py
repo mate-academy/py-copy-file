@@ -1,4 +1,6 @@
 import shutil
+
+
 def copy_file(command: str) -> None:
     command_file = command.split()
     src_f = command_file[1]
@@ -7,7 +9,6 @@ def copy_file(command: str) -> None:
         shutil.copy2(src_f, dest_f)
     else:
         return
-
 
 
 if __name__ == "__main__":
