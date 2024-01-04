@@ -2,8 +2,7 @@ import shutil
 
 
 def copy_file(command: str) -> None:
-    command_new = command.split(" ")
-    if command_new[1] == command_new[2]:
-        pass
-    with open(command_new[1], "r"), open(command_new[2], "w"):
-        shutil.copy(command_new[1], command_new[2])
+    command, first_file, second_file = command.split(" ")
+    if command == "cp" and first_file != second_file:
+        with open(first_file, "r"), open(second_file, "w"):
+            shutil.copy(first_file, second_file)
