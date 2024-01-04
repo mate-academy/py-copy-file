@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
-    way = command.split()
+    parts = command.split()
 
-    if len(way) == 3 and way[1] != way[2]:
-        with (open(way[1], "r") as file_in,
-              open(way[2], "w") as file_out):
+    if len(parts) == 3 and parts[1] != parts[2] and parts[0] == "cp":
+        with (open(parts[1], "r") as file_in,
+              open(parts[2], "w") as file_out):
             file_out.write(file_in.read())
