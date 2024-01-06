@@ -1,6 +1,10 @@
+class CommandError(Exception):
+    pass
+
+
 def copy_file(command: str) -> None:
     if len(command.split()) < 3:
-        pass
+        raise CommandError("Invalid command. It's too short.")
 
     cp, file1, file2 = command.split()
 
