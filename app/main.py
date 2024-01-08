@@ -1,6 +1,6 @@
-def copy_file(command) -> None:
+def copy_file(command: str) -> None:
     parts = command.split()
-    if len(parts) == 3 and parts[0] == 'cp':
+    if len(parts) == 3 and parts[0] == "cp":
         source, destination = parts[1], parts[2]
         if source != destination:
             with (open(source, "r") as file_in,
