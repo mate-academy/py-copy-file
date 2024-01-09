@@ -1,7 +1,8 @@
 def copy_file(command: str) -> None:
-    new_command = command.split(" ")
-    if new_command[1] != new_command[2]:
-        with (open(new_command[1], "r") as file_in,
-              open(new_command[2], "w") as file_out):
-            file_content = file_in.read()
-            file_out.write(file_content)
+    parts = command.split()
+    if len(parts) == 3:
+        if parts[1] != parts[2] and parts[0] == "cp":
+            with (open(parts[1], "r") as file_in,
+                  open(parts[2], "w") as file_out):
+                file_content = file_in.read()
+                file_out.write(file_content)
