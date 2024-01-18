@@ -1,15 +1,11 @@
-import os
-import sys
+from os import path, listdir, getcwd, chdir
+from sys import argv
 
 
 def copy_file(command: str) -> None:
-    os.chdir(os.path.dirname(sys.argv[0]))
-    items = command.split(" ")
-    reference_name, copy_name = items[1], items[2]
-
-    if reference_name == copy_name:
+    chdir(path.dirname(argv[0]))
+    ref = command.split(" ")[1]
+    new = command.split(" ")[2]
+    if ref == new or new in listdir(getcwd()):
         return
-    if copy_name in os.listdir(os.getcwd()):
-        return
-    else:
-        open(copy_name, "x").write(open(reference_name, "r").read())
+    open(new, "x").write(open(ref, "r").read())
