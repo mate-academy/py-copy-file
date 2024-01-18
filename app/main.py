@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    com_d = command.strip()
+    com_d = command.split()
     if com_d[1] == com_d[2]:
         return None
     else:
