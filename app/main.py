@@ -1,8 +1,13 @@
 def copy_vile(command: str) -> None:
-    text = command.split()
-    if text[0] == "cp" and text[1] != text[2]:
+
+    operation, source_name, new_file_name = command.split()
+    if (
+        len(command.split()) == 3
+            and operation == "cp"
+            and source_name != new_file_name
+    ):
         with (
-            open(text[1], "r") as source,
-            open(text[2], "w") as new_file
+            open(source_name, "r") as source,
+            open(new_file_name, "w") as new_file
         ):
             new_file.write(source.read())
