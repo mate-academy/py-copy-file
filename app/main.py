@@ -1,6 +1,5 @@
 def copy_file(copy_command: str) -> None:
-    copy_command = copy_command.split(" ")
-    cmd, file_name, new_file_name = copy_command
+    cmd, file_name, new_file_name = copy_command.split()
     if cmd == "cp" and file_name != new_file_name:
         with (
             open(file_name, "r") as file_in,
