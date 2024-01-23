@@ -1,4 +1,4 @@
-def copy_file(command: str):
+def copy_file(command: str) -> None:
     split_command = command.split()
     first_part = split_command[1]
     second_part = split_command[2]
