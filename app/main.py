@@ -3,7 +3,7 @@ def copy_file(command: str):
     first_part = split_command[1]
     second_part = split_command[2]
 
-    if first_part == second_part:
+    if len(split_command) != 3 or split_command[0] != "cp":
         return
 
     with open(first_part, "r") as file_in, open(second_part, "w") as file_out:
