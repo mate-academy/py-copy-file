@@ -1,6 +1,5 @@
-def copy_file() -> None:
+def copy_file(command: str) -> None:
 
-    command = input("Enter command: ")
     parts = command.split()
 
     if len(parts) != 3 or parts[0] != "cp":
