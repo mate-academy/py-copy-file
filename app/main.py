@@ -14,5 +14,3 @@ def copy_file(command: str) -> None:
 
 
 copy_file("cp file.txt file.txt")
-
-
