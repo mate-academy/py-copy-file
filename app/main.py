@@ -1,4 +1,4 @@
-def copy_file(command):
+def copy_file(command: str) -> None:
     parts = command.split()
 
     if len(parts) != 3:
@@ -15,11 +15,13 @@ def copy_file(command):
         return
 
     try:
-        with open(source_file, "r") as file_in, open(destination_file, "w") as file_out:
+        with (open(source_file, "r") as file_in,
+              open(destination_file, "w") as file_out):
             file_content = file_in.read()
             file_out.write(file_content)
 
-        print(f"File '{source_file}' copied to '{destination_file}' successfully.")
+        print(f"File '{source_file}' copied to "
+              f"'{destination_file}' successfully.")
     except FileNotFoundError:
         print(f"Error: File '{source_file}' not found.")
     except Exception as error:
