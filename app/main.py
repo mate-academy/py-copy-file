@@ -2,9 +2,10 @@ def copy_file(command: str) -> None:
     linux_command, source_name, new_file = command.split(" ")
     if (
             linux_command != "cp" or not (
-            source_name.endswith(".txt") or
-            new_file.endswith(".txt")
-    )):
+            source_name.endswith(".txt")
+            or new_file.endswith(".txt")
+            )):
+
         raise ValueError("Check your command and try again")
     if source_name == new_file:
         raise ValueError("Names should not have the same name")
