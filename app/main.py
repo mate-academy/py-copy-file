@@ -1,10 +1,10 @@
 def copy_file(command: str) -> None:
-    split_command = command.split()
-    first_part, second_part = split_command[1], split_command[2]
-    if len(split_command) != 3 or split_command[0] != "cp":
+    try:
+        _, first_part, second_part = command.split()
+    except ValueError:
         return
 
-    if first_part == second_part:
+    if first_part == second_part or command.split()[0] != "cp":
         return
 
     with open(first_part, "r") as file_in, open(second_part, "w") as file_out:
