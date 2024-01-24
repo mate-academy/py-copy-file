@@ -8,7 +8,7 @@ class CommandNameError(Exception):
 
 
 class FileNameError(Exception):
-    def __str__(self):
+    def __str__(self) -> str:
         return ("Source and copy paths are the same. "
                 "Please provide different paths.")
 
