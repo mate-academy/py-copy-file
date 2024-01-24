@@ -1,12 +1,6 @@
-import shutil
-
-
 def copy_file(command: str) -> None:
-    filenames = command.split()
-    source_filename = filenames[1]
-    destination_filename = filenames[2]
-    if source_filename == destination_filename:
+    origin_name, copy_name = command.split()[1], command.split()[2]
+    if origin_name == copy_name:
         return
-    with open(source_filename, "r") as file_in, \
-            open(destination_filename, "w") as file_out:
-        shutil.copyfileobj(file_in, file_out)
+    with open(origin_name, "r") as file_in, open(copy_name, "w") as file_out:
+        file_out.write(file_in.read())
