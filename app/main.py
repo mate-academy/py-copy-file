@@ -15,7 +15,7 @@ class FileNameError(Exception):
 
 def validate_command(command_string: str) -> Tuple:
     try:
-        prefix, source_path, copy_path = command_string.split(" ")
+        prefix, source_path, copy_path = command_string.split()
     except (ValueError, AttributeError):
         raise CommandNameError
     if prefix != "cp":
@@ -27,10 +27,7 @@ def validate_command(command_string: str) -> Tuple:
 
 def copy_file(command: str) -> None:
 
-    try:
-        source_path, copy_path = validate_command(command)
-        with open(source_path, "r") as source, open(copy_path, "w") as copy:
-            source_content = source.read()
-            copy.write(source_content)
-    except Exception as error:
-        print(error)
+    source_path, copy_path = validate_command(command)
+    with open(source_path, "r") as source, open(copy_path, "w") as copy:
+        source_content = source.read()
+        copy.write(source_content)
