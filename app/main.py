@@ -1,11 +1,8 @@
 def copy_file(command: str) -> None:
-    parts = command.split()
-
-    if len(parts) != 3 or parts[0] != "cp":
+    try:
+        cp, main_file, for_copy_file = command.split()
+    except ValueError:
         return
-
-    main_file = parts[1]
-    for_copy_file = parts[2]
 
     if main_file == for_copy_file:
         return
