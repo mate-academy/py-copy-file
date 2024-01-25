@@ -1,3 +1,7 @@
+class SameNameError(NameError):
+    pass
+
+
 def copy_file(command: str) -> None:
 
     parts = command.split()
@@ -14,7 +18,7 @@ def copy_file(command: str) -> None:
         while True:
 
             if parts[1] == parts[2]:
-                raise NameError("Copy cannot have the same name!")
+                raise SameNameError("Copy cannot have the same name!")
 
             file_copy.write(text)
 
