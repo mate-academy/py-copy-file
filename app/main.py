@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
-    operator, input_file, output_file = command.split()
-    if input_file != output_file and operator == "cp":
+    command_type, input_file, output_file = command.split()
+    if input_file != output_file and command_type == "cp":
         try:
 
             with (open(input_file, "r") as file_in,
