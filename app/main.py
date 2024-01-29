@@ -1,11 +1,16 @@
 def copy_file(command: str) -> None:
-    command_list = command.split()
-    if command_list[1] == command_list[2]:
-        return
-    if command_list == "cp" and len(command_list) == 3:
+    cmd, file_copy, file_new = command.split()
+    if cmd != "cp" or file_copy == file_new:
+        raise ValueError("Invalid command or file names are the same.")
+
+    try:
         with (
-            open(command_list[1], "r") as file_in,
-            open(command_list[2], "w") as file_out
+            open(file_copy, "r") as file_in,
+            open(file_new, "w") as file_out
         ):
             content_in = file_in.read()
             file_out.write(content_in)
+    except ValueError:
+        print("ValueError: Data entry error.")
+    except Exception as e:
+        print(f"Error copying the file: {e}")
