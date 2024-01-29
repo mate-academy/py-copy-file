@@ -1,6 +1,8 @@
 def copy_file(command: str) -> None:
     if len(command.split()) == 3:
         cmd, file_copy, file_new = command.split()
+    else:
+        raise ValueError("Invalid number of arguments.")
     if cmd != "cp" or file_copy == file_new:
         raise ValueError("Invalid command or file names are the same.")
 
