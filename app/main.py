@@ -15,10 +15,12 @@ def copy_file(command: str) -> Optional[None]:
         return
 
     # Copy the file content
-    with open(source_file, "r") as file_in:
+    with (open(source_file, "r") as file_in,
+          open(destination_file, "w")
+          as file_out):
         content = file_in.read()
-    with open(destination_file, "w") as file_out:
         file_out.write(content)
 
 
-copy_file("cp source_file.txt destination_file.txt")
+if __name__ == "__main__":
+    copy_file("cp source_file.txt destination_file.txt")
