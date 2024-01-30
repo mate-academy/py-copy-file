@@ -1,1 +1,2 @@
-# write your code here
+def copy_file():
+    pass
