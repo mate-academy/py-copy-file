@@ -1,6 +1,3 @@
-import shutil
-
-
 def copy_file(command_line: str) -> None:
     parts = command_line.split()
 
@@ -14,7 +11,7 @@ def copy_file(command_line: str) -> None:
 
         try:
             with open(source, "r") as file_in, open(dest, "w") as file_out:
-                shutil.copyfileobj(file_in, file_out)
+                file_out.write(file_in.read())
             print(f"File {source} coppied to destination")
         except FileNotFoundError:
             print(f"File {source} not exists")
