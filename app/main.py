@@ -18,5 +18,3 @@ def copy_file(command: str) -> None | str:
     with open(sep_file[1], "r") as file_in, open(sep_file[2], "w") as file_out:
         file_content = file_in.read()
         file_out.write(file_content)
-
-copy_file("cp text.txt")
