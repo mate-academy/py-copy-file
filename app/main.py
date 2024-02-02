@@ -17,11 +17,11 @@ def copy_file(command: str) -> None:
               open(copied_file, "w") as file_out):
             file_out.write(file_in.read())
 
-        print(f"File \"{original_file}\" copied to"
-              f" \"{copied_file}\" successfully.")
+        print(f"File '{original_file}' copied to"
+              f" '{copied_file}' successfully.")
 
     except FileNotFoundError:
-        print(f"Error: \"{original_file}\" not found.")
+        print(f"Error: '{original_file}' not found.")
 
 
 # example of usage
