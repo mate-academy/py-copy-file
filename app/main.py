@@ -12,5 +12,6 @@ def copy_file(command: str) -> None:
         elif name_file == new_name_file:
             raise ValueError("The filenames must be different.")
         else:
-            with open(name_file, "r") as file_in, open(new_name_file, "w") as file_out:
+            with open(name_file, "r") as file_in, \
+                    open(new_name_file, "w") as file_out:
                 file_out.write(file_in.read())
