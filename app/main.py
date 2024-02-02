@@ -13,7 +13,7 @@ def copy_file(command: str) -> None | str:
         return "Does nothing"
     if sep_file[0] != "cp":
         raise NoCpInCommand
-    if len(sep_file) > 3:
+    if len(sep_file) != 3:
         raise ArgumentsOutOfRange
 
     with open(sep_file[1], "r") as file_in, open(sep_file[2], "w") as file_out:
