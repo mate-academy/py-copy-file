@@ -5,5 +5,3 @@ def copy_file(command: str) -> None:
             file_info = f.read()
             c.write(file_info)
 
-
-copy_file("cp file.txt copy.txt")
