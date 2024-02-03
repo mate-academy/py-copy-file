@@ -4,4 +4,3 @@ def copy_file(command: str) -> None:
         with open(file, "r") as f, open(copy, "w") as c:
             file_info = f.read()
             c.write(file_info)
-
