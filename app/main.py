@@ -1,9 +1,8 @@
 def copy_file(command: str) -> None:
     components = command.split()
-    command_, source_file, destination_file = command.split()
+    command_, source_file, destination_file = components
 
-    if len(components) == 3 and command_ == "cp":
-        if source_file != destination_file:
+    if len(components) == 3 and command_ == "cp" and source_file != destination_file:
 
             try:
 
