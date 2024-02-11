@@ -9,5 +9,5 @@ def copy_file(command: str) -> None:
             return
 
         with open(source, "r") as source_file, \
-            open(destination, "w") as out_file:
+             open(destination, "w") as out_file:
             out_file.write(source_file.read())
