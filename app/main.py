@@ -1,9 +1,11 @@
 def copy_file(command: str) -> None:
-    arguments = command.split(" ")
-    if (len(arguments) != 3
-            or arguments[0] != "cp"
-            or arguments[1] == arguments[2]):
-        return
+    arguments = command.split()
+    if len(arguments) != 3:
+        raise ValueError("Wrong count of arguments")
+    com, original_filename, copy_filename = arguments
+    if com != "cp":
+        raise ValueError("Wrong command")
     with (open(arguments[1], "r") as file_in,
           open(arguments[2], "w") as file_out):
-        file_out.write(file_in.read())
+        if original_filename != copy_filename:
+            file_out.write(file_in.read())
