@@ -1,11 +1,13 @@
 def copy_file(command: str) -> None:
-    if len(command.split()) == 3 and command.split[0] == "cp":
+    args = command.split()
+    if len(args) == 3 and args[0] == "cp":
 
-        source = command.split()[1]
-        destination = command.split()[2]
+        source = args()[1]
+        destination = args()[2]
 
         if source == destination:
             return
 
-        with open(source, "r") as s, open(destination, "w") as d:
-            d.write(s.read())
+        with open(source, "r") as source_file, \
+            open(destination, "w") as out_file:
+            out_file.write(source_file.read())
