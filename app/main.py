@@ -2,9 +2,7 @@ def copy_file(command: str) -> None:
 
     split_com = command.split()
 
-    cp = split_com[0]
-    source_file = split_com[1]
-    destination_file = split_com[2]
+    cp, source_file, destination_file = split_com
 
     if (len(split_com) == 3
             and source_file != destination_file
