@@ -3,7 +3,6 @@ def copy_file(command: str) -> None:
     com, source_file, target_file = (command_parts[0],
                                      command_parts[1],
                                      command_parts[2])
-
     if (
             com == "cp"
             and source_file != target_file
