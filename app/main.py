@@ -7,8 +7,8 @@ def copy_file(command: str) -> None:
     if (
             com == "cp"
             and source_file != target_file
+            and len(command_parts) == 3
     ):
-        if len(command_parts) == 3:
             with (open(source_file, "r") as file,
                   open(target_file, "w") as new_file):
                 new_file.write(file.read())
