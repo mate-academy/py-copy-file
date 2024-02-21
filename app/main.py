@@ -8,7 +8,8 @@ def copy_file(command: str) -> None:
             open(output_filename, "w") as out_f
         ):
             out_f.write(inp_f.read())
-    # return output_filename
 
 
-print(copy_file("cp file.txt file.txt"))
+if __name__ == "__main__":
+    copy_file("cp file.txt file.txt")
+    copy_file("cp file.txt new_file.txt")
