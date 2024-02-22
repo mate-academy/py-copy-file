@@ -7,7 +7,7 @@ def copy_file(command_name: str) -> None:
 
     if command == "cp" and input_filename != output_filename:
         with (
-            open(input_filename, "r") as inp_f,
-            open(output_filename, "w") as out_f
+            open(input_filename, "r") as input_file,
+            open(output_filename, "w") as output_file
         ):
-            out_f.write(inp_f.read())
+            output_file.write(input_file.read())
