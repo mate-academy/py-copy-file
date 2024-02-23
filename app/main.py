@@ -1,5 +1,9 @@
 def copy_file(command: str) -> None:
     command_words = command.split()
+
+    if not command.startswith("cp") or len(command_words) != 3:
+        raise ValueError("Wrong command!")
+
     if command_words[1] == command_words[2]:
         return
 
