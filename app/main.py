@@ -1,6 +1,6 @@
 def copy_file(command_name: str) -> None:
     command_name = command_name.lower()
-    command_tokens = command_name.split(" ")
+    command_tokens = command_name.split()
 
     if "" in command_tokens:
         for _ in range(command_tokens.count("")):
