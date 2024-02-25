@@ -3,7 +3,7 @@ def copy_file(command: str) -> None:
         command,
         first_filename,
         second_filename,
-    ) = command.split(" ")
+    ) = command.split()
     if command != "cp" or first_filename == second_filename:
         return
     try:
