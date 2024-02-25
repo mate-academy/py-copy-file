@@ -1,4 +1,4 @@
-def copy_file(command: str) -> any:
+def copy_file(command: str) -> None:
     (
         command,
         first_filename,
