@@ -1,5 +1,5 @@
 def copy_file(command: str) -> object:
-    new_str = command.split(" ")
+    new_str = command.split()
     file_current = str(new_str[1])
     file_future = str(new_str[2])
 
