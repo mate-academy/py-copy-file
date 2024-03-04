@@ -1,8 +1,7 @@
 def copy_file(command: str) -> bool:
-    commands = command.split(" ")
+    commands = command.split()
     if len(commands) == 3 and commands[0] == "cp":
-        cp_file = commands[1]
-        new_file = commands[2]
+        _, cp_file, new_file = commands
 
         if cp_file != new_file:
             with (open(cp_file, "r") as file_in,
