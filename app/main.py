@@ -1,7 +1,11 @@
 def copy_file(command: str) -> None:
     parts = command.split()
-    old_file = parts[1]
-    new_file = parts[2]
+    if len(parts) != 3 or parts[0] != "cp":
+        print("Invalid command")
+        return
+
+    _, old_file, new_file = parts
+
     try:
         with open(old_file, "r") as file_in:
             if old_file != new_file:
