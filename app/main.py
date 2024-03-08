@@ -1,13 +1,7 @@
 def copy_file(command: str) -> None:
-    parts = command.split()
+    action, source_file, destination_file = command.split()
 
-    if len(parts) != 3 or parts[1] == parts[2]:
-        return
-
-    with (open(parts[1], "r") as file_in,
-            open(parts[2], "w") as file_out):
-        for line in file_in:
-            file_out.write(line)
-
-
-copy_file("cp test.txt test.txt")
+    if len(command.split()) == 3 and source_file != destination_file:
+        with (open(source_file, "r") as file_in,
+              open(destination_file, "w") as file_out):
+            file_out.writelines(file_in)
