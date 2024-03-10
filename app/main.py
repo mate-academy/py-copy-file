@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
     command_ls = command.split()
-    if command_ls[0] is not "cp":
+    if command_ls[0] != "cp":
         raise ValueError
 
     if command_ls[1] != command_ls[2]:
