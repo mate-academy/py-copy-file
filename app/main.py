@@ -1,9 +1,9 @@
 def copy_file(command: str) -> None:
     command_text = command.split()
     if (
-        command_text[0] != "cp"
+        len(command_text) != 3
+        or command_text[0] != "cp"
         or command_text[1] == command_text[2]
-        or len(command_text) != 3
     ):
         return
     with (
