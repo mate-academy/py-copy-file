@@ -1,8 +1,8 @@
 def copy_file(command: str) -> None:
-    file = command.split()
+    new_file = command.split()
 
-    if file == 3:
-        if file[1] != file[2] and file[0] == "cp":
+    if new_file == 3:
+        if new_file[1] != new_file[2] and new_file[0] == "cp":
             with (
                 open(command[1], "r") as file_in,
                 open(command[2], "w") as file_out
