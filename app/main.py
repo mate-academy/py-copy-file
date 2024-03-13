@@ -5,7 +5,7 @@ def cope_file(command: str) -> None:
         and new_command[0] == "cp"
         and new_command[1] != new_command[2]
     ):
-         with (
+        with (
             open(new_command[1], "r") as file_in,
             open(new_command[2], "w") as file_out
         ):
