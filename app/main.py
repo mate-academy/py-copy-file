@@ -1,15 +1,7 @@
-class CommandError(Exception):
-    def __str__(self) -> str:
-        return "Use: cp <file> <file_copy>"
-
-
 def copy_file(command: str) -> None:
-    if not command:
-        raise CommandError
-
     command = command.split()
     if len(command) != 3 or command[0] != "cp":
-        raise CommandError
+        raise ValueError("Use: cp <file> <file_copy>")
     if command[1] != command[2]:
         with (
             open(command[1], "r") as file_to_copy,
