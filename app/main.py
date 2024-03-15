@@ -1,15 +1,15 @@
 def copy_file(command: str) -> None | str:
-    command_list = command.split()
+    command_name, input_filename, output_filename, *_ = command.split()
 
-    if command_list[0] != "cp":
+    if command_name != "cp":
         return (
-            f"Wrong command has been entered '{command_list[0]}'"
+            f"Wrong command has been entered '{command_name}'"
             f" (only the 'cp' command is accepted)"
         )
 
-    if command_list[1] == command_list[2]:
+    if input_filename == output_filename:
         return
 
-    with (open(command_list[1], "r") as original,
-          open(command_list[2], "w") as copy):
+    with (open(input_filename, "r") as original,
+          open(output_filename, "w") as copy):
         copy.write(original.read())
