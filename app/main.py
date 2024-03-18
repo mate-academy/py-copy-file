@@ -1,9 +1,9 @@
 def copy_file(command: str) -> None:
-    key, read_file, write_file, *_ = command.split()
+    command = command.split()
 
-    if read_file != write_file and key == "cp":
+    if len(command) == 3:
         with (
-            open(read_file, "r") as file_in,
-            open(write_file, "w") as file_out
+            open(command[1], "r") as file_in,
+            open(command[2], "w") as file_out
         ):
             file_out.write(file_in.read())
