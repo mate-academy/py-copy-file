@@ -1,7 +1,10 @@
 def copy_file(command: str) -> None:
-    key_word, read_file, write_file, *_ = command.split()
-    """# After use "*_" instruction no need "len == 3" verif,
-    because all the extra parts end up in a variable _ """
+
+    if len(command.split()) != 3:
+        print("Invalid command format")
+        return
+
+    key_word, read_file, write_file = command.split()
 
     if key_word == "cp" and read_file != write_file:
         with (
