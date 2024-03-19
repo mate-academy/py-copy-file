@@ -1,6 +1,3 @@
-import shutil
-
-
 def copy_file(command: str) -> None:
     parts = command.split()
 
@@ -16,9 +13,13 @@ def copy_file(command: str) -> None:
                          "No action taken.")
 
     try:
-        shutil.copyfile(source_file, test_file)
+        with open(source_file, "r") as src_file:
+            file_content = src_file.read()
+
+        with open(test_file, "w") as dst_file:
+            dst_file.write(file_content)
+
         print(f"File '{source_file}' copied to '{test_file}' successfully.")
     except FileNotFoundError:
-        raise FileNotFoundError(f"Error: One or both of the files"
-                                f" '{source_file}' and '{test_file}' "
-                                f"not found.")
+        print(f"Error: One or both of the files "
+              f"'{source_file}' and '{test_file}' not found.")
