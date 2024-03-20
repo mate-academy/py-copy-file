@@ -6,3 +6,8 @@ def copy_file(command: str) -> None:
         with (open(initial_file, "r") as file_old,
               open(final_file, "w") as file_new):
             file_new.write(file_old.read())
+    command, initial_file, final_file = command.split(" ")
+    if initial_file != final_file and command == "cp":
+        with (open(initial_file, "r") as file_old,
+              open(final_file, "w") as file_new):
+            file_new.write(file_old.read())
