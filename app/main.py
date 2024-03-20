@@ -5,6 +5,10 @@ def copy_file(command: str) -> None:
 
     command, file_name, new_file_name = command.split()
 
+    if not any(("copy" in command, "cp" in command)):
+        print("Command not found")
+        return
+
     if file_name != new_file_name:
         try:
             with (
