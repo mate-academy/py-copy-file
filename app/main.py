@@ -20,6 +20,3 @@ def copy_file(command: str) -> None:
 
         except FileNotFoundError:
             print("File not found")
-
-
-copy_file("cp bobo.txt copy.txt")
