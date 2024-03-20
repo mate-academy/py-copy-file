@@ -1,14 +1,14 @@
 def copy_file(command: str) -> None:
     parts = command.split()
 
-    if len(parts) != 3 or parts[0] != "cp":
+    if len(parts) != 3:
         raise ValueError("Invalid command format. "
                          "Please provide the command in the format:"
                          " cp <source_file> <destination_file>")
 
     _, source_file, test_file = parts
 
-    if source_file == test_file:
+    if source_file == test_file or _ != "cp":
         raise ValueError("Source and destination files have the same name. "
                          "No action taken.")
 
@@ -22,6 +22,3 @@ def copy_file(command: str) -> None:
     except FileNotFoundError:
         print(f"Error: One or both of the files "
               f"'{source_file}' and '{test_file}' not found.")
-
-
-copy_file("cpf file.txt file-copy.txt")
