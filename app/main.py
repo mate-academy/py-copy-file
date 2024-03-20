@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
     parts = command.split()
 
-    if len(parts) != 3:
+    if len(parts) != 3 or parts[0] != 'cp':
         raise ValueError("Invalid command format. "
                          "Please provide the command in the format:"
                          " cp <source_file> <destination_file>")
@@ -13,13 +13,14 @@ def copy_file(command: str) -> None:
                          "No action taken.")
 
     try:
-        with open(source_file, "r") as src_file:
-            file_content = src_file.read()
 
-        with open(test_file, "w") as dst_file:
-            dst_file.write(file_content)
+        with open(source_file, "r") as file_in, open(test_file, "w") as file_out:
+            file_out.write(file_in.read())
 
         print(f"File '{source_file}' copied to '{test_file}' successfully.")
     except FileNotFoundError:
         print(f"Error: One or both of the files "
               f"'{source_file}' and '{test_file}' not found.")
+
+
+copy_file("cp file.txt file-copy.txt")
