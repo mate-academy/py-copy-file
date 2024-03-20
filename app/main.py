@@ -1,13 +1,13 @@
 def copy_file(command: str) -> None:
-    if len(command.split()) != 3:
+    if len(command.split()) != 3 or not any((
+            "copy" in command.split()[0],
+            "cp" in command.split()[0]
+    )):
+
         print("Command not found")
         return
 
     command, file_name, new_file_name = command.split()
-
-    if not any(("copy" in command, "cp" in command)):
-        print("Command not found")
-        return
 
     if file_name != new_file_name:
         try:
@@ -20,3 +20,6 @@ def copy_file(command: str) -> None:
 
         except FileNotFoundError:
             print("File not found")
+
+
+copy_file("cp bobo.txt copy.txt")
