@@ -2,7 +2,7 @@ def copy_file(command: str) -> None:
     if len(command.split()) != 3 or command.split()[0] != "cp":
         return
 
-    input_file, output_file = command.split()[1], command.split()[2]
+    input_file, output_file = command.split()[1:]
     if input_file != output_file:
         with (
             open(input_file, "r") as to_copy,
