@@ -1,14 +1,13 @@
 def copy_file(command: str) -> None:
     list_of_words = command.split()
     if len(list_of_words) != 3:
-        print("Invalid command format. Please provide exactly 3 arguments.")
-        return
+        raise Exception("Invalid command format. Please provide exactly 3 arguments.")
 
-    source_file, destination_file = list_of_words[1:]
-    if list_of_words[0] != "mv":
-        return
+    command, source_file, destination_file = list_of_words
+    if command != "mv":
+        raise Exception("Invalid command format. Please provide exactly")
     if source_file == destination_file:
-        return
+        raise Exception("Invalid names. Please provide exactly")
     with (open(source_file, "r") as file_in,
           open(destination_file, "w") as file_out):
         file_out.write(file_in.read())
