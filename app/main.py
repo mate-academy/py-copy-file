@@ -6,9 +6,9 @@ def copy_file(command: str) -> None:
                          "Please provide the command in the format:"
                          " cp <source_file> <destination_file>")
 
-    _, source_file, test_file = parts
+    command_name, source_file, test_file = parts
 
-    if source_file == test_file or _ != "cp":
+    if source_file == test_file or command_name != "cp":
         raise ValueError("Source and destination files have the same name. "
                          "No action taken.")
 
