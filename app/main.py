@@ -1,7 +1,8 @@
 def copy_file(command: str) -> None:
     list_of_words = command.split()
     if len(list_of_words) != 3:
-        raise Exception("Invalid command format. Please provide exactly 3 arguments.")
+        raise Exception("Invalid command format. "
+                        "Please provide exactly 3 arguments.")
 
     command, source_file, destination_file = list_of_words
     if command != "mv":
