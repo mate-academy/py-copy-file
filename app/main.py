@@ -8,14 +8,14 @@ def copy_file(command: str) -> None:
     if len(normalized_command) != copy_command_words_total:
         raise Exception(copy_command_error_message)
 
-    copy_command, file_to_copy_path, destination_file_to_copy_path = normalized_command
+    copy_command, file_to_copy_path, destination_path = normalized_command
 
     if copy_command != standard_copy_command:
         raise Exception(copy_command_error_message)
 
-    if file_to_copy_path == destination_file_to_copy_path:
+    if file_to_copy_path == destination_path:
         return
 
     with (open(file_to_copy_path, "r") as file_in,
-          open(destination_file_to_copy_path, "w") as file_out):
+          open(destination_path, "w") as file_out):
         file_out.write(file_in.read())
