@@ -5,8 +5,10 @@ def copy_file(command: str) -> None:
 
     normalized_command = command.split()
 
-    if (len(normalized_command) != copy_command_words_total or
-            normalized_command[0] != standard_copy_command):
+    is_copy_command_valid = normalized_command[0] != standard_copy_command
+    is_command_valid = len(normalized_command) != copy_command_words_total
+
+    if is_command_valid or is_copy_command_valid:
         raise Exception(copy_command_error_message)
 
     file_to_copy_path, destination_path = normalized_command[1:]
