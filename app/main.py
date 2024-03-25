@@ -1,8 +1,10 @@
 
 
-def copy_file(file_name: str, new_file: str) -> None:
-    if file_name == new_file:
+def copy_file(command: str) -> None:
+    source, destination = command.split()[1:]
+
+    if source == destination:
         return
-    with open(file_name, "r") as file_in, open(new_file, "w") as file_out:
+    with open(source, "r") as file_in, open(destination, "w") as file_out:
         content = file_in.read()
         file_out.write(content)
