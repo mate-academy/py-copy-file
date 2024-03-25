@@ -13,8 +13,9 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(source_file, "r") as file_in, open(destination_file, "w") as file_out:
-            file_out.write(file_in.read())  # Copy content from source file to destination file
+        with open(source_file, "r") as file_in, \
+                open(destination_file, "w") as file_out:
+            file_out.write(file_in.read())
         print("File copied successfully.")
     except FileNotFoundError:
         print("One of the files does not exist.")
