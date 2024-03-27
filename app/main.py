@@ -1,5 +1,5 @@
 def coopy_file(command: str) -> None:
-    elements = command.split(" ")
+    elements = command.split()
 
     if len(elements) < 3 and elements[1] != "cp":
         print("Invalid command. Usage: cp source.file destination.file")
@@ -12,5 +12,3 @@ def coopy_file(command: str) -> None:
             file_out.write(file_in.read())
             print(f"File {file_in} copied to {file_out}."
                   f" Successfully")
-    else:
-        pass
