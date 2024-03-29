@@ -1,6 +1,8 @@
 def copy_file(command: str) -> None:
-    files = command.split()
-    if files[1] == files[-1]:
+    commands = command.split()
+    if len(commands) != 3 or commands[0] != "cp" or commands[1] == commands[2]:
         return
-    with open(files[1], "r") as copied_file, open(files[-1], "w") as new_file:
-        new_file.write(copied_file.read())
+
+    _, copied_file, new_file = commands
+    with open(copied_file, "r") as c_file, open(new_file, "w") as n_file:
+        n_file.write(c_file.read())
