@@ -2,7 +2,7 @@ import shutil
 import os
 
 
-def copy_file(command):
+def copy_file(command: str) -> None:
     parts = command.split()
     if len(parts) != 3 or parts[0] != "cp":
         print("Invalid command format. "
