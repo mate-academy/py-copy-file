@@ -1,11 +1,15 @@
 def copy_file(command: str) -> None:
-    commands = command.split(" ")
+    commands = command.split()
 
-    source_file, destination_file = commands[1], commands[2]
+    command_name, source_file, destination_file = commands
 
     if source_file == destination_file:
         return
 
-    file_in = open(source_file, "r")
-    file_out = open(destination_file, "w")
-    file_out.write(file_in.read())
+    with open(source_file, "r") as file_in, open(destination_file, "w") as file_out:
+        file_out.write(file_in.read())
+
+
+if __name__ == "__main__":
+    copy_file("cp file.txt new_file.txt")
+    print(open("file.txt").read() == open("new_file.txt").read())  # True
