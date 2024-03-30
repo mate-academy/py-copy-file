@@ -1,4 +1,3 @@
-import shutil
 import os
 
 
@@ -9,8 +8,7 @@ def copy_file(command: str) -> None:
               "Please use 'cp source_file destination_file'.")
         return
 
-    source_file = parts[1]
-    destination_file = parts[2]
+    _, source_file, destination_file = parts
 
     if source_file == destination_file:
         print("Source file and destination file have the same name. "
@@ -22,7 +20,9 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        shutil.copyfile(source_file, destination_file)
+        with (open(source_file, "rb") as src,
+              open(destination_file, "wb") as dest):
+            dest.write(src.read())
         print(f"File '{source_file}' copied to "
               f"'{destination_file}' successfully.")
     except FileNotFoundError:
