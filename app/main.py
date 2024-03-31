@@ -4,5 +4,3 @@ def copy_file(command: str) -> None:
         with (open(command_comps[1], "r") as file_obj,
               open(command_comps[2], "w") as copy_file_obj):
             copy_file_obj.write(file_obj.read())
-            file_obj.close()
-            copy_file_obj.close()
