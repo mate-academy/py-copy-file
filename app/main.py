@@ -10,26 +10,25 @@ def copy_file(command: str):
     os.system(command)
 """
 
+import shlex
+
 
 def copy_file(command: str) -> None:
     if command[:3] == "cp":
         raise ValueError(
             "Expected 'cp' as the first argument"
         )
-    command = command[3:]
-    source_parts = command.split(".")
 
-    source_file = source_parts[0] + "." + source_parts[1].split()[0]
-    destination_file = command[len(source_file) + 1:]
+    source_parts = shlex.split(command[3:])
 
-    if not destination_file or len(destination_file.split(".")) > 2:
+    if len(source_parts) != 2:
         raise ValueError(
             "Expected 2 arguements"
         )
 
-    if source_file != destination_file:
+    if source_parts[0] != source_parts[1]:
         with (
-            open(source_file, "r") as source,
-            open(destination_file, "w") as destination
+            open(source_parts[0], "r") as source,
+            open(source_parts[1], "w") as destination
         ):
             destination.write(source.read())
