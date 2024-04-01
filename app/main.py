@@ -1,3 +1,6 @@
+import shutil
+
+
 def copy_file(command: str) -> None:
     commands = command.split()
 
@@ -14,9 +17,7 @@ def copy_file(command: str) -> None:
         raise ValueError("Source file and destination file are the same.")
 
     try:
-        with (open(source_file, "r") as file_in,
-              open(destination_file, "w") as file_out):
-            file_out.write(file_in.read())
+        shutil.copyfile(source_file, destination_file)
     except FileNotFoundError:
         raise ValueError("Source file not found.")
     except PermissionError:
