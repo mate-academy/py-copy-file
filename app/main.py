@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
     parts = command.split()
-    if len(parts) != 3:
+    if len(parts) != 3 or parts[0] != "cp":
         print("Error: Invalid command format")
         return
     _, source_file, dest_file = parts
