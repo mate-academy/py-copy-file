@@ -18,9 +18,5 @@ def copy_file(command: str) -> None:
 
     try:
         shutil.copyfile(source_file, destination_file)
-    except FileNotFoundError:
-        raise ValueError("Source file not found.")
-    except PermissionError:
-        raise ValueError("Permission denied. Unable to copy file.")
-    except Exception as e:
-        raise e
+    except OSError as e:
+        raise ValueError(f"Error copying file: {e}")
