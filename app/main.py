@@ -1,8 +1,8 @@
 def copy_file(command: str) -> None | str:
-    if len(command.split(" ")) < 3:
+    if len(command.split("")) < 3:
         return "Invalid command format"
 
-    cp_command, input_file_name, output_file_name = command.split(" ")
+    cp_command, input_file_name, output_file_name = command.split("")
 
     if cp_command != "cp":
         return "Invalid command for copying"
