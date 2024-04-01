@@ -5,7 +5,7 @@ def copy_file(command: str) -> None:
         print("Invalid command format.")
         return
 
-    if source_file != destination_file:
+    if old_file != new_file:
         with (
             open(old_file, "r") as file_in,
             open(new_file, "w") as file_out
