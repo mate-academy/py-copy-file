@@ -24,7 +24,7 @@ def copy_file(command: str) -> None:
 
     if not destination_file or len(destination_file.split(".")) > 2:
         raise ValueError(
-            "Expected 3 arguements"
+            "Expected 2 arguements"
         )
 
     if source_file != destination_file:
