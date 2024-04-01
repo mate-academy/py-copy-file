@@ -14,7 +14,7 @@ def copy_file(command: str) -> None:
         raise ValueError("Invalid command. Use 'cp' to copy files.")
 
     if source_file == destination_file:
-        raise ValueError("Source file and destination file are the same.")
+        return
 
     try:
         shutil.copyfile(source_file, destination_file)
