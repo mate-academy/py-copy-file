@@ -19,16 +19,16 @@ def copy_file(command: str) -> None:
             "Expected 'cp' as the first argument"
         )
 
-    source_parts = shlex.split(command[3:])
+    source_path, destination_path, *extra_path = shlex.split(command[3:])
 
-    if len(source_parts) != 2:
+    if extra_path:
         raise ValueError(
             "Expected 2 arguements"
         )
 
-    if source_parts[0] != source_parts[1]:
+    if source_path != destination_path:
         with (
-            open(source_parts[0], "r") as source,
-            open(source_parts[1], "w") as destination
+            open(source_path, "r") as source,
+            open(destination_path, "w") as destination
         ):
             destination.write(source.read())
