@@ -1,4 +1,4 @@
-def copy_file(command) -> globals():
+def copy_file(command: str) -> globals():
     parts_of_command = command.split()
     if len(parts_of_command) == 3 and parts_of_command[0] == "cp":
         source, copy = parts_of_command[1], parts_of_command[2]
