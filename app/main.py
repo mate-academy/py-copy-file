@@ -1,16 +1,11 @@
 def copy_file(command: str) -> globals():
-    parts_of_command = command.split()
-    if len(parts_of_command) == 3 and parts_of_command[0] == "cp":
-        source, copy = parts_of_command[1], parts_of_command[2]
-    if source == copy:
+    copy_command, file_name_to_copy, new_file_name = command.split()
+    if file_name_to_copy == new_file_name:
         print("Does nothing")
-    if source != copy:
+    elif copy_command == "cp" and file_name_to_copy != new_file_name:
         try:
-            with open(source, "r") as file_in, open(copy, "w") as file_out:
+            with (open(file_name_to_copy, "r") as file_in,
+                  open(new_file_name, "w") as file_out):
                 file_out.write(file_in.read())
         except FileNotFoundError:
             print("You did not make a file.txt")
-
-
-if __name__ == "__main__":
-    copy_file("cp example.txt new_example2.txt")
