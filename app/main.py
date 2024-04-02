@@ -2,7 +2,6 @@ def copy_file(command: str) -> None:
     # Split the command string into its components
     parts = command.split()
 
-    # Check if the command has exactly 3 parts
     if len(parts) != 3:
         print(
             "Invalid command format. "
@@ -10,10 +9,9 @@ def copy_file(command: str) -> None:
         )
         return
 
-    # Extract the filenames from the command
     _, old_file, new_file = parts
 
-    # Check if the old_file and new_file are the same
+    # Validate if the source and destination filenames are the same
     if old_file == new_file:
         print(
             "The source and destination filenames are the same. "
@@ -21,7 +19,11 @@ def copy_file(command: str) -> None:
         )
         return
 
-    # Copy the content of old_file to new_file
+    # Validate the command
+    if parts[0] != "cp":
+        print("Invalid command. Please use 'cp' command.")
+        return
+
     try:
         with open(old_file, "r") as file_in, open(new_file, "w") as file_out:
             file_out.write(file_in.read())
@@ -30,10 +32,3 @@ def copy_file(command: str) -> None:
         print(f"Error: File '{old_file}' not found.")
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-
-
-# Example use:
-copy_file("cp file.txt file.txt")  # Does nothing
-
-copy_file("cp file.txt new_file.txt")
-print(open("file.txt").read() == open("new_file.txt").read())  # True
