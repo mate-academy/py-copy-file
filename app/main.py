@@ -1,10 +1,14 @@
+import shutil
+
+
 def copy_file(command: str) -> None:
     # Split the command string into its components
     parts = command.split()
 
-    if len(parts) != 3:
+    # Validate if the command is correct and the number of arguments is correct
+    if len(parts) != 3 or parts[0] != "cp":
         print(
-            "Invalid command format. "
+            "Invalid command format or command. "
             "Please provide command in the format: cp old_file new_file"
         )
         return
@@ -19,14 +23,9 @@ def copy_file(command: str) -> None:
         )
         return
 
-    # Validate the command
-    if parts[0] != "cp":
-        print("Invalid command. Please use 'cp' command.")
-        return
-
     try:
-        with open(old_file, "r") as file_in, open(new_file, "w") as file_out:
-            file_out.write(file_in.read())
+        # Copy the file using shutil
+        shutil.copy(old_file, new_file)
         print(f"File '{old_file}' copied to '{new_file}' successfully.")
     except FileNotFoundError:
         print(f"Error: File '{old_file}' not found.")
