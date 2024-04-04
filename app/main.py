@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
-    orig_file, new_file = command[3:].split(" ")
+    _, orig_file, new_file = command.split()
     if orig_file == new_file:
-        return
-    with open(orig_file, "r") as f1, open(new_file, "w") as f2:
-        for line in f1.readlines():
-            f2.write(line)
+        raise Exception("Copying file into itself is prohibited")
+    with open(orig_file, "r") as source, open(new_file, "w") as source_copy:
+        for line in source.readlines():
+            source_copy.write(line)
