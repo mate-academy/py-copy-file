@@ -14,6 +14,7 @@ def copy_file(command: str) -> None:
             except FileNotFoundError:
                 print(f"File '{file_in_name}' not found.")
             except PermissionError:
-                print(f"Permission denied to copy '{file_in_name}' to '{file_out_name}'.")
+                print(f"Permission denied to copy '{file_in_name}' "
+                      f"to '{file_out_name}'.")
             except Exception as e:
                 print(f"An error occurred while copying the file: {e}")
