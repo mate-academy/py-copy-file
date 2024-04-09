@@ -1,5 +1,9 @@
 def copy_file(command: str) -> None:
-    cmd, file1, file2 = command.split(" ")
+    args = command.split(" ")
+    if len(args) < 3:
+        return
+
+    cmd, file1, file2 = args
 
     if file1 == file2:
         return
