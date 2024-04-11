@@ -1,10 +1,8 @@
 def copy_file(command: str) -> None:
     cmd_mapped = command.split()
-    if len(cmd_mapped) != 3:
-        return
-    if cmd_mapped[1] == cmd_mapped[2]:
-        return
-    if cmd_mapped[0] != "cp":
+    if (len(cmd_mapped) != 3
+            or cmd_mapped[1] == cmd_mapped[2]
+            or cmd_mapped[0] != "cp"):
         return
     try:
         with (open(cmd_mapped[1], "r") as file_in,
