@@ -1,21 +1,15 @@
 def copy_file(command: str) -> None:
     # Split the command string into its components
-    parts = command.split()
+    cmd, source_file, dest_file = command.split()
 
     # Check if the command is formatted correctly
-    if len(parts) != 3 or parts[0] != "cp":
-        print(
-            "Invalid command format. Use 'cp source_file destination_file'."
-        )
+    if cmd != "cp":
+        print("Invalid command format. Use 'cp source_file destination_file'.")
         return
-
-    source_file, dest_file = parts[1], parts[2]
 
     # Check if the source and destination files are the same
     if source_file == dest_file:
-        print(
-            "Source and destination file names are the same. Nothing to copy."
-        )
+        print("Source and destination names are the same. Nothing to copy.")
         return
 
     # Perform the file copy
