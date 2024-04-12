@@ -13,6 +13,3 @@ def copy_file(command: str) -> None:
         raise
     with open(file_1, "r") as file_in, open(file_2, "w") as file_out:
         file_out.write(file_in.read())
-
-
-copy_file("cp test.txt test.txt")
