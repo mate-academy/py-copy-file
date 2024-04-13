@@ -6,4 +6,4 @@ def copy_file(command: str) -> None:
             file_copy.write(source_file.read())
             print("The file successfully copied.")
     else:
-        print("Wrong command")
+        print("Wrong command.")
