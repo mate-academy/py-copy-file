@@ -1,6 +1,7 @@
 def copy_file(text: str) -> None:
     text = text.split()
-    if len(text) == 3 and text[1] == text[2]:
-        print("Does nothing")
-    if len(text) == 3 and text[1] != text[2]:
-        open(text[2], "w").write(open(text[1], "r").read())
+    if len(text) != 3 or text[0] != "cp" or text[1] == text[2]:
+        print("Wrong command")
+        return
+    with open(text[2], "r") as file_in, open(text[1], "w") as file_out:
+        file_out.write(file_in.read())
