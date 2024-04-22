@@ -3,10 +3,9 @@ import shutil
 
 def copy_file(command: str) -> None:
     path = command.split()
-    if len(path) == 3:
+    if len(path) == 3 and path[1] != path[2]:
         with open(path[1], "r") as file_in, open(path[2], "w") as file_out:
-            if file_in == file_out:
-                print("Your command don't allow to copy file")
-            else:
-                shutil.copyfile(file_in, file_out)
-        file_out.close()
+            shutil.copyfile(file_in, file_out)
+            file_out.close()
+    else:
+        print("Your command don't allow to copy file")
