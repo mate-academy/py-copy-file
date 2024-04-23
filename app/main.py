@@ -1,7 +1,3 @@
-from os import path, chdir
-from sys import argv
-
-
 def copy_file(command: str) -> None:
     parts = command.split(" ")
     if len(parts) < 3:
