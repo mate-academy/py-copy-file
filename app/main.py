@@ -11,4 +11,3 @@ def copy_file(command: str) -> None:
                 open(destination_file, "w") as file_out
             ):
                 file_out.write(file_in.read())
-    return
