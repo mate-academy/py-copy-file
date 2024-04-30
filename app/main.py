@@ -1,6 +1,10 @@
-def copy_file(command: str) -> None:
+def copy_file(command: str) -> str | None:
     command = command.split()
+
+    if command[0] != "cp" or len(command) != 3:
+        return "Incorrect command!"
+    if command[1] == command[2]:
+        return
+
     with open(command[1], "r") as file_in, open(command[2], "w") as file_out:
-        if file_in == file_out:
-            return
         file_out.write(file_in.read())
