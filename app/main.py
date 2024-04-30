@@ -3,7 +3,7 @@ def copy_file(command: str) -> None:
     if len(parts) != 3 or parts[0] != "cp":
         print("Invalid command. Usage: cp source_file destination_file")
         return
-    source_file = parts[1]
+    source_file, destination_file = parts[1], parts[2]
     destination_file = parts[2]
     if source_file == destination_file:
         print("Source and destination files are the same.")
