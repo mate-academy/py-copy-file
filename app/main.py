@@ -1,4 +1,7 @@
 def copy_file(command: str) -> None:
+    if len(command.split()) != 3:
+        print("Invalid command. Command should have three arguments.")
+        return
     f_list = command.split()
     if f_list[1] == f_list[2]:
         return
