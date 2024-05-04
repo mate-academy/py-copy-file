@@ -1,6 +1,6 @@
 def copy_file(command_line: str) -> None:
 
-    command, first_file, second_file  = command_line.split()
+    command, first_file, second_file = command_line.split()
 
     if command == "cp":
         if first_file != second_file:
