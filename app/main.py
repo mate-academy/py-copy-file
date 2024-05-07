@@ -1,7 +1,8 @@
 def copy_file(command: str) -> None:
     new_list = command.split(" ")
-    old_name = new_list[1]
-    new_name = new_list[2]
+    if len(new_list) != 3:
+        return
+    old_name, new_name = new_list[1:]
 
     if old_name == new_name:
         return
