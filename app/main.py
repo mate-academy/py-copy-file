@@ -1,6 +1,3 @@
-import shutil
-
-
 def copy_file(command: str) -> None:
     command = command.split()
     if len(command) == 3 and command[0] == "cp":
@@ -13,5 +10,3 @@ def copy_file(command: str) -> None:
         return
     print("Invalid command")
     return
-
-copy_file("cp 1.txt 2.txt")
