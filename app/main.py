@@ -2,7 +2,7 @@ import shutil
 
 
 def copy_file(command: str) -> None:
-    command = command.split(" ")
+    command = command.split()
     if len(command) == 3 and command[0] == "cp":
         with (
             open(command[1], "r") as read_file,
