@@ -1,14 +1,19 @@
+import os
+
+
 def copy_file(command: str) -> None:
-    if len(command) > 4:
-        print("Error: You need to provide exactly 2 arguments")
-    command_split = command.split(" ")
-    command_old = command_split[1]
-    command_new = command_split[2]
+    command_split = command.split()
+    if len(command_split) != 3 or command[0] != "copy":
+        return
+    _, old_file_name, new_file_name = command_split
 
-    if command_new == command_old:
-        exit()
+    if old_file_name == new_file_name:
+        return
+    if not os.path.exists(old_file_name):
+        print(f"Source file '{old_file_name}' does not exist.")
+        return
 
-    with (open(command_old, "r") as old_file,
-          open(command_new, "w") as new_file):
+    with (open(new_file_name, "r") as old_file,
+          open(new_file_name, "w") as new_file):
         content = old_file.read()
         new_file.write(content)
