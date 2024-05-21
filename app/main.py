@@ -1,4 +1,6 @@
 def copy_file(command: str) -> None:
+    if len(command) > 4:
+        exit()
     command_split = command.split(" ")
     command_old = command_split[1]
     command_new = command_split[2]
