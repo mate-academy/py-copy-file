@@ -6,4 +6,3 @@ def copy_file(command: str) -> None:
         pass
     with open(com_from, "r") as f_in, open(com_to, "a") as f_out:
         f_out.write(f_in.read())
-
