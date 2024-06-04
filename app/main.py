@@ -4,5 +4,5 @@ def copy_fil(command: str) -> None:
     to_file = lst[1]
 
     if from_file != to_file:
-        with open(from_file, "r") as file_out, open(to_file, "a") as file_in:
+        with open(from_file, "r") as file_out, open(to_file, "w") as file_in:
             file_in.write(file_out.read())
