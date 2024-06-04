@@ -3,5 +3,4 @@ def copy_file(command: str) -> None:
     if first_file == second_file or command != "cp":
         return
     with open(first_file, "r") as file_in, open(second_file, "w") as file_out:
-        for line in file_in:
-            file_out.write(line)
+        file_out.write(file_in.read())
