@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    command = command.split(" ")
+    command = command.split()
     name_from = command[1]
     name_to = command[2]
     if name_from == name_to:
