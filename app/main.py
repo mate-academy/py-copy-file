@@ -1,4 +1,7 @@
-def copy_file(command: str):
+from typing import Optional
+
+
+def copy_file(command: str) -> Optional[str]:
 
     original_file = command.split(" ")[1]
     copied_file = command.split(" ")[2]
@@ -14,7 +17,8 @@ def copy_file(command: str):
     except FileNotFoundError:
         pass
 
-    with open(original_file, "r") as file_in, open(copied_file, "w") as file_out:
+    with (open(original_file, "r") as file_in,
+          open(copied_file, "w") as file_out):
         for line in file_in:
             file_out.write(line)
 
