@@ -9,3 +9,6 @@ def copy_file(command: str) -> None:
         with (open(cmd_list[1], "r") as old_f,
               open(cmd_list[2], "w") as new_f):
             new_f.write(old_f.read())
+    else:
+        print("Invalid request. "
+              "Please use template as: cp 'file to read' 'file to write'")
