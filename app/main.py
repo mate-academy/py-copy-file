@@ -12,3 +12,8 @@ def copy_file(command: str) -> None:
                 file_out.write(file_in.read())
             print(f"File {source_file} "
                   f"copied to {destination_file}")
+
+
+copy_file("cp file.txt file.txt")  # Does nothing
+
+copy_file("cp file.txt new_file.txt")
