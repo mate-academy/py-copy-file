@@ -6,8 +6,7 @@ def copy_file(command: str) -> None:
             "Invalid command format. Use 'cp source_file target_file'"
         )
 
-    source_file = parts[1]
-    target_file = parts[2]
+    source_file, target_file = parts[1:]
 
     if source_file == target_file:
         return
@@ -15,8 +14,3 @@ def copy_file(command: str) -> None:
     with (open(source_file, "r", encoding="utf-8") as file_in,
           open(target_file, "w", encoding="utf-8") as file_out):
         file_out.write(file_in.read())
-
-
-copy_file("cp file.txt file.txt")
-copy_file("cp file.txt new_file.txt")
-print(open("file.txt").read() == open("new_file.txt").read())
