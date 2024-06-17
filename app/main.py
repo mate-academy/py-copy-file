@@ -1,13 +1,4 @@
-class CopyCommandError(Exception):
-    pass
-
-
-class InvalidCommandError(CopyCommandError):
-    pass
-
-
-class SameFileError(CopyCommandError):
-    pass
+from errors import InvalidCommandError, SameFileError
 
 
 def copy_file(command: str) -> None:
