@@ -1,10 +1,10 @@
 def copy_file(command: str) -> None:
-    first_file, second_file = command[3:].split(" ")
-    if first_file == second_file:
-        pass
+    parts = command.split()
+    if len(parts) != 3 or parts[0] != "cp" or parts[1] == parts[2]:
+        print("Data isn't correct, please enter other name command or other names files")
     else:
         content = []
-        with open(first_file, "r") as file_data:
+        with open(parts[1], "r") as file_data:
             content = file_data.read()
-        with open(second_file, "w") as file_copy:
+        with open(parts[2], "w") as file_copy:
             file_copy.write(content)
