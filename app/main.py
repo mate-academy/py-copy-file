@@ -15,4 +15,4 @@ def copy_file(command: str) -> None:
               open(parts_command[2], "w") as file_out):
             file_out.write(file_in.read())
     except FileNotFoundError:
-        print(f"The file '{parts_command[1]}' was not found. ")
+        print(f"The file '{parts_command[1]}' was not found.")
