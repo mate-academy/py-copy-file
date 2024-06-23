@@ -1,5 +1,9 @@
 def copy_file(command: str) -> None:
     command_split = command.split()
+    if command_split[0] != "cp":
+        print("There is no such command")
+        return
+
     if command_split[1] == command_split[2]:
         return
 
