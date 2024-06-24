@@ -4,7 +4,7 @@ def copy_file(command: str) -> None:
     copy = splitted_command[2]
     cp_command_check = splitted_command[0]
 
-    if not cp_command_check == "cp":
+    if cp_command_check != "cp" or len(splitted_command) != 3:
         return
 
     if original_file == copy_file:
