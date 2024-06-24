@@ -1,4 +1,4 @@
-def copy_file(command: str):
+def copy_file(command: str) -> None:
     splitted_command = command.split("")
     with (open(splitted_command[1], "r") as f_original,
           open(splitted_command[2], "w") as f_copy):
