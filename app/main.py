@@ -5,8 +5,7 @@ def copy_file(command: str) -> None:
         print("Invalid data provided!")
         return
 
-    source_file = parts[1]
-    dest_file = parts[2]
+    source_file, dest_file = parts
 
     if source_file == dest_file:
         print("Invalid data provided!")
