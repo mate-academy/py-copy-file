@@ -9,4 +9,3 @@ def copy_file(command: str) -> None:
 
     with open(reports_copy, "r") as file_in, open(where_copy, "w") as file_out:
         file_out.write(file_in.read())
-
