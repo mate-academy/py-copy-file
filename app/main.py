@@ -5,8 +5,8 @@ def copy_file(command: str) -> None:
     if command_list[0] != "cp":
         raise NameError("Expected 'cp' command")
 
-    file_name_in = command_list[1]
-    file_name_out = command_list[2]
+    file_name_in, file_name_out = command_list[1:]
+
     if file_name_in == file_name_out:
         return
 
