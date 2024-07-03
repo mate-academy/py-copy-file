@@ -17,7 +17,3 @@ def copy_file(command: str) -> None:
         print(f"File {source} does not exist")
     except Exception as e:
         print(f"An error occurred: {e}")
-
-
-if __name__ == "__main__":
-    copy_file("cp example example1.txt")
