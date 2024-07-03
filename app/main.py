@@ -1,12 +1,6 @@
 def copy_file(command: str) -> None:
-    command_to_arr = command.split()
-    if len(command_to_arr) != 3 or command_to_arr[0] != "cp":
-        return
-
-    source = command_to_arr[1]
-    destination = command_to_arr[2]
-
-    if source == destination:
+    command_name, source, destination, *_ = command.split()
+    if command_name != "cp" or source == destination:
         return
 
     try:
