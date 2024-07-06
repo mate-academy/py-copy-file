@@ -1,6 +1,6 @@
 def copy_file(command: str) -> str:
     command = command.split()
-    if len(command) != 3:
+    if len(command) != 3 or command[0] != "cp":
         return (
             "Please enter a command in "
             "format: 'cp filename.txt new_filename.txt'"
