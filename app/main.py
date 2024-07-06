@@ -9,4 +9,4 @@ def copy_file(command: str) -> None:
             open(current_file) as input_file,
             open(new_file, "w") as output_file
         ):
-            input_file.write(output_file.read())
+            output_file.write(input_file.read())
