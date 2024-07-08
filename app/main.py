@@ -9,6 +9,3 @@ def copy_file(command: str) -> str:
                 m.write(f.read())
 
             return f"File {source_code} copied to {destination_code}"
-
-
-print(copy_file("cp test.txt test_copy.txt"))
