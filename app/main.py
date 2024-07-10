@@ -4,7 +4,7 @@ source = "/Users/jacktyler/py-copy-file/app/file.txt"
 destination = "/Users/jacktyler/py-copy-file/app/new_file.txt"
 
 
-def copy_file(source, destination) -> None:
+def copy_file(source: str, destination: str) -> None:
     try:
         shutil.copy(source, destination)
     except shutil.SameFileError:
