@@ -2,11 +2,10 @@ from app.errors import CommandLineError
 
 
 def copy_file(command: str) -> None:
-
-    if len(command.split(" ")) != 3 or command.split(" ")[0] != "cp":
+    command_input = command.split()
+    if len(command_input) != 3 or command_input[0] != "cp":
         raise CommandLineError("Command line is incorrect.")
-
-    command_line, original_file, new_file = command.split(" ")
+    command_line, original_file, new_file = command_input
 
     if original_file != new_file:
         with (open(original_file) as file_in,
