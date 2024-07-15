@@ -10,8 +10,3 @@ def copy_file(path: str) -> None:
             print(f"File {data[1]} not found")
         else:
             print(f"File {data[1]} copied to {data[2]}")
-
-
-if __name__ == "__main__":
-    print()
-    copy_file("cp file.txt fil4e.txt")
