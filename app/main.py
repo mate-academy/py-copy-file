@@ -10,6 +10,3 @@ def copy_file(command: str) -> None:
         with (open(file_name, "r") as file_in,
               open(copy_file_name, "w") as file_out):
             file_out.write(file_in.read())
-
-
-copy_file("cp text.txt text_copy.txt")
