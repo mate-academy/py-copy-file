@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    command_list = command.split(" ")
+    command_list = command.split()
     if len(command_list) != 3:
         raise ValueError(f"Count of words should be equal 3, "
                          f"got {len(command_list)} instead")
