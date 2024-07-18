@@ -10,4 +10,3 @@ def copy_file(command: str) -> Any:
         with open(old_file, "r") as file_in, open(new_file, "w") as file_out:
             lines = file_in.read()
             file_out.write(lines)
-
