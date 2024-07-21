@@ -2,12 +2,12 @@ from typing import Any
 
 
 def copy_file(command: str) -> Any:
-    if len(command.split()) != 3 or command.split()[0] != "cp":
-        print("Invalid command format."
-              " Use: cp <source_file> <destination_file>")
+    parts = command.split()
+    if len(parts) != 3 or parts[0] != "cp":
+        print("Invalid command format. Use: cp <source_file> <destination_file>")
         return
 
-    cp, old_file, new_file = command.split()
+    _, old_file, new_file = parts
 
     if old_file == new_file:
         print("Source and destination files are the same. No action taken.")
