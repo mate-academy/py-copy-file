@@ -1,6 +1,3 @@
-import shutil
-
-
 def copy_file(command: str) -> None:
     splited = command.split()
 
@@ -21,9 +18,9 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        shutil.copy(file_name_to_copy, new_file_name)
-        print(f"File '{file_name_to_copy}' copied into '{new_file_name}'")
+        with open(file_name_to_copy, "r") as f1, open(new_file_name, "w") as f2:
+            f2.write(f1.read())
     except FileNotFoundError:
-        print(f"File '{file_name_to_copy}' is not found")
-    except Exception as e:
-        print(f"Error: {e}")
+        print(f"File {file_name_to_copy} not found.")
+    except IOError as e:
+        print(f"An error occurred: {e}")
