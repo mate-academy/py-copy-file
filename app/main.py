@@ -18,9 +18,10 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(file_name_to_copy, "r") as f1, open(new_file_name, "w") as f2:
+        with (open(file_name_to_copy, "r") as f1,
+              open(new_file_name, "w") as f2):
             f2.write(f1.read())
     except FileNotFoundError:
         print(f"File {file_name_to_copy} not found.")
-    except IOError as e:
+    except Exception as e:
         print(f"An error occurred: {e}")
