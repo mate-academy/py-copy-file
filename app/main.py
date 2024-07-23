@@ -1,7 +1,10 @@
 def copy_file(command: str) -> None:
-    part = command.split(" ")
+    part = command.split()
     command_cp = part[0]
     if command_cp != "cp":
+        return
+    if len(part) != 3:
+        print("Error: The command requires exactly 3 arguments.")
         return
 
     file_copy_from = part[1]
