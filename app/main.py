@@ -7,7 +7,7 @@ def copy_file(command: str) -> None:
         print("Error: The command requires exactly 3 arguments.")
         return
 
-    file_copy_from = part[1]
+    file_copy_from, file_copy_to = part[1:]
     file_copy_to = part[2]
     if file_copy_to == file_copy_from:
         return
