@@ -1,4 +1,10 @@
 def copy_file(command: str) -> None:
+    parts = command.split()
+    if len(parts) != 3:
+        raise ValueError(
+            "Invalid command format."
+            "Expected format: cp source_file destination_file"
+        )
     command_name, source_file, destination_file, *_ = command.split()
     if command_name != "cp":
         raise ValueError(
