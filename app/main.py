@@ -1,8 +1,12 @@
-def copy_file(command: str) -> None:
-    file_names = command.split(" ")
-    if file_names[0] != "cp" or file_names[1] == file_names[2]:
-        return
+import shlex
 
-    with open(file_names[1], "r") as read_file, \
-            open(file_names[2], "x") as write_file:
-        write_file.writelines(read_file.readlines())
+
+def copy_file(command: str) -> None:
+    commands = shlex.split(command)
+    source_file = commands[1]
+    destination_file = commands[2]
+
+    if commands[0] == "cp" or source_file != destination_file:
+        with open(source_file, "r") as read_file, \
+                open(destination_file, "x") as write_file:
+            write_file.writelines(read_file.readlines())
