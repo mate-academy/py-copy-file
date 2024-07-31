@@ -5,8 +5,7 @@ def copy_file(command: str) -> None:
         print("Invalid command format.")
         return
 
-    source_filename = parts[1]
-    destination_filename = parts[2]
+    source_filename, destination_filename = parts[1:]
 
     if source_filename == destination_filename:
         print("Source and destination files are the same. No action taken.")
@@ -23,3 +22,6 @@ def copy_file(command: str) -> None:
         print(f"File '{source_filename}' not found.")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+
+copy_file("cp file.txt new_file.txt")
