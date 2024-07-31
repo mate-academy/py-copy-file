@@ -12,8 +12,8 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(source_filename, "r") as source_file, \
-                open(destination_filename, "w") as destination_file:
+        with (open(source_filename, "r") as source_file,
+              open(destination_filename, "w") as destination_file):
             content = source_file.read()
             destination_file.write(content)
         print(f"File '{source_filename}' successfully copied to "
