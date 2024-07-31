@@ -1,5 +1,9 @@
 def copy_file(command: str) -> None:
-    sep_command = command.split()
+    file_copy = command[1]
+    new_file = command[2]
 
-    with open(sep_command[1], "r") as f, open(sep_command[-1], "w") as w:
-        w.write(f.read())
+    if file_copy == new_file:
+        return
+
+    with open(file_copy, "r") as copy, open(new_file, "w") as file:
+        file.write(copy.read())
