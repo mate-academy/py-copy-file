@@ -16,7 +16,3 @@ def copy_file(command: str) -> None:
         destination_name, "wb"
     ) as destination:
         destination.write(source.read())
-
-
-if __name__ == "__main__":
-    copy_file("cp README.md 'Some file.md'")
