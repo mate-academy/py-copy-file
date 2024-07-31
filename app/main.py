@@ -1,5 +1,10 @@
 def copy_file(command: str) -> str:
-    command_name, source_file, destination_file, *_ = command.split()
+    parts = command.split()
+
+    if len(parts) != 3:
+        return "Invalid command format"
+
+    command_name, source_file, destination_file = parts
 
     if command_name != "cp":
         return "Invalid command"
