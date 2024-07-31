@@ -1,9 +1,6 @@
-import shlex
-
-
 def copy_file(command: str) -> None:
     try:
-        command, source_name, destination_name = shlex.split(command)
+        command, source_name, destination_name = command.split()
         if command != "cp":
             raise ValueError("The command is not 'cp'")
     except ValueError as e:
