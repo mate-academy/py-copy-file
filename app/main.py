@@ -9,10 +9,8 @@ def copy_file(command: str) -> None:
     except ValueError as e:
         raise ValueError("The command is not valid") from e
 
-    if source_name == destination_name:
-        return
-
-    with open(source_name, "rb") as source, open(
-        destination_name, "wb"
-    ) as destination:
-        destination.write(source.read())
+    if source_name != destination_name:
+        with open(source_name, "rb") as source, open(
+            destination_name, "wb"
+        ) as destination:
+            destination.write(source.read())
