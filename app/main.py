@@ -2,7 +2,7 @@ def copy_file(command: str) -> None:
     command_args = command.split(" ")
 
     if len(command_args) != 3:
-        print("Wrong command")
+        print("Command must have only three arguments!")
 
     if command_args[1] != command_args[2]:
         _, source_file, new_file = command_args
