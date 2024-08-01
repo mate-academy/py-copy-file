@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    command_args = command.split(" ")
+    command_args = command.split()
 
     if len(command_args) != 3:
         print("Command must have only three arguments!")
