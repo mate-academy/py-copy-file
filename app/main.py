@@ -4,4 +4,4 @@ def copy_file(command: str) -> None:
         return
     with (open(source_filename, "r") as file,
           open(destination_filename, "w") as file_copy):
-        file_out.write(file_in.read())
+        file_copy.write(file.read())
