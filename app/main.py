@@ -1,1 +1,11 @@
-# write your code here
+def copy_file(command: str) -> None:
+    current_file = command.split(" ")[1]
+    new_file = command.split(" ")[2]
+    if current_file != new_file:
+        with (open(current_file, "r") as file_in,
+              open(new_file, "w") as file_out):
+            file_1 = file_in.read()
+            file_out.write(file_1)
+
+
+copy_file("cp file.txt new_file.txt")
