@@ -4,7 +4,10 @@ import shutil
 def copy_file(command: str) -> None:
     action, src_file, dest_file = command.split()
     if action != "cp" or src_file == dest_file:
-        raise ValueError("Invalid command format or source and destination files are the same")
+        raise ValueError(
+            "Invalid command format or "
+            "source and destination files are the same"
+        )
 
     try:
         with (
