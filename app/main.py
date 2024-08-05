@@ -2,24 +2,17 @@ import shutil
 
 
 def copy_file(command: str) -> None:
-    parts = command.split()
-
-    if len(parts) != 3 or parts[0] != "cp":
-        raise ValueError("Invalid command format")
-
-    source_file = parts[1]
-    destination_file = parts[2]
-
-    if source_file == destination_file:
-        return
+    action, src_file, dest_file = command.split()
+    if action != "cp" or src_file == dest_file:
+        raise ValueError("Invalid command format or source and destination files are the same")
 
     try:
         with (
-            open(source_file, "r") as file_in,
-            open(destination_file, "w") as file_out
+            open(src_file, "r") as file_in,
+            open(dest_file, "w") as file_out
         ):
             shutil.copyfileobj(file_in, file_out)
     except FileNotFoundError:
-        raise FileNotFoundError(f"Source file '{source_file}' not found")
+        raise FileNotFoundError(f"Source file '{src_file}' not found")
     except Exception as e:
         raise RuntimeError(f"An error occurred: {e}")
