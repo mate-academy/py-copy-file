@@ -9,5 +9,8 @@ def copy_file(command: str) -> None:
     copy_to = files[2]
 
     if copy_from != copy_to:
-        with open(copy_from, "r") as copying_file, open(copy_to, "w") as copied_file:
+        with (
+            open(copy_from, "r") as copying_file,
+            open(copy_to, "w") as copied_file
+        ):
             copied_file.write(copying_file.read())
