@@ -6,6 +6,7 @@ def copy_file(command: str) -> None:
         print("do nothing")
         return None
 
-    with open(command_list[1], "r") as file_out, open(command_list[2], "w") as file_to:
+    with (open(command_list[1], "r") as file_out,
+          open(command_list[2], "w") as file_to):
         print("copy file")
         file_to.write(file_out.read())
