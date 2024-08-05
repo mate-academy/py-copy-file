@@ -1,12 +1,11 @@
 def copy_file(command: str) -> None:
-    command_list = command.split(" ")
-    if command_list[1] != command_list[2]:
+    if command.split()[1] != command.split()[2]:
         with (open(
-                f"{command_list[1]}",
+                f"{command.split()[1]}",
                 "r"
-        ) as file_in,
+        ) as first_file,
             open(
-                f"{command_list[2]}",
+                f"{command.split()[2]}",
                 "w"
-        ) as file_out):
-            file_out.write(file_in.read())
+        ) as copy_file):
+            copy_file.write(first_file.read())
