@@ -6,7 +6,7 @@ def copy_file(command: str) -> None:
     cm, copy_filename, new_filename = command.split()
     if cm != "cp":
         try:
-            raise UnidentifiedCommandError(f"{cm} command doesn't exist. ")
+            raise UnidentifiedCommandError
         except UnidentifiedCommandError as error:
             print(error, "You need to type correct command.")
 
