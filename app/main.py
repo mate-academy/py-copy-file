@@ -1,9 +1,8 @@
 def copy_file(command: str) -> None:
-    com = command.split()
-    source_file = com[1]
-    destination_file = com[2]
-    if len(com) != 3 or com[0] != "cp":
-        raise ValueError("Command should be in wrong format")
+    action, source_file, destination_file = command.split()
+
+    if action != "cp" or len(command.split()) != 3:
+        raise ValueError("Command in wrong format")
     if source_file != destination_file:
         try:
             with (
