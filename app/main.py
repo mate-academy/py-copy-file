@@ -1,6 +1,8 @@
 def copy_file(command: str) -> None:
-    command_split = command.split()
-    command_to_read, command_to_write = command_split
+    is_cp, command_to_read, command_to_write = command.split()
+    if is_cp != "cp":
+        raise ValueError("The command must start with the command 'cp'")
+
     if command_to_read != command_to_write:
         with (
             open(command_to_read, "r") as file_in,
