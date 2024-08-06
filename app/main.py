@@ -1,10 +1,6 @@
 def copy_file(command: str) -> None:
-    words = command.split()
+    _, first_name, second_name = command.split()
 
-    if words[1] == words[2]:
-        return
-
-    with open(words[1]) as file_in, open(words[2], "w") as file_out:
-        content = file_in.read()
-
-        file_out.write(content)
+    if first_name != second_name:
+        with open(first_name) as file_in, open(second_name, "w") as file_out:
+            file_out.write(file_in.read())
