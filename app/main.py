@@ -1,12 +1,8 @@
 def copy_file(command: str) -> None:
 
-    command_list = command.split()
+    user_command, source_file, result_file = command.split()
 
-    if command_list[1] == command_list[2] or command_list[0] != "cd":
-        print("do nothing")
-        return None
-
-    with (open(command_list[1], "r") as file_out,
-          open(command_list[2], "w") as file_to):
-        print("copy file")
-        file_to.write(file_out.read())
+    if source_file != result_file and user_command == "cd":
+        with (open(source_file, "r") as file_out,
+              open(result_file, "w") as file_to):
+            file_to.write(file_out.read())
