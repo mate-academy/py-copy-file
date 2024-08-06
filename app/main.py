@@ -18,27 +18,21 @@ class FileCopyError(CopyFileError):
     pass
 
 
-def copy_file(command: str) -> None:
-    part_command = command.split()
+def copy_file(copy_command: str) -> None:
+    command, source_file, destination_file = copy_command.split()
 
-    if len(part_command) != 3 or part_command[0] != "cp":
+    if command != "cp" or len(copy_command.split()) != 3:
         raise InvalidCommandError("Invalid command format")
-
-    first_file = part_command[1]
-    second_file = part_command[2]
-
-    if first_file == second_file:
-        raise SameFileError(f"{first_file} and {second_file} "
-                            f"files are the same.")
-
+    if source_file == destination_file:
+        raise SameFileError(f"{source_file} "
+                            f"and {destination_file} files are the same.")
     try:
         with (
-            open(first_file, "r") as file_in,
-            open(second_file, "w") as file_out
+            open(source_file, "r") as file_in,
+            open(destination_file, "w") as file_out
         ):
             file_out.write(file_in.read())
-        print(f"Successfully copied from {first_file} to {second_file}")
     except FileNotFoundError:
-        raise CustomFileNotFoundError(f"File {first_file} not found.")
+        raise CustomFileNotFoundError(f"File {source_file} not found.")
     except Exception as e:
         raise FileCopyError(f"An error occurred: {e}")
