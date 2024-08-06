@@ -1,14 +1,16 @@
-def copy_file(command: str) -> None:
+def copy_file(command: str) -> str:
     command_parts = command.split()
-    if len(command_parts) != 3 or command_parts[0] != "cp":
-        print("Invalid command format")
-        return
+
+    if len(command_parts) != 3:
+        return "Invalid command format"
 
     cp_command, source_path, destination_path = command_parts
 
+    if cp_command != "cp":
+        return "Invalid command. Must start with 'cp'."
+
     if source_path == destination_path:
-        print("Source and destination paths are the same.")
-        return
+        return "Source and destination paths are the same."
 
     try:
         with (
@@ -16,7 +18,8 @@ def copy_file(command: str) -> None:
             open(destination_path, "w") as file_out
         ):
             file_out.write(file_in.read())
+        return "File copied successfully"
     except FileNotFoundError:
-        print(f"The file '{source_path}' does not exist.")
+        return f"The file '{source_path}' does not exist."
     except Exception as e:
-        print(f"An error occurred: {e}")
+        return f"An error occurred: {e}"
