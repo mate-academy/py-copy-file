@@ -1,6 +1,10 @@
 def copy_file(command: str) -> None:
     commands, source_file, destination_file = command.split()
-    if len(command.split()) == 3 and commands == "cp" and source_file != destination_file:
+    if (
+        len(command.split()) == 3
+        and commands == "cp"
+        and source_file != destination_file
+    ):
         with (
             open(
                 f"{source_file}", "r"
