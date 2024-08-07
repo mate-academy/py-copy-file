@@ -17,4 +17,3 @@ def copy_file(command: str) -> None:
             file_out.write(file_in.read())
     except OSError as e:
         print(f"An error occurred: {e}")
-
