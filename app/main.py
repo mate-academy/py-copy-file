@@ -6,8 +6,10 @@ def copy_file(command: str) -> None:
 
         if action == "cp" and source_file != destination_file:
             try:
-                with open(source_file, "r") as file_in:
-                    with open(destination_file, "w") as file_out:
-                        file_out.write(file_in.read())
+                with (
+                    open(source_file, "r") as file_in,
+                    open(destination_file, "w") as file_out
+                ):
+                    file_out.write(file_in.read())
             except OSError as e:
                 print(f"Error occurred: {e}")
