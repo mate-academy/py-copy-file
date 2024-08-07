@@ -1,6 +1,7 @@
 class FileError(Exception):
     pass
 
+
 def copy_file(command: str) -> None:
     is_cp, command_to_read, command_to_write = command.split()
 
