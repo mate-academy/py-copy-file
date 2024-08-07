@@ -8,6 +8,3 @@ def copy_file(command: str) -> None:
                     file_out.write(file_in.read())
         except FileNotFoundError as e:
             print(e)
-
-
-copy_file("cp abc bca.txt")
