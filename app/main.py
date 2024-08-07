@@ -1,15 +1,12 @@
 def copy_file(command: str) -> None:
     command_parts = command.split()
-
-    if len(command_parts) != 3:
-        return "Invalid command format"
-
     cp_command, source_path, destination_path = command_parts
 
-    if cp_command != "cp":
-        return "Invalid command. Must start with 'cp'."
-
-    if source_path != destination_path:
+    if (
+        source_path != destination_path
+        and len(command_parts) == 3
+        and cp_command == "cp"
+    ):
         try:
             with (
                 open(source_path, "r") as file_in,
