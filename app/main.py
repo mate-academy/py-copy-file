@@ -1,9 +1,9 @@
 
 def copy_file(command: str) -> None:
-    new_str = command.split()
+    new_str = command.split(" ", 2)
     cmd, file_first, file_second = new_str
 
-    if file_first != file_second and cmd == "cp" and len(new_str) == 3:
+    if len(new_str) == 3 and file_first != file_second and cmd == "cp":
 
         try:
             with (
