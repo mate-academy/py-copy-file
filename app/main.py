@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
     copy_info = command.split()
 
-    if len(copy_info) != 3:
+    if len(copy_info) != 3 or copy_info[0] != "cp":
         print("Command 'cp' is invalid")
         return
 
