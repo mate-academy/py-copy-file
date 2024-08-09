@@ -4,6 +4,12 @@ def copy_file(command: str) -> None:
     source_file = copy_info[1]
     target_file = copy_info[2]
 
+    if not copy_info:
+        print("Command 'cp' is empty")
+
+    if len(copy_info) != 3:
+        print("Command 'cp' is invalid")
+
     if source_file == target_file:
         print("The source and target files are identical. Does nothing.")
         return
