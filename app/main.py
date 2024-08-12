@@ -1,15 +1,14 @@
-
 def copy_file(command: str) -> None:
-    new_str = command.split(" ", 2)
-    cmd, file_first, file_second = new_str
 
-    if len(new_str) == 3 and file_first != file_second and cmd == "cp":
+    if (len(command.split()) == 3
+            and command.split()[1] != command.split()[2]
+            and command.split()[0] == "cp"):
 
         try:
             with (
-                open(file_first, "r") as first,
-                open(file_second, "w") as second
+                open(command.split()[1], "r") as first_file,
+                open(command.split()[2], "w") as second_file
             ):
-                second.write(first.read())
+                second_file.write(first_file.read())
         except OSError as e:
             print(f"Error {e}")
