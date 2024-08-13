@@ -1,4 +1,9 @@
 def copy_file(command: str) -> None:
+    parts = command.split()
+
+    if len(parts) != 3:
+        print("Invalid command format")
+        return
 
     command, first_name, second_name = command.split()
     if first_name != second_name and command == "cp":
