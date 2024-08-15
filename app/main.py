@@ -22,9 +22,3 @@ def copy_file(command: str) -> None:
     else:
         print(f"Created file {command_list[2]} "
               f"with content of {command_list[1]}")
-
-
-if __name__ == "__main__":
-    copy_file("Hello world")
-    copy_file("cp world world")
-    copy_file("cp hello_world.txt test_hello.txt")
