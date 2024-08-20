@@ -2,11 +2,13 @@ import os
 
 
 def copy_file(command: str) -> None:
-    command_list = command.split()
 
-    cmd = command_list[0]
-    file_in = command_list[1]
-    file_out = command_list[2]
+    command_list = command.split()
+    if len(command_list) == 3:
+        cmd, file_in, file_out = command_list
+    else:
+        print("The command line should contain 3 commands ...")
+        return
 
     path_in = os.path.join(os.path.dirname(__file__), file_in)
     path_out = os.path.join(os.path.dirname(__file__), file_out)
