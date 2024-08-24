@@ -9,5 +9,3 @@ def copy_file(command: str) -> None:
         content = f_from.read()
         f_to.write(content)
 
-
-copy_file("cp main.py main.bak")
