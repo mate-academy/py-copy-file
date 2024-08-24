@@ -8,4 +8,3 @@ def copy_file(command: str) -> None:
     with open(file_to_copy, "r") as f_from, open(new_file, "w") as f_to:
         content = f_from.read()
         f_to.write(content)
-
