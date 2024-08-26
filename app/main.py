@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
     all_files = command.split()
 
-    if len(command) > 3:
+    if len(all_files) > 3:
         if all_files[0] == "cp":
 
             if all_files[1] != all_files[2]:
