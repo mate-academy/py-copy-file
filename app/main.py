@@ -14,5 +14,5 @@ def copy_file(command: list) -> None:
              open(copy_file, "w") as file_out:
             file_out.write(file_in.read())
 
-    except Exception:
-        pass
+    except Exception as e:
+        print(e)
