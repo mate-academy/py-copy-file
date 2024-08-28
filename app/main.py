@@ -2,12 +2,12 @@ def copy_file(command: list) -> None:
     parts = command.split()
 
     if len(parts) != 3 or parts[0] != "cp":
-        return
+        raise ValueError("Wrong argument")
 
     origin_file, copy_file = parts[1], parts[2]
 
     if origin_file == copy_file:
-        return
+        raise ValueError("Files names matches")
 
     try:
         with open(origin_file, "r") as file_in, \
