@@ -1,14 +1,13 @@
 def copy_file(command: str) -> None:
-    file, file_copy = command.split(" ")[1:3]
+    command_parts = command.split(" ")
 
-    if file == file_copy:
-        return
+    if len(command_parts) < 3 or command_parts[0] != "cp":
+        raise ValueError(
+            "Invalid command format. ""Expected 'cp file copy_file'."
+        )
 
-    with open(file, "r") as f, open(file_copy, "w") as fc:
-        content = f.read()
-        fc.write(content)
+    file, copy_file = command_parts[1], command_parts[2]
 
-
-command = "cd andrii Suprun.txt"
-
-copy_file(command)
+    if file != copy_file:
+        with open(file, "r") as f, open(copy_file, "w") as fc:
+            fc.write(f.read())
