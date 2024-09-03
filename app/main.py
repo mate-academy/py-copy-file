@@ -12,4 +12,3 @@ def copy_file(command: str) -> None:
 command = "cd andrii Suprun.txt"
 
 copy_file(command)
-
