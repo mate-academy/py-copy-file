@@ -10,7 +10,7 @@ def copy_file(command: str) -> None:
         return
 
     if len(command) != 3:
-        raise LenError(f"You enter more or less commands")
+        raise LenError("You enter more or less commands")
 
     if command[1] == command[2]:
         print("Files name the same")
