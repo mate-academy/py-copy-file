@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
     command = command.split()
-    if len(command) != 3 and command[0] == "cp":
+    if len(command) != 3 or command[0] != "cp":
         raise Exception("Invalid command")
 
     _, source_file_name, file_copy_name = command
