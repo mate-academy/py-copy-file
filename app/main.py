@@ -1,9 +1,7 @@
 def copy_file(command: str) -> None:
     nod = command.strip().split()
 
-    if nod[0] != "cp":
-        return
-    elif nod[1] == nod[2]:
+    if nod[0] != "cp" or nod[1] == nod[2]:
         return
     try:
         with open(nod[1], "r") as file_in:
