@@ -9,8 +9,8 @@ name, separated by spaces.
 
 - It must do nothing in case the user is trying to copy file to file with the same
 name.
-- Function must copy the whole content to new file.
-Example:
+  - Function must copy the whole content to new file.
+  Example: 
 ```python
 copy_file("cp file.txt file.txt")  # Does nothing
 
