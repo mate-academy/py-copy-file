@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
     command, source_file, destination_file = command.split()
 
-    if len(command) != 3 or command != "cp":
+    if command != "cp":
         raise ValueError("Invalid command format. "
                          "Use: 'cp source_file destination_file'")
 
