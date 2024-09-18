@@ -3,7 +3,6 @@ def copy_file(command: str) -> None:
     if cp_command != "cp":
         raise ValueError(f"The first argument must be 'cp'! "
                          f"Instead '{cp_command}' provided.")
-    print(cp_command, file, new_file)
 
     with open(file, "r") as file_in, open(new_file, "w") as file_out:
         content = file_in.read()
