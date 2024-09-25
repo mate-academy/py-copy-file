@@ -4,9 +4,9 @@ def copy_file(cp: str) -> None:
     if len(command) != 3:
         raise ValueError("Use cp command, file source, file destination")
 
-    _, file_source, file_destination = command
+    command_cp, file_source, file_destination = command
 
-    if file_source != file_destination and command[0] == "cp":
+    if file_source != file_destination and command_cp == "cp":
         try:
             with (
                 open(file_source) as file_in,
