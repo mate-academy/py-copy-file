@@ -1,5 +1,7 @@
 def copy_file(cp: str) -> None:
     file_names = cp.split()
+    if len(file_names) != 3:
+        raise ValueError("Use cp command, file source, file destination")
     if file_names[1] != file_names[2] and file_names[0] == "cp":
         try:
             with (
