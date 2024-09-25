@@ -1,13 +1,18 @@
 def copy_file(cp: str) -> None:
-    file_names = cp.split()
-    if len(file_names) != 3:
+    command = cp.split()
+
+    if len(command) != 3:
         raise ValueError("Use cp command, file source, file destination")
-    if file_names[1] != file_names[2] and file_names[0] == "cp":
+
+    file_source = command[1]
+    file_destination = command[2]
+
+    if file_source != file_destination and command[0] == "cp":
         try:
             with (
-                open(file_names[1]) as file_in,
-                open(file_names[2], "w") as file_out
+                open(file_source) as file_in,
+                open(file_destination, "w") as file_out
             ):
                 file_out.write(file_in.read())
         except FileNotFoundError:
-            print(f"File {file_names[1]} does not exist")
+            print(f"File {file_source} does not exist")
