@@ -1,5 +1,5 @@
-def copy_file(cp: str) -> None:
-    command = cp.split()
+def copy_file(command: str) -> None:
+    command = command.split()
 
     if len(command) != 3:
         raise ValueError("Use cp command, file source, file destination")
