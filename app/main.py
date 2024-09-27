@@ -2,7 +2,9 @@ def copy_file(command: str) -> None:
     parts = command.split()
 
     if len(parts) != 3:
-        raise ValueError("Command must be in the format: cp source_path dest_path")
+        raise ValueError(
+            "Command must be in the format: cp source_path dest_path"
+        )
 
     cp, source_path, dest_path = parts
 
