@@ -1,7 +1,9 @@
 def copy_file(command: str) -> None:
-    cp, name, new_name = command.split()
-    if len(command.split()) != 3:
+    _command = command.split()
+    if len(_command) != 3:
         print("Wrong command!")
+        return
+    cp, name, new_name = command.split()
     if cp != "cp":
         print('Command should be "cp".')
         return
