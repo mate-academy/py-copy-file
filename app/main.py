@@ -5,7 +5,7 @@ def copy_file(command: str) -> None:
         return
     source_file, target_file = parts[1], parts[2]
     if source_file == target_file:
-        print("Source and target files are the same. Nothing to copy.")
+        return
 
     try:
         with (open(source_file, "r") as file_in,
