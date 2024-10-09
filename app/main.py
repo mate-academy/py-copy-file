@@ -8,8 +8,3 @@ def copy_file(command: str) -> None:
         open(command[2], "x") as file_out,
     ):
         file_out.write(file_in.read())
-
-
-if __name__ == "__main__":
-    comm = "cp test.txt new_test.txt"
-    copy_file(comm)
