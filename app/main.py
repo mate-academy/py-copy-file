@@ -1,4 +1,4 @@
-def copy_file(command: str):
+def copy_file(command: str) -> None:
     ls = command.split(" ")
     if ls[0] == "cp":
         if ls[1] == ls[2]:
