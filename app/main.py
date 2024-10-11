@@ -1,5 +1,6 @@
 def copy_file(command: str) -> None:
-    list_file = command.split()
-    if list_file == 3 and list_file[1] != list_file[2]:
-        with open(list_file[1], "r") as f, open(list_file[2], "w") as g:
-            g.write(f.read())
+    command_list = command.split()
+    if len(command_list) == 3 and command_list[1] != command_list[2]:
+        with (open(command_list[1], "r") as main_file,
+              open(command_list[2], "w") as file_copy):
+            file_copy.write(main_file.read())
