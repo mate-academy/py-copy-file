@@ -11,25 +11,25 @@ class LanCommandError(Exception):
 
 
 def copy_file(command: str) -> None:
-    split_command = command.split()
+    command_elements = command.split()
 
-    if len(split_command) < 3:
+    if len(command_elements) < 3:
         raise LanCommandError(
-            "The command must be"
+            "it must start with 'cp' and include two file names"
             " 'cp input_file_name.txt output_file_name.txt'"
         )
 
-    if split_command[1] == split_command[2]:
+    if command_elements[0] != "cp":
+        raise CommandNameError(f"'{command_elements[0]}' is not 'cp' command")
+
+    if command_elements[1] == command_elements[2]:
         raise DoubleNameError(
-            f"intput: {split_command[1]} output: {split_command[1]}"
+            f"intput: {command_elements[1]} output: {command_elements[1]}"
             f" must not have the same names"
         )
 
-    if split_command[0] == "cp":
-        with (
-            open(split_command[1], "r") as file_input,
-            open(split_command[2], "w") as file_output
-        ):
-            file_output.write(file_input.read())
-    else:
-        raise CommandNameError(f"'{split_command[0]}' is not 'cp' command")
+    with (
+        open(command_elements[1], "r") as file_input,
+        open(command_elements[2], "w") as file_output
+    ):
+        file_output.write(file_input.read())
