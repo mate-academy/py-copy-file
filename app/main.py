@@ -12,4 +12,4 @@ def copy_file_using_cp_command(command: str) -> None:
              open(dst_file_name, "w") as dst_file:
 
             file_in_data = src_file.readline()
-            dst_file.writelines(file_in_data)
+            dst_file.write(file_in_data)
