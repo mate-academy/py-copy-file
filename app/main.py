@@ -11,5 +11,5 @@ def copy_file_using_cp_command(command: str) -> None:
         with open(src_file_name, "r") as src_file, \
              open(dst_file_name, "w") as dst_file:
 
-            file_in_data = src_file.readlines()
+            file_in_data = src_file.readline()
             dst_file.writelines(file_in_data)
