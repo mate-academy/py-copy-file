@@ -1,15 +1,15 @@
 
-def copy_file(command: str) -> None:
+def copy_file_from_command_cp(command: str) -> None:
     command_parsed = command.split(" ")
-    file_in_name = command_parsed[1]
-    file_out_name = command_parsed[2]
+    source_file_name = command_parsed[1]
+    destination_file_name = command_parsed[2]
 
-    if command_parsed[0] == "cp":
-        if file_in_name == file_out_name:
-            return None
-        else:
-            with open(file_in_name, "r") as file_in, \
-                 open(file_out_name, "w") as file_out:
+    if source_file_name == destination_file_name:
+        print(f"File wasn't copied: source file '{source_file_name}' "
+              f"has the same name as the destination file.")
+    else:
+        with open(source_file_name, "r") as source_file, \
+             open(destination_file_name, "w") as destination_file:
 
-                file_in_data = file_in.read()
-                file_out.write(file_in_data)
+            file_in_data = source_file.readlines()
+            destination_file.writelines(file_in_data)
