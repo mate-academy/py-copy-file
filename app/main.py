@@ -2,22 +2,22 @@ import os
 
 
 def copy_file(command: str) -> None:
-    done_lst_path = command.split()
+    command_parts = command.split()
 
-    if done_lst_path[1] == done_lst_path[2]:
+    if command_parts[1] == command_parts[2]:
         return
 
-    if done_lst_path[0] != "cp":
+    if command_parts[0] != "cp":
         print("Wrong command use 'cp'.")
         return
 
-    if not os.path.exists(done_lst_path[1]):
-        print(f"File {done_lst_path[1]} not exist.")
+    if not os.path.exists(command_parts[1]):
+        print(f"File {command_parts[1]} not exist.")
         return
 
     try:
-        with (open(done_lst_path[1], "r") as source_file,
-              open(done_lst_path[2], "w") as destination_file):
+        with (open(command_parts[1], "r") as source_file,
+              open(command_parts[2], "w") as destination_file):
             read_all = source_file.read()
             destination_file.write(read_all)
     except IOError as e:
