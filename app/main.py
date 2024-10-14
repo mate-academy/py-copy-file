@@ -1,13 +1,13 @@
 def copy_file(command: str) -> None:
-    cp, old_file, new_file = command.split()
+    command_parts = command.split()
 
-    if cp != "cp":
+    if command_parts[0] != "cp":
         raise ValueError("The command need to start with 'cp'")
 
-    if command.split() != 3:
+    if len(command_parts) != 3:
         raise ValueError("Command format needs to be <cp file_1 file_2>")
 
-    if old_file != new_file:
-        with (open(old_file, "r") as source_file,
-              open(new_file, "w") as destination_file):
+    if command_parts[1] != command_parts[2]:
+        with (open(command_parts[1], "r") as source_file,
+              open(command_parts[2], "w") as destination_file):
             destination_file.write(source_file.read())
