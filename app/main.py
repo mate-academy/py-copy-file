@@ -8,5 +8,6 @@ def copy_file(command: str) -> None:
         raise ValueError("Command format needs to be <cp file_1 file_2>")
 
     if old_file != new_file:
-        with open(old_file, "r") as source_file, open(new_file, "w") as destination_file:
+        with (open(old_file, "r") as source_file,
+              open(new_file, "w") as destination_file):
             destination_file.write(source_file.read())
