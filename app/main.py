@@ -14,7 +14,7 @@ def copy_file(command: str) -> str:
 
     try:
         copy(source_file, destination_file)
-        return f"File copied successfully"
+        return "File copied successfully"
     except FileNotFoundError:
         return f"The source file: {source_file} does not exist"
     except PermissionError:
