@@ -1,8 +1,13 @@
+import os
+
+
 def copy_file(command: str) -> None:
-    list_ = command.split()
-    first_name = str(list_[1])
-    second_name = str(list_[2])
-    if first_name == second_name:
+    command_parts = command.split()
+    source_file = str(command_parts[1])
+    destination_file = str(command_parts[2])
+    if not os.path.exists(source_file):
         return
-    with open(first_name, "r") as file_in, open(second_name, "w") as file_out:
+    if source_file == destination_file:
+        return
+    with open(source_file, "r") as file_in, open(destination_file, "w") as file_out:
         file_out.write(file_in.read())
