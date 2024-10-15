@@ -1,10 +1,13 @@
 def copy_file(command: str) -> None:
-    cmd, origin, dupe = command.split()
+    command_parts = command.split()
 
-    if cmd != "cp" or origin == dupe:
+    if len(command_parts) != 3:
+        print("Error: Command format is incorrect.")
         return
-    try:
-        with open(origin, "r") as source, open(dupe, "w") as copy:
+
+    cmd, source_file, destination_file = command_parts
+
+    if cmd != "cp" or source_file == destination_file:
+        return
+    with open(source_file, "r") as source, open(destination_file, "w") as copy:
             copy.write(source.read())
-    except FileNotFoundError as e:
-        print(f"Error: {e}")
