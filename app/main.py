@@ -1,5 +1,6 @@
 import os.path
 
+
 def copy_file(command: str) -> None:
     commands = command.split()
     if (
@@ -14,7 +15,8 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(commands[1], "r") as source, open(commands[2], "w") as target:
+        with (open(commands[1], "r") as source,
+              open(commands[2], "w") as target):
             target.write(source.read())
     except FileNotFoundError:
         print(f"Error: File '{commands[1]}' not found.")
