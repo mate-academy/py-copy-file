@@ -1,12 +1,15 @@
-def copy_file(command: str) -> None:
-    command_ls = command.split()
-    if (
-            len(command_ls) == 3
-            and command_ls[0] == "cp"
-            and command_ls[1] != command_ls[2]
-    ):
-        with (
-            open(command_ls[1], "r") as r_file,
-            open(command_ls[2], "w") as w_file
+def copy_file(command: str) -> None | str:
+    command_parts = command.split()
+    try:
+        if (
+                len(command_parts) == 3
+                and command_parts[0] == "cp"
+                and command_parts[1] != command_parts[2]
         ):
-            w_file.write(r_file.read())
+            with (
+                open(command_parts[1], "r") as source_file,
+                open(command_parts[2], "w") as destination_file
+            ):
+                destination_file.write(source_file.read())
+    except FileNotFoundError:
+        return f"File {command_parts[1]} does not exist"
