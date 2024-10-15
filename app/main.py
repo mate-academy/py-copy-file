@@ -1,11 +1,13 @@
+from shutil import copy
+
+
 def copy_file(command: str) -> None:
-    copy_command, source_file, destination_file = command.split(" ")
+    split_command = command.split(" ")
 
-    if copy_command == "cp":
-        if source_file == destination_file:
-            return
+    source_file = split_command[1]
+    destination_file = split_command[2]
 
-        with (open(source_file, "r") as file_in,
-              open(destination_file, "w") as file_out):
-            for line in file_in:
-                file_out.write(line)
+    if source_file == destination_file:
+        return
+
+    copy(source_file, destination_file)
