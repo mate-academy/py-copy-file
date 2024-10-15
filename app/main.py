@@ -1,10 +1,21 @@
 def copy_file(command: str) -> None:
-    cmd, source_file, target_file = command.split()
-    if cmd != "cp" or source_file == target_file:
+    commands = command.split()
+    if (
+        len(commands) < 3
+        or commands[0] != "cp"
+        or commands[1] == commands[2]
+    ):
         return
     try:
-        with (open(source_file, "r") as source,
-              open(target_file, "w") as target):
-            target.write(source.read())
+        with (
+            open(commands[1], "r") as source,
+            open(commands[2], "a") as target
+        ):
+            for line in source:
+                target.write(line)
     except UnicodeError:
-        print("Error while copying file")
+        print("Error while copy file")
+
+
+if __name__ == "__main__":
+    copy_file(input("Input command: "))
