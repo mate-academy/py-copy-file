@@ -1,9 +1,6 @@
 def copy_file(command: str) -> None:
-    if not isinstance(command, str) or len(command) <= 1:
-        print("Command is incorrect")
-        return
-
-    if command[:2] != "cp":
+    if (not isinstance(command, str) or len(command) <= 1
+            or command[:2] != "cp"):
         print("Command should start with 'cp'")
         return
 
@@ -12,12 +9,21 @@ def copy_file(command: str) -> None:
         print("Command 'cp' should contains at least two arguments")
         return
 
-    if cmd_list[-2] == cmd_list[-1]:
+    source_name = cmd_list[-2]
+    destination_name = cmd_list[-1]
+
+    if source_name == destination_name:
         print("Warning: arguments are the same")
         return
 
     try:
-        open(cmd_list[-1], "r")
+        open(source_name, "r")
+    except FileNotFoundError:
+        print("Warning: source file doesn't exist")
+        return
+
+    try:
+        open(destination_name, "r")
     except FileNotFoundError:
         pass
     else:
@@ -27,7 +33,7 @@ def copy_file(command: str) -> None:
         if confirm in ["n", "N"]:
             return
 
-    with open(cmd_list[-2], "r") as file_in,\
-            open(cmd_list[-1], "w") as file_out:
-        for line in file_in.readlines():
-            file_out.write(line)
+    with open(source_name, "r") as source_file,\
+            open(destination_name, "w") as destination_file:
+        for line in source_file.readlines():
+            destination_file.write(line)
