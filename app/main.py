@@ -1,12 +1,14 @@
 def copy_file(command: str) -> None:
-    cp, file1, file2 = command.split()
-    if cp != "cp":
+    commands = command.split()
+    if len(commands) < 3:
         return
-    if file1 == file2:
+    if commands[0] != "cp":
+        return
+    if commands[1] == commands[2]:
         return
 
-    with open(file1, "r") as f1, open(file2, "w") as f2:
-        f2.write(f1.read())
+    with open(commands[1], "r") as source, open(commands[2], "w") as target:
+        source.write(target.read())
 
 
 if __name__ == "__main__":
