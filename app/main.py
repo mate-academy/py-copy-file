@@ -1,10 +1,12 @@
 
 def copy_file(command: str) -> None:
-    date = command.split()
-    if date[0] != "cp":
+    command_parts = command.split()
+    if command_parts[0] != "cp":
+        print("Invalid command format.")
         return
-    first_txt, second_txt = date[1], date[2]
+    first_txt, second_txt = command_parts[1], command_parts[2]
     if first_txt == second_txt:
+        print("Source and destination files are the same.")
         return
     else:
         with (open(first_txt, "r") as file_in,
