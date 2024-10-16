@@ -21,5 +21,5 @@ def copy_file(command: str) -> None:
     except Exception as e:
         print(f"An error occurred: {e}")
 
-
-copy_file("cp file.txt new_file.txt")
+if __name__ == "__main__":
+    copy_file("cp file.txt new_file.txt")
