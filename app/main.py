@@ -14,16 +14,3 @@ def copy_file(command: str) -> None:
     with (open(old_file_name, "r") as file_in,
           open(new_file_name, "w") as file_out):
         file_out.write(file_in.read())
-
-
-copy_file("cp file.txt new_file.txt")
-copy_file("cp file.txt file.txt")
-
-
-with open("file.txt", "r") as f:
-    original_content = f.read()
-
-with open("new_file.txt", "r") as f:
-    copied_content = f.read()
-
-print(original_content == copied_content)
