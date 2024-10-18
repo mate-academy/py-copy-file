@@ -1,10 +1,14 @@
 def copy_file(command: str) -> None:
-    if (not isinstance(command, str) or len(command) <= 1
-            or command[:2] != "cp"):
-        print("Command should start with 'cp'")
+    if not isinstance(command, str):
+        print("Incorrect format")
         return
 
     cmd_list = command.strip().split(" ")
+
+    if len(cmd_list) and cmd_list[0] != "cp":
+        print("Command should be 'cp'")
+        return
+
     if len(cmd_list) <= 2:
         print("Command 'cp' should contains at least two arguments")
         return
