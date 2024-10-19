@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
-    file_out = command.split()[1]
-    file_in = command.split()[2]
-    with (open(file_out) as file_out,
-          open(file_in, "w") as file_in):
-        file_in.write(file_out.read())
+    source_file = command.split()[1]
+    destination_file = command.split()[2]
+    with (open(source_file, "r") as source_file,
+          open(destination_file, "w") as destination_file):
+        destination_file.write(source_file.read())
