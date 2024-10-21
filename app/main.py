@@ -1,7 +1,10 @@
 def copy_file(command: str) -> None:
-    name_f = command.split()[1]
-    new_f = command.split()[2]
-    if new_f == name_f:
+    file_name = command.split()[1]
+    new_file = command.split()[2]
+    if new_file == file_name:
         return
-    with open(name_f, "r") as file_in, open(new_f, "w") as file_out:
-        file_out.write(file_in.read())
+    if command.split()[0] == "cp":
+        with open(file_name, "r") as file_in, open(new_file, "w") as file_out:
+            file_out.write(file_in.read())
+    else:
+        return
