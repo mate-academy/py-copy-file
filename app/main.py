@@ -1,3 +1,6 @@
+import os
+
+
 def copy_file(command: str) -> None:
     parts = command.split()
 
@@ -6,20 +9,28 @@ def copy_file(command: str) -> None:
             "Invalid command format. Use 'cp source_file destination_file'."
         )
 
-    source_file = parts[1]
-    destination_file = parts[2]
+    source_file_path = parts[1]
+    destination_file_path = parts[2]
 
-    if source_file == destination_file:
+    if source_file_path == destination_file_path:
         return
 
+    if not os.path.isfile(source_file_path):
+        print(
+            f"Error: Source file '{source_file_path}' "
+            "does not exist or is not a valid file."
+        )
+
     try:
-        with open(source_file, "r") as file_in:
-            with open(destination_file, "w") as file_out:
-                file_out.write(file_in.read())
+        with open(source_file_path, "r") as source_file:
+            with open(destination_file_path, "w") as destination_file:
+                destination_file.write(source_file.read())
+        print("File copied successfully!")
     except FileNotFoundError:
-        print(f"Error: '{source_file}' not found.")
+        print(f"Error: '{source_file_path}' not found.")
     except Exception as e:
         print(f"An error occurred: {e}")
+
 
 if __name__ == "__main__":
     copy_file("cp file.txt new_file.txt")
