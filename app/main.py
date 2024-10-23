@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    if command.split() != 3:
+    if len(command.split()) != 3:
         raise ValueError("Wrong copy command input")
     cmd = command.split()[0]
     data_file = command.split()[1]
