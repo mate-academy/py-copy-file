@@ -25,7 +25,7 @@ with open(f1, "r") as f_s:
     pass
 ```
 
-3. Be sure that you are calling needed methods only once (e.g. `.split()`).
+3. Make sure to call each necessary method only once (for example, use `.split()` a single time).
 
 ## Clean Code
 
