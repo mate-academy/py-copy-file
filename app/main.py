@@ -2,7 +2,7 @@
 import os
 
 
-def copy_file(command: str):
+def copy_file(command: str) -> any:
 
     command_parts = command.split()
 
