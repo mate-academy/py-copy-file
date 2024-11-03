@@ -2,7 +2,7 @@ import shutil
 
 
 def copy_file(command: str) -> None:
-    file_names = command.replace("cp ", "").split(" ")
-    if file_names[0] == file_names[1] or not command.startswith("cp"):
+    commands = command.split(" ")
+    if len(commands) != 3 or not commands[0] == "cp" or commands[1] == commands[2]:
         return
-    shutil.copy(file_names[0], file_names[1])
+    shutil.copy(commands[1], commands[2])
