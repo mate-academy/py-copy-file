@@ -6,7 +6,5 @@ def copy_file(command: str) -> None:
         return
 
     with (open(source_file_name, "r") as source,
-          open("copy_file_name.txt", "w") as backup):
+          open(copy_file_name, "w") as backup):
         backup.write(source.read())
-        source.close()
-        backup.close()
