@@ -6,7 +6,7 @@ class CommandError(Exception):
 def copy_file(command: str) -> None:
     try:
         copy_command, old_file, new_file = command.split(" ")
-    except CommandError:
+    except ValueError:
         raise CommandError
     else:
         if copy_command == "cp" and old_file != new_file:
