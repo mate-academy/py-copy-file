@@ -1,8 +1,10 @@
 def copy_file(command: str) -> None:
-    splited_command = command.split(" ")
-    action, file, new_file = splited_command
+    split_command = command.split(" ")
 
-    if action == "cp" and len(splited_command) == 3:
-        if file != new_file:
-            with open(file) as file_in, open(new_file, "w") as file_out:
-                file_out.write(file_in.read())
+    if len(split_command) == 3:
+        if split_command[0] == "cp":
+            if split_command[1] != split_command[2]:
+                action, file, new_file = split_command
+
+                with open(file) as file_in, open(new_file, "w") as file_out:
+                    file_out.write(file_in)
