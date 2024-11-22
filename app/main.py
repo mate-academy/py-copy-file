@@ -2,6 +2,9 @@ import os
 
 
 def copy_file(argument: str) -> None:
+    if len(argument.split(" ")) != 3:
+        print("Is not valid argument.")
+        return
     file_source = argument.split(" ")[1]
     file_destination = argument.split(" ")[2]
     if not os.path.isfile(file_source):
