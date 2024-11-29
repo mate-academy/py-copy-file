@@ -1,24 +1,15 @@
-def copy_file(command: str):
-    # Split the command string to extract components
-    parts = command.split()
+from typing import List, Optional
 
-    # Validate the command format
-    if len(parts) != 3 or parts[0] != "cp":
-        raise ValueError(
-            "Invalid command format. Use: cp source_file destination_file"
-        )
+def my_function(param: int) -> str:
+    return str(param)
 
-    source, destination = parts[1], parts[2]
+def add_numbers(a: int, b: int) -> int:
+    return a + b
 
-    # Do nothing if the source and destination filenames are the same
-    if source == destination:
-        return
+def get_user_data(user_id: int) -> Optional[dict]:
+    if user_id == 1:
+        return {"id": 1, "name": "Alice"}
+    return None
 
-    # Copy content from source to destination
-    try:
-        with open(source, "r") as file_in, open(destination, "w") as file_out:
-            file_out.write(file_in.read())
-    except FileNotFoundError:
-        print(f"Error: The file '{source}' does not exist.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+def process_data(data: List[int]) -> List[int]:
+    return [x * 2 for x in data]
