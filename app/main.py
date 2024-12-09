@@ -5,5 +5,5 @@ def copy_file(command: str) -> None:
         if file_name == destination_file:
             return None
         with (open(file_name, "r") as fro,
-              open(destination_file_file, "w") as dest):
+              open(destination_file, "w") as dest):
             dest.write(fro.read())
