@@ -6,4 +6,3 @@ def copy_file(command: str) -> None:
                   open(command_parts[2], "w") as destination_file):
                 for line in source_file:
                     destination_file.write(line)
-
