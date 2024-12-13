@@ -5,14 +5,14 @@ def copy_file(command: str) -> None:
     is_command_valid = command_name == "cp"
     is_all_params = len(list_from_command) == 3
 
-    print(is_name_valid, is_command_valid, is_all_params)
-
     if is_name_valid and is_command_valid and is_all_params:
-        with (
-            open(file_name, "rb") as original,
-            open(copy_file_name, "wb") as copy
-        ):
-            copy.write(original.read())
-
-
-copy_file("cp mango.txt file-copy.txt")
+        try:
+            with (
+                open(file_name, "rb") as original,
+                open(copy_file_name, "wb") as copy
+            ):
+                copy.write(original.read())
+        except FileNotFoundError:
+            print(f"Source file {file_name} does not exist.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
