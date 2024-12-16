@@ -1,8 +1,8 @@
-class CommandNotFound(Exception):
+class WrongCommand(Exception):
     pass
 
 
-class IncorrectCommand(Exception):
+class IncorrectCommandFormat(Exception):
     pass
 
 
@@ -10,9 +10,11 @@ def copy_file(command: str) -> None:
     command_list = command.split()
 
     if len(command_list) != 3:
-        raise IncorrectCommand("Incorrect command")
+        raise IncorrectCommandFormat(
+            "Expected format: 'cp source_file_name copy_file_name'"
+        )
     if command_list[0] != "cp":
-        raise CommandNotFound("Command 'cp' not found")
+        raise WrongCommand("Command must start with 'cp'")
     if command_list[1] == command_list[2]:
         return
 
