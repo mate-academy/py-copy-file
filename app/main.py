@@ -11,5 +11,4 @@ def copy_file(command: str) -> None:
             open(file_in_path, "r") as file_in,
             open(file_out_path, "w") as file_out
         ):
-            for line in file_in:
-                file_out.write(line)
+            file_out.write(file_in.read())
