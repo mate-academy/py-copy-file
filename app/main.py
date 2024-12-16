@@ -21,6 +21,3 @@ def copy_file(command: str) -> None:
         open(command_list[2], "w") as file_out
     ):
         file_out.write(file_in.read())
-
-
-copy_file("cp 124.txt 124_copy.txt")
