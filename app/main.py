@@ -1,7 +1,10 @@
 def copy_file(command: str) -> None:
-    file_names = command.split(" ")[1:]
-    file_to_copy_name = file_names[0]
-    new_file_name = file_names[1]
+    copy_data = command.split()
+
+    if len(copy_data) < 3 or copy_data[0] != "cp":
+        return
+
+    command, file_to_copy_name, new_file_name = copy_data
 
     if file_to_copy_name != new_file_name:
         with (open(file_to_copy_name, "r") as file_in,
