@@ -1,10 +1,12 @@
 def copy_file(cp: str) -> None:
     parts = cp.split(" ")
-    old = parts[1]
-    new = parts[2]
-    if old == new:
+    if len(parts) != 3 or parts[0] != "cp":
+        raise Exception
+    source  = parts[1]
+    destination = parts[2]
+    if source  == destination:
         return
-    else:
-        with open(old, "r") as file_in:
-            with open(new, "w") as file_out:
-                file_out.write(file_in.read())
+
+    with (open(source, "r") as file_in,
+          open(destination, "w") as file_out):
+        file_out.write(file_in.read())
