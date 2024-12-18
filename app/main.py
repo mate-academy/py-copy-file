@@ -1,15 +1,21 @@
 def copy_file(command: str) -> None:
-    split = command.split(" ")
-    command = split[0]
+    command_parts = command.split(" ")
+    command = command_parts[0]
 
     if command != "cp":
         return
 
-    file1 = split[1]
-    file2 = split[2]
+    source_file = command_parts[1]
+    destination_file = command_parts[2]
 
-    if file1 == file2:
+    if source_file == destination_file:
         return
 
-    with open(file1, "r") as file_in, open(file2, "w") as file_out:
-        file_out.writelines(file_in.readlines())
+    try:
+        with (open(source_file, "r") as file_in,
+              open(destination_file, "w") as file_out):
+            file_out.writelines(file_in.readlines())
+    except FileNotFoundError:
+        print(f"No {source_file} was found...")
+    except IOError as e:
+        print(f"I/O error! {e}")
