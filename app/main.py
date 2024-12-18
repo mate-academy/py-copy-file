@@ -1,7 +1,10 @@
-def copy_name(command: str) -> None:
+def copy_file(command: str) -> None:
     parts = command.split(" ")
 
-    source_file, new_file = parts[1], parts[2]
+    command, source_file, new_file = parts[0], parts[1], parts[2]
+
+    if command != "cp" and len(parts) != 3:
+        return
 
     if source_file == new_file:
         return
