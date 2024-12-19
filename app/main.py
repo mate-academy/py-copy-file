@@ -1,5 +1,5 @@
-def copy_file(command : str) -> None:
-    command, source, destination = command.split()
+def copy_file(commands : str) -> None:
+    command, source, destination = commands.split()
     if source == destination or command != "cp":
         return
     with (open(source, "r") as file_in,
