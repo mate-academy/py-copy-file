@@ -1,11 +1,15 @@
-def copy_file(command: str) -> str | None:
-    command_info = command.split(" ")
+from typing import Optional
 
-    if "cp" in command_info[0]:
-        if command_info[1] == command_info[2]:
+
+def copy_file(command: str) -> Optional[str]:
+    command_info = command.split()
+
+    if command_info[0] == "cp":
+        source, destination = command_info[1], command_info[2]
+
+        if source == destination:
             return None
-        else:
-            with (open(command_info[1], "r") as original_file,
-                  open(command_info[2], "w") as new_file):
-                for line in original_file.readline():
-                    new_file.write(line)
+
+        with (open(source, "r") as original_file,
+              open(destination, "w") as new_file):
+            new_file.write(original_file.read())
