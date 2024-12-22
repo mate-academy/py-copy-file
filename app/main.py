@@ -1,5 +1,7 @@
 def copy_file(command: str) -> None:
     splitted = command.split(" ")
+    if len(splitted) != 3:
+        return "Invalid input"
     cm = splitted[0]
     initial_file_name = splitted[1]
     new_file_name = splitted[2]
