@@ -1,5 +1,10 @@
 def copy_file(command: str) -> None:
-    in_file_name, out_file_name = command.split(" ")[1:]
+    input_line = command.split(" ")
+    if len(input_line) != 3 or input_line[0] != "cp":
+        print("Wrong command")
+        return
+
+    in_file_name, out_file_name = input_line[1:]
     if in_file_name == out_file_name:
         return
 
