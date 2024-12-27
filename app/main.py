@@ -1,6 +1,5 @@
 import os
 
-
 def copy_file(command: str) -> None:
     parts = command.split()
 
@@ -9,9 +8,9 @@ def copy_file(command: str) -> None:
 
     source_file, destination_file = parts[1], parts[2]
 
+    # Check if source and destination are the same
     if source_file == destination_file:
-        print(f"Error: The source file '{source_file}'"
-              f" and destination file are the same.")
+        print(f"Error: The source file '{source_file}' and destination file are the same.")
         return
 
     if not os.path.exists(source_file):
@@ -23,20 +22,16 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with (open(source_file, "r", encoding="utf-8") as source,
-              open(destination_file, "w", encoding="utf-8") as destination):
+        with open(source_file, "r", encoding="utf-8") as source, open(destination_file, "w", encoding="utf-8") as destination:
             for line in source:
                 destination.write(line)
 
         print(f"Successfully copied {source_file} to {destination_file}.")
 
     except FileNotFoundError:
-        print("Error: One of the files was not found.")
+        print(f"Error: One of the files was not found.")
     except PermissionError:
-        print("Error: Permission denied when accessing files.")
+        print(f"Error: Permission denied when accessing files.")
     except Exception as e:
         print(f"Error while copying file: {e}")
 
-
-copy_file("cp file.txt file.txt")
-copy_file("cp nonexistent_file.txt file.txt")
