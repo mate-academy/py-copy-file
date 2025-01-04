@@ -5,7 +5,7 @@ def copy_file(command: str) -> None:
     new_file = parts[2]
 
     if len(parts) != 3 or cp != "cp":
-        raise ValueError("Invalid command format")
+        raise ValueError("Invalid command format. Should be 'cp'")
 
     with open(old_file, "r") as file_in, open(new_file, "w") as file_out:
         if file_in == file_out:
