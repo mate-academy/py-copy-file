@@ -4,6 +4,10 @@ import os
 def copy_file(command: str) -> None:
     parts = command.split()
     _, file_in, file_out = parts
+    if not os.path.exists(file_in):
+        print(f"Creating {file_in} with sample content...")
+        with open(file_in, "w") as f:
+            f.write("This is sample content for the file.\n")
     if file_in == file_out:
         return
     if not os.path.exists(file_in):
