@@ -9,7 +9,7 @@ def copy_file(command: str) -> None:
     if not os.path.exists(file_in):
         print(f"File {file_in} not found")
         return
-    with open("file_in.txt", "r") as f_in, open("file_out.txt", "w") as f_out:
+    with open(file_in, "r") as f_in, open(file_out, "w") as f_out:
         content = f_in.read()
         f_out.write(content)
 
