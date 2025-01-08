@@ -1,7 +1,9 @@
 def copy_file(command: str) -> None:
     parts = command.split()
     if len(parts) != 3 or parts[0] != "cp":
-        raise ValueError("Invalid command format. Use: cp <source> <destination>")
+        raise ValueError(
+            "Invalid command format. Use: cp <source> <destination>"
+        )
 
     source, destination = parts[1], parts[2]
 
