@@ -6,7 +6,10 @@ def copy_file(command: str) -> None:
     parts = command.split()
 
     if parts[0] != "cp" or len(parts) != 3:
-        raise ValueError("Invalid format. Expected: 'cp file.txt file-copy.txt'")
+        raise ValueError(
+            "Invalid format. "
+            "Expected: 'cp file.txt file-copy.txt'"
+        )
 
     source_file = parts[1]
     destination_file = parts[2]
