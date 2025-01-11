@@ -1,14 +1,16 @@
 def copy_file(command: str) -> None:
-    file_index = command.find(" ")
-    new_file_index = command.rfind(" ")
-
-    if (file_index == -1 or new_file_index == -1
-            or file_index == new_file_index):
-        print("Wrong command")
+    if not command.startswith("cp "):
+        print("Wrong command. Command should start with 'cp'.")
         return
 
-    source_file = command[file_index + 1:new_file_index].strip()
-    copied_file = command[new_file_index + 1:].strip()
+    parts = command.split()
+
+    if len(parts) != 3:
+        print("Wrong command. Command should have exactly three parts.")
+        return
+
+    source_file = parts[1].strip()
+    copied_file = parts[2].strip()
 
     if source_file == copied_file:
         return
