@@ -1,6 +1,7 @@
 def copy_file(command: str) -> None:
-    files = command.split()[1:]
-    with open(files[0], "r") as file:
-        text_to_copy = file.read()
-        with open(files[1], "w") as f:
-            f.write(text_to_copy)
+    if "cp" in command:
+        command_files = command.split()[1:]
+        if len(set(command_files)) != 1:
+            with open(command_files[0], "r") as file, open(command_files[1], "w") as f:
+                text_to_copy = file.read()
+                f.write(text_to_copy)
