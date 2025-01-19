@@ -1,7 +1,10 @@
 def copy_file(command: str) -> None:
-    files_list = command.split(" ")
-    input_file = files_list[1]
-    output_file = files_list[2]
+    command_parts = command.split(" ")
+    if len(command_parts) != 3:
+        if command_parts[0] != "cp":
+            print("invalid input")
+    input_file = command_parts[1]
+    output_file = command_parts[2]
 
     if str(input_file) != str(output_file):
         with (open(input_file, "r") as input_object,
