@@ -9,5 +9,5 @@ def copy_file(command: str) -> None:
     if file == new_file:
         return
 
-    with open(file, "r") as f1, open(file, "w") as f2:
-        f2.write(f1)
+    with open(file, "r") as f1, open(new_file, "w") as f2:
+        f2.write(f1.read())
