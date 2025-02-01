@@ -1,8 +1,9 @@
 def copy_file(command: str) -> None:
     linux = command.split()
-    if linux != "cp":
-        raise ValueError
-    if linux[1] == linux[-1]:
-        pass
-    with open("source.txt", "r") as src, open("destination.txt", "w") as dst:
-        dst.write(src.read())
+    if len(linux) == 3:
+        if linux[0] != "cp":
+            raise ValueError
+        if linux[1] == linux[-1]:
+            raise ValueError
+        with open((f"{linux[1]}"), "r") as src, open((f"{linux[-1]}"), "w") as dst:
+            dst.write(src.read())
