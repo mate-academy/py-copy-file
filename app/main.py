@@ -1,6 +1,6 @@
-def copy_file(command: str) -> None:
-    command, input_file_name, output_file_name = command.split()
-    if len(command.split()) != 3 or command != "cp":
+def copy_file(command_str: str) -> None:
+    command, input_file_name, output_file_name = command_str.split()
+    if len(command_str.split()) != 3 or command != "cp":
         return
     if input_file_name == output_file_name:
         return
