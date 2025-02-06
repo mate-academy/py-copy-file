@@ -1,7 +1,9 @@
 def copy_file(command: str) -> None:
     ls = command.split()
-    first = ls[1]
-    second = ls[2]
-    if not first == second:
-        with open(first, "r") as one, open(second, "w") as two:
-            two.write(one.read())
+    if len(ls) == 3 and ls[0] == "cp":
+        source_file = ls[1]
+        destination_file = ls[2]
+        if not source_file == destination_file:
+            with (open(source_file, "r") as source,
+                  open(destination_file, "w") as destination):
+                destination.write(source.read())
