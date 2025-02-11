@@ -1,14 +1,23 @@
-def copy_file(command: str) -> None:
-    data = command.split()
+import argparse
 
-    if data[1] == data[2]:
+
+def copy_file(command: str) -> None:
+    parser = argparse.ArgumentParser(
+        description="Copy the content of one file to another."
+    )
+    parser.add_argument("source", help="Path to the source file")
+    parser.add_argument("destination", help="Path to the destination file")
+
+    args = parser.parse_args(command.split())
+
+    if args.source == args.destination:
         return
 
     try:
-        with open(data[1], "r") as f_in, open(data[2], "w") as f_out:
-            file_data = f_in.read()
-            f_out.write(file_data)
+        with (open(args.source, "r") as source_file,
+              open(args.destination, "w") as destination_file):
+            destination_file.write(source_file.read())
     except FileNotFoundError:
-        print(f"Error: {data[1]} not found.")
+        print(f"Error: {args.source} not found.")
     except PermissionError:
         print("Error: Permission denied to read/write files.")
