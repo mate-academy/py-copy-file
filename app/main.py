@@ -1,4 +1,4 @@
-def copy_file(command):
+def copy_file(command: str) -> None:
     parts = command.split()
 
     # Check if format is valid and `cp` is the first argument
@@ -13,7 +13,10 @@ def copy_file(command):
 
     try:
         # Use context managers to read and write files
-        with open(source_file, "r") as file_in, open(target_file, "w") as file_out:
+        with (
+            open(source_file, "r") as file_in,
+            open(target_file, "w") as file_out
+        ):
             file_out.write(file_in.read())
     except FileNotFoundError:
         pass
