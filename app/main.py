@@ -14,6 +14,6 @@ def copy_file(command: str) -> None:
             except FileNotFoundError:
                 print(f"File {cmd[1]} does not exist!")
             except IOError:
-                print(f"File {cmd[1]} cannot be read!")
+                print("An error occurred while processing the files.")
     else:
         raise UnknownCommand("Use format: 'cp source_file destination_file'.")
