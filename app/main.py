@@ -1,1 +1,18 @@
-# write your code here
+def copy_file(command: list) -> None:
+    parts = command.split()
+
+    if len(parts) != 3 or parts[0] != "cp":
+        raise ValueError("Wrong argument")
+
+    origin_file, copy_file = parts[1], parts[2]
+
+    if origin_file == copy_file:
+        raise ValueError("Files names matches")
+
+    try:
+        with open(origin_file, "r") as file_in, \
+             open(copy_file, "w") as file_out:
+            file_out.write(file_in.read())
+
+    except Exception as e:
+        print(e)
