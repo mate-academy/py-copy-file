@@ -1,18 +1,23 @@
 def copy_file(command: str) -> None:
-    part_of_command = command.split()
-    if len(part_of_command) != 3 or part_of_command[0] != "cp":
-        print("Incorrect file format")
+    command_parts = command.split()
+
+    if len(command_parts) != 3:
+        print("Invalid command format. Expected format: 'cp <source_file> <destination_file>'")
         return
 
-    file_1, file_2 = part_of_command[1], part_of_command[2]
+    operation, source_file, destination_file = command_parts
 
-    if file_1 == file_2:
-        print("Incorrect file name")
+    if operation != "cp":
+        print("Invalid operation. Use 'cp' to copy files.")
+        return
+
+    if source_file == destination_file:
+        print("Source and destination files must be different.")
         return
 
     try:
-        with open(file_1, "r") as file_in, open(file_2, "w") as file_out:
+        with open(source_file, "r") as file_in, open(destination_file, "w") as file_out:
             file_out.write(file_in.read())
-            print(f"File '{file_1}' successfully copy to '{file_2}'!")
+            print(f"File '{source_file}' successfully copied to '{destination_file}'!")
     except FileNotFoundError:
-        print(f"File {file_1} not found")
+        print(f"File '{source_file}' not found.")
