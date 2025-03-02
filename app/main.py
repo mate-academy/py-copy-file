@@ -10,6 +10,6 @@ def copy_file(command: str) -> None:
                 for line in source_file.readlines():
                     target_file.write(line)
     except ValueError:
-        pass
+        print("Error. Invalid command.")
     except FileNotFoundError:
-        pass
+        print("Error. Invalid file name.")
