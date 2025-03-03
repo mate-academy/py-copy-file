@@ -12,5 +12,5 @@ def copy_file(command: str) -> None:
             current_file_content = current_file.read()
 
             new_file.write(current_file_content)
-    except (FileNotFoundError, IndexError):
+    except FileNotFoundError:
         return None
