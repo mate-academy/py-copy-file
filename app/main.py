@@ -2,24 +2,21 @@ import os
 
 
 def copy_file(command: str) -> None:
-    command_ls = command.split(" ")
-    cp_check = command_ls[0]
+    command_words = command.split()
 
-    if cp_check != "cp":
+    if len(command_words) != 3:
         return None
 
-    if len(command_ls) != 3:
-        return None
+    cp_check = command_words[0]
+    first_file = command_words[1]
+    second_file = command_words[2]
 
-    first_file = command_ls[1]
-    second_file = command_ls[2]
+    if (cp_check == "cp"
+            and os.path.exists(first_file)
+            and first_file != second_file):
 
-    if not os.path.exists(first_file):
-        return None
+        with open(first_file, "r") as first, open(second_file, "w") as second:
+            for line in first:
+                second.write(line)
 
-    if first_file == second_file:
-        return None
-
-    with open(first_file, "r") as first, open(second_file, "w") as second:
-        for line in first:
-            second.write(line)
+    return None
