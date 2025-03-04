@@ -1,21 +1,21 @@
-from typing import Any
-
-
-def copy_file(command: str) -> Any:
+def copy_file(command: str) -> None:
     parts = command.split()
 
     if len(parts) != 3 or parts[0] != "cp":
-        print("Not correct command format. Use 'cp <file> <new_file>'")
+        print("Invalid command format. "
+              "Use 'cp <source_file> <destination_file>'")
         return
-    file, new_file = parts[1], parts[2]
+    source_file, destination_file = parts[1], parts[2]
 
-    if file == new_file:
+    if source_file == destination_file:
+        print("The files are identical. No action was taken")
         return
 
     try:
-        with open(file, "r") as file_in, open(new_file, "w") as file_out:
+        with (open(source_file, "r") as file_in,
+              open(destination_file, "w") as file_out):
             file_out.write(file_in.read())
-        print(f"File '{file}' copied to '{new_file}'")
+        print(f"File '{source_file}' copied to '{destination_file}'")
 
     except FileNotFoundError:
-        print(f"Error: '{file}' not found.")
+        print(f"Error: '{source_file}' not found.")
