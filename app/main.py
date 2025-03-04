@@ -21,5 +21,5 @@ def copy_file(command: str) -> None:
         return None
 
     with open(first_file, "r") as first, open(second_file, "w") as second:
-                for line in first:
-                    second.write(line)
+        for line in first:
+            second.write(line)
