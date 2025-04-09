@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
     split_command = command.split()
-    if len(split_command) == 3 and "cp" in split_command:
+    if len(split_command) == 3 and split_command[0] == "cp":
         src, dest = split_command[1], split_command[2]
         if src != dest:
             try:
