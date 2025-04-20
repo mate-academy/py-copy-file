@@ -11,8 +11,8 @@ def copy_file(command: str) -> None:
     new_file = list_command[2]
 
     try:
-        with open(first_file, "r") as file_in, \
-             open(new_file, "w") as file_out:
+        with open(first_file, "rb") as file_in, \
+             open(new_file, "wb") as file_out:
             file_out.write(file_in.read())
     except FileNotFoundError:
         return
