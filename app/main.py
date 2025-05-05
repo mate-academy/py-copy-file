@@ -6,7 +6,7 @@ def copy_file(command: str) -> None:
     dst = parts[2]
 
     if src == dst:
-        return
+        print("Error!")
 
     try:
         with open(src, "r") as file_in, open(dst, "w") as file_out:
