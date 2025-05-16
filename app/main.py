@@ -13,10 +13,8 @@ def copy_file(command: str) -> None:
         and linux_command == "cp"
     ):
         try:
-            with (
-                open(file_name, "r") as file_in,
-                open(file_to_copy_name, "w") as file_out,
-            ):
+            with open(file_name, "r") as file_in, \
+                    open(file_to_copy_name, "w") as file_out:
                 file_out.write(file_in.read())
         except FileNotFoundError:
             pass
