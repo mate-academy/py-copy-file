@@ -12,7 +12,7 @@ def copy_file(command: str) -> None:
     if old_file == new_file:
         return
 
-    if not (old_file.endswith(".txt")) and (new_file.endswith(".txt")):
+    if not (old_file.endswith(".txt")) or not (new_file.endswith(".txt")):
         return
 
     try:
