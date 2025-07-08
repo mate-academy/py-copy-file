@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
     try:
-        command, src_filename, dst_filename = command.split(" ")
+        command, src_filename, dst_filename = command.split()
     except ValueError:
         return
 
