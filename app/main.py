@@ -1,11 +1,11 @@
 def copy_file(command: str) -> None:
 
     try:
-        action, source, destination = command.split()
+        action, source, destination = command.strip().split()
     except ValueError:
         return
 
-    if action != "cp":
+    if action != "cp" or source == destination:
         return
 
     try:
