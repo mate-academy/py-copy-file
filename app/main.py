@@ -1,9 +1,9 @@
 def copy_file(command: str) -> None:
+    command_list = command.strip().split()
 
-    try:
-        action, source, destination = command.strip().split()
-    except ValueError:
+    if not len(command_list) == 3:
         return
+    action, source, destination = command_list
 
     if action != "cp" or source == destination:
         return
