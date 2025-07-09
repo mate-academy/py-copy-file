@@ -3,8 +3,8 @@ import shutil
 
 def copy_file(command: str) -> None:
     try:
-        command, file, new_file = command.split(" ")
-        if command != "cp":
+        instruction, file, new_file = command.split(" ")
+        if instruction != "cp":
             print("Unsupported operation, try again!")
             return
         if file == new_file:
