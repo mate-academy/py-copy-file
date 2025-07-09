@@ -12,4 +12,4 @@ def copy_file(command: str) -> None:
                 ):
                     file_out.write(file_in.read())
             except FileNotFoundError:
-                pass
+                print("This file was not found.")
