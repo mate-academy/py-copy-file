@@ -14,4 +14,4 @@ def copy_file(command: str) -> None:
             from_content = f_from.read()
             f_to.write(from_content)
     except FileNotFoundError:
-        return
+        print("File not found.")
