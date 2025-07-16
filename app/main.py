@@ -3,6 +3,7 @@ def copy_file(copy_string: str) -> None:
         return
     parts = copy_string.strip().split()
     if len(parts) != 3 or parts[0] != "cp":
+        print("Error: invalid command format")
         return
     _, source, destination = parts
     if source == destination:
