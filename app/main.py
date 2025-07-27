@@ -15,4 +15,4 @@ def copy_file(command: str) -> None:
             for line in file_in:
                 file_out.write(line)
     except FileNotFoundError:
-        print(f"File not found: {src}")
+        print(f"File not found!)
