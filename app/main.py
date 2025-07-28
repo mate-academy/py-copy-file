@@ -11,7 +11,7 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(src, "r") as file_in, open(dst, "a") as file_out:
+        with open(src, "r") as file_in, open(dst, "w") as file_out:
             for line in file_in:
                 file_out.write(line)
     except FileNotFoundError:
