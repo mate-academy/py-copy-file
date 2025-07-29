@@ -20,6 +20,6 @@ def copy_file(command: str) -> None:
 
     with (
         open(input_filename, "r") as input_file,
-        open(output_filename, "a") as output_file
+        open(output_filename, "w") as output_file
     ):
         output_file.write(input_file.read())
