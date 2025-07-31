@@ -7,12 +7,10 @@ def copy_file(command: str) -> None:
     if src == dst:
         return
     try:
-        file_in = open(src, "r")
+        with open(src, "r") as file_in:
+            content = file_in.read()
     except FileNotFoundError:
         return
-    content = file_in.read()
-    file_in.close()
 
-    file_out = open(dst, "w")
-    file_out.write(content)
-    file_out.close()
+    with open(dst, "w") as file_out:
+        file_out.write(content)
