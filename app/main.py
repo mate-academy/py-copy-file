@@ -4,7 +4,7 @@ def copy_file(command: str) -> None:
     if len(arr_command) != 3 or arr_command[0] != "cp":
         print("Invalid command")
         return
-    if arr_command[0] == arr_command[1]:
+    if arr_command[1] == arr_command[2]:
         print("Do nothing")
         return
 
