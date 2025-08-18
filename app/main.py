@@ -4,7 +4,7 @@ def copy_file(command: str) -> None:
         if len(one_command) == 3:
             if ("cp" in one_command[0]
                     and one_command[1] != one_command[2]):
-                
+
                 with (open(one_command[1], "r") as file,
                       open(one_command[2], "w") as new_file):
 
