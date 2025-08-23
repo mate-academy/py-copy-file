@@ -1,7 +1,5 @@
-import os
-
 def copy_file(command: str) -> None:
-    parts = command.strip().split()
+    parts = command.split(' ', 2)
 
     if len(parts) != 3 or parts[0] != "cp":
         return
@@ -11,9 +9,9 @@ def copy_file(command: str) -> None:
     if src == dst:
         return
 
-    if not os.path.exists(src):
+    try:
+        with open(src, "r", encoding="utf-8") as source_file_object, \
+             open(dst, "w", encoding="utf-8") as destination_file_object:
+            destination_file_object.write(source_file_object.read())
+    except FileNotFoundError:
         return
-
-    with open(src, "r", encoding="utf-8") as file_in, \
-         open(dst, "w", encoding="utf-8") as file_out:
-        file_out.write(file_in.read())
