@@ -2,16 +2,16 @@ def copy_file(command: str) -> None:
     parts = command.split(" ")
     if len(parts) != 3 or parts[0] != "cp":
         return
-    src, dst = parts[1], parts[2]
+    source_file_name = parts[1]
+    destination_file_name = parts[2]
 
-    if src == dst:
+    if source_file_name == destination_file_name:
         return
     try:
-        with open(src, "r") as src_file, open(dst, "w") as dst_file:
-            dst_file.write(src_file.read())
+        with (
+            open(source_file_name, "r") as source_file,
+            open(destination_file_name, "w") as destination_file
+        ):
+            destination_file.write(source_file.read())
     except FileNotFoundError:
-        print("Error: file not found")
-    except FileExistsError:
-        print("Error: file already exists")
-    except IOError as e:
-        print("Error: cannot copy file", e)
+        return
