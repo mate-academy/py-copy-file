@@ -15,5 +15,6 @@ def copy_file(command: str) -> None:
     if not os.path.exists(source_file_name):
         return
 
-    with open(source_file_name, "r") as src, open(destination_file_name, "w") as dst:
+    with (open(source_file_name, "r") as src,
+          open(destination_file_name, "w") as dst):
         dst.write(src.read())
