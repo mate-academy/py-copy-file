@@ -1,5 +1,6 @@
 import os
 
+
 def copy_file(command: str) -> None:
     parts = command.split()
 
