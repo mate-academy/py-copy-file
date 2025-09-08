@@ -7,10 +7,10 @@ def copy_file(command: str) -> None:
     if len(command_parts) != 3:
         return
 
-    if command_parts[1] == command_parts[2]:
-        return
-
     if command_parts[0] == "cp":
+
+        if command_parts[1] == command_parts[2]:
+            return
 
         source_file_name = command_parts[1]
         destination_file_name = command_parts[2]
