@@ -12,13 +12,12 @@ def copy_file(command: str) -> None:
 
     if command_list[0] == "cp":
 
-        if not Path(command_list[1]).is_file():
+        source_file_name = command_list[1]
+        destination_file_name = command_list[2]
+
+        if not Path(source_file_name).is_file():
             return
 
-        with (open(command_list[1], "r") as file_in,
-              open(command_list[2], "w") as file_out):
+        with (open(source_file_name, "r") as file_in,
+              open(destination_file_name, "w") as file_out):
             file_out.write(file_in.read())
-
-
-# if __name__ == "__main__":
-#    copy_file("cp test3.txt test2.txt")
