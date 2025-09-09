@@ -1,11 +1,19 @@
 def copy_file(command: str):
-    separar = command.split()
-    ind = len(separar)
-    if ind == 3 and separar[0] == "cp":
-        src = separar[1]
-        dst = separar[2]
-        try:
-            with open(src, "r") as file_in, open(dst, "w") as file_out:
-                file_out.write(file_in.read())
-        except FileNotFoundError:
-            pass
+    if command.count(" ") != 2:
+        return
+
+    tokens = command.split(" ")
+    if tokens[0] != "cp":
+        return
+
+    source_file_name = tokens[1]
+    destination_file_name = tokens[2]
+
+    if source_file_name == destination_file_name:
+        return
+
+    try:
+        with open(source_file_name, "r") as file_in, open(destination_file_name, "w") as file_out:
+            file_out.write(file_in.read())
+    except FileNotFoundError:
+        pass
