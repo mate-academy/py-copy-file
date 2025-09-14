@@ -1,13 +1,15 @@
 def copy_file(command: str) -> None:
-    if len(command.split()) < 3 or command.split()[0] != "cp":
+    parts = command.split()
+    if len(parts) == 3 or parts[0] != "cp":
         return
-    old_file = command.split()[1]
-    new_file = command.split()[2]
-    if old_file == new_file:
+    source_file = command.split()[1]
+    target_file = command.split()[2]
+    if ".txt" not in source_file or ".txt" not in target_file:
+        return
+    if source_file == target_file:
         return
     try:
-        with open(old_file, "r") as old, open(new_file, "w") as new:
-            for line in old.readlines():
-                new.write(line)
+        with open(source_file, "r") as source, open(target_file, "w") as target:
+            target.write(source.read())
     except FileNotFoundError:
-        print(f"No such file or directory: '{old_file}'")
+        ...
