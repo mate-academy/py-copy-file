@@ -1,14 +1,16 @@
-def copy_file(command : str) -> None:
-    part = command.split(" ")
-    if len(part) != 3 or part[0] != "cp":
+def copy_file(command: str) -> None:
+    parts = command.split(" ")
+    if len(parts) != 3 or parts[0] != "cp":
         return
-    source_file = part[1]
-    destination_file = part[2]
+    source_file = parts[1]
+    destination_file = parts[2]
     if source_file == destination_file:
         return
     try:
-        with (open(source_file, "r") as file_in,
-              open(destination_file, "w") as file_out):
+        with (
+            open(source_file, "r") as file_in,
+            open(destination_file, "w") as file_out
+        ):
             content = file_in.read()
             file_out.write(content)
     except FileNotFoundError:
