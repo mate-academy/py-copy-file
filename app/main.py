@@ -1,4 +1,4 @@
-def copy_file(command):
+def copy_file(command: str) -> None:
     """
     Copies a file to a new file in the current directory, similar to the
     Linux 'cp' command.
