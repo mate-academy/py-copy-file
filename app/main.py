@@ -1,19 +1,19 @@
 def copy_file(text: str) -> None:
-    text_buffer = []
-    text_separ = text.split(" ")
+    tokens = text.split(" ")
 
-    if text_separ[0] != "cp":
+    if len(tokens) != 3:
         return
-    if len(text_separ) != 3:
+
+    if tokens[0] != "cp":
         return
-    if text_separ[1] == text_separ[2]:
+
+    if tokens[1] == tokens[2]:
         return
 
     try:
-        with (open(text_separ[1], "r") as input_file,
-              open(text_separ[2], "w") as output_file):
-            for line in input_file:
-                text_buffer.append(line)
-            output_file.write("\n".join(text_buffer))
+        with (open(tokens[1], "r") as input_file,
+              open(tokens[2], "w") as output_file):
+            content = input_file.read()
+            output_file.write(content)
     except FileNotFoundError:
         return
