@@ -1,18 +1,20 @@
-def copy_file(text: str) -> None:
-    tokens = text.split(" ")
+def copy_file(command: str) -> None:
+    parts = command.split(" ")
 
-    if len(tokens) != 3:
+    if len(parts) != 3:
         return
 
-    if tokens[0] != "cp":
+    if parts[0] != "cp":
         return
 
-    if tokens[1] == tokens[2]:
+    if parts[1] == parts[2]:
         return
 
+    source_file_name = parts[1]
+    destination_file_name = parts[2]
     try:
-        with (open(tokens[1], "r") as input_file,
-              open(tokens[2], "w") as output_file):
+        with (open(source_file_name, "r") as input_file,
+              open(destination_file_name, "w") as output_file):
             content = input_file.read()
             output_file.write(content)
     except FileNotFoundError:
