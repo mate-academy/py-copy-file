@@ -4,7 +4,7 @@ import os.path
 def copy_file(command: str) -> None:
     splited_command = command.split()
 
-    if len(splited_command) < 3:
+    if not len(splited_command) == 3:
         return
 
     command = splited_command[0]
@@ -21,5 +21,5 @@ def copy_file(command: str) -> None:
         return
 
     with open(in_name, "r") as file_in, open(out_name, "w") as file_out:
-        content = file_in.read().rstrip("\n")
+        content = file_in.read()
         file_out.write(content)
