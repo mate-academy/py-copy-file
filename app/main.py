@@ -2,7 +2,9 @@ import os.path
 
 
 def copy_file(command: str) -> None:
-    divided_command = command.split(" ")
+    divided_command = command.split()
+    if not divided_command:
+        return
     user_command = divided_command[0]
 
     if user_command == "cp" and len(divided_command) == 3:
@@ -15,5 +17,5 @@ def copy_file(command: str) -> None:
             return
 
         with (open(source_filename, "r") as file_in,
-              open(target_filename, "a") as file_out):
+              open(target_filename, "w") as file_out):
             file_out.write(file_in.read())
