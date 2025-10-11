@@ -2,5 +2,6 @@ def copy_file(command: str) -> None:
     parts = command.strip().split(" ")
     if len(parts) == 3 and parts[0] == "cp":
         if parts[1] != parts[2]:
-            with open(parts[2], "w") as pasted_file, open(parts[1]) as copied_file:
+            with (open(parts[2], "w") as pasted_file,
+                  open(parts[1]) as copied_file):
                 pasted_file.write(copied_file.read())
