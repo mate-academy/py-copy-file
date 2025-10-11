@@ -10,6 +10,9 @@ def copy_file(command: str) -> None:
     if source_file == target_file:
         return
 
-    with open(source_file, "r", encoding="utf-8") as file_in, \
-            open(target_file, "w", encoding="utf-8") as file_out:
-        file_out.write(file_in.read())
+    try:
+        with open(source_file, "r", encoding="utf-8") as file_in, \
+                open(target_file, "w", encoding="utf-8") as file_out:
+            file_out.write(file_in.read())
+    except FileNotFoundError:
+        print("Source file not found.")
