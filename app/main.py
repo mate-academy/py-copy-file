@@ -1,17 +1,17 @@
 def copy_file(command: str) -> None:
-    command = command.split()
-    if len(command) < 3:
+    tokens = command.split()
+    if len(tokens) != 3:
         return
-    if command[0] != "cp":
+    if tokens[0] != "cp":
         return
-    first_file = command[1]
-    second_file = command[2]
-    if first_file == second_file:
+    source_file_name = tokens[1]
+    destination_file_name = tokens[2]
+    if source_file_name == destination_file_name:
         return
 
     try:
-        with (open(first_file, "r") as original_file,
-              open(second_file, "w") as coped_file):
-            coped_file.write(original_file.read())
+        with (open(source_file_name, "r") as file_out,
+              open(destination_file_name, "w") as file_in):
+            file_in.write(file_out.read())
     except FileNotFoundError:
         print("File not found")
