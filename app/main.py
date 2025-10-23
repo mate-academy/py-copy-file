@@ -17,12 +17,13 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(source_file, "r") as file_in, open(dest_file, "w") as file_out:
-            content = file_in.read()
-            file_out.write(content)
+        # ВИПРАВЛЕНО: Розбили довгий рядок на два вкладені
+        with open(source_file, "r") as file_in:
+            with open(dest_file, "w") as file_out:
+                content = file_in.read()
+                file_out.write(content)
 
     except FileNotFoundError:
-        # ВИПРАВЛЕНО: Розбили довгий рядок на два, щоб пройти перевірку
         error_message = f"Error: File '{source_file}' not found."
         print(error_message)
     except IOError as e:
