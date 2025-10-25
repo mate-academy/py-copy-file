@@ -5,6 +5,8 @@ def copy_file(command: str) -> None:
     else:
         new_file_name = line_to_copy[-1]
         copied_file_name = line_to_copy[1]
+        if new_file_name == copied_file_name:
+            return
         try:
             with (open(copied_file_name, "r") as file,
                   open(new_file_name, "w") as new_file):
