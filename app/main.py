@@ -5,7 +5,10 @@ def copy_file(command: str) -> None:
         file_out = command_parts[2]
         if file_in != file_out:
             try:
-                with open(file_in) as read, open(file_out, "w") as write:
-                    write.write(read.read())
+                with (
+                    open(file_in) as source_file,
+                    open(file_out, "w") as target_file
+                ):
+                    target_file.write(source_file.read())
             except FileNotFoundError:
                 pass
