@@ -21,4 +21,4 @@ def copy_file(command: str) -> None:
         return
 
     with open(destination, "w") as destination_file:
-            destination_file.write(content)
+        destination_file.write(content)
