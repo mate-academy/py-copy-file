@@ -1,8 +1,11 @@
+from typing import TextIO
+
+
 class ReadingManager:
     def __init__(self, source_path: str) -> None:
         self.source_path = source_path
 
-    def __enter__(self) -> str:
+    def __enter__(self) -> TextIO:
         self.file = open(self.source_path, "r")
         return self.file
 
@@ -14,7 +17,7 @@ class WritingManager:
     def __init__(self, source_path: str) -> None:
         self.source_path = source_path
 
-    def __enter__(self) -> str:
+    def __enter__(self) -> TextIO:
         self.file = open(self.source_path, "w")
         return self.file
 
@@ -27,14 +30,14 @@ def copy_file(command: str) -> None:
     if len(command_files_list) != 3 or command_files_list[0] != "cp":
         return
 
-    src_file = command_files_list[1]
-    dst_file = command_files_list[2]
-    if src_file == dst_file:
+    source_file_name = command_files_list[1]
+    distribution_file_name = command_files_list[2]
+    if source_file_name == distribution_file_name:
         return
     try:
-        with (ReadingManager(src_file) as src_obj,
-              WritingManager(dst_file) as dst_obj):
+        with (ReadingManager(source_file_name) as src_obj,
+              WritingManager(distribution_file_name) as dst_obj):
             for line in src_obj:
                 dst_obj.write(line)
     except FileNotFoundError:
-        return "No such file or directory"
+        return
