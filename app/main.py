@@ -1,1 +1,18 @@
-# write your code here
+def copy_file(command: str) -> None:
+    parts = command.split()
+
+    if len(parts) != 3 or parts[0] != "cp":
+        return
+
+    _, src, dst = parts
+
+    if src == dst:
+        return
+
+    try:
+        with open(src, "r") as file_in, open(dst, "w") as file_out:
+            file_out.write(file_in.read())
+
+        print(f"File '{src}' copied to '{dst}'.")
+    except FileNotFoundError:
+        print(f"File '{src}' not found.")
