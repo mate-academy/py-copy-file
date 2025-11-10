@@ -1,1 +1,26 @@
-# write your code here
+class FileCopier:
+    def __init__(self, command: str) -> None:
+        self.command: str = command
+
+    def copy(self) -> None:
+        parts: list[str] = self.command.split()
+        if len(parts) != 3 or parts[0] != "cp":
+            return
+
+        source_file_name: str = parts[1]
+        target_file_name: str = parts[2]
+
+        if source_file_name == target_file_name:
+            return
+
+        try:
+            with open(source_file_name, "r") as source_file, \
+                 open(target_file_name, "w") as target_file:
+                target_file.write(source_file.read())
+        except FileNotFoundError:
+            return
+
+
+def copy_file(command: str) -> None:
+    copier = FileCopier(command)
+    copier.copy()
