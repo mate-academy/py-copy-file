@@ -12,7 +12,5 @@ def copy_file(command: str) -> None:
     try:
         with open(src, "r") as file_in, open(dst, "w") as file_out:
             file_out.write(file_in.read())
-
-        print(f"File '{src}' copied to '{dst}'.")
     except FileNotFoundError:
-        print(f"File '{src}' not found.")
+        return
