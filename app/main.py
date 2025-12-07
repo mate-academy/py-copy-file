@@ -1,11 +1,8 @@
 def copy_file(cp_command: str) -> None:
     file_names = cp_command.split()
-    try:
-        if file_names[1] == file_names[2]:
-            return
-    except IndexError:
+    if len(file_names) != 3 or file_names[0] != "cp":
         return
-    if file_names[0] != "cp":
+    if file_names[1] == file_names[2]:
         return
     try:
         with (open(file_names[1], "r")
