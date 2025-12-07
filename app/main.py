@@ -1,4 +1,4 @@
-def copy_file(command) -> None:
+def copy_file(command: str) -> None:
     try:
         parts = command.split()
         if len(parts) == 3 and parts[0] == "cp":
