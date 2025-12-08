@@ -2,8 +2,8 @@ def copy_file(command: str) -> None:
     if command:
         parsed_command = command.split()
         if len(parsed_command) == 3:
-            file_in, file_out = parsed_command[1], parsed_command[2]
             if parsed_command[0] == "cp":
+                file_in, file_out = parsed_command[1], parsed_command[2]
                 if file_in != file_out:
                     try:
                         with (open(file_in, "r") as source,
