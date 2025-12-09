@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
     parts = command.split()
 
-    if len(parts) < 3:
+    if len(parts) != 3:
         print("You must specify a command and two files, \
         for example: cp source.txt dest.txt")
         return
@@ -17,7 +17,7 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(file_in, "r") as file_in, open(file_out, "w") as file_out:
-            file_out.write(file_in.read())
+        with open(file_in, "r") as src, open(file_out, "w") as dst:
+            dst.write(src.read())
     except FileNotFoundError:
         print(f"{file_in} was not found.")
