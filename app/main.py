@@ -1,1 +1,14 @@
-# write your code here
+def copy_file(command: str) -> None:
+    command = command.split(" ")
+    if command[0] != "cp":
+        return
+    elif len(command) != 3:
+        return
+    elif command[1] == command[2]:
+        return
+    try:
+        with (open(command[1], "r") as file_in,
+              open(command[2], "w") as file_out):
+            file_out.write(file_in.read())
+    except FileNotFoundError:
+        print(f"File {command[1]} not found")
