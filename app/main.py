@@ -1,15 +1,21 @@
-# write your code here
-def copy_file(command: str) -> None:
-    spaces = command.count(" ")
-    if spaces == 2 and command[:3] == "cp ":
-        part_command = command.split(" ")
-        old_file = part_command[1]
-        new_file = part_command[2]
+import os
 
-        if old_file != new_file:
-            try:
-                with open(old_file, "r") as f, open(new_file, "a") as n:
-                    for line in f:
-                        n.write(line)
-            except FileNotFoundError:
-                pass
+
+def copy_file(command: str) -> None:
+    part_command = command.split()
+
+    if len(part_command) != 3 or part_command[0] != "cp":
+        return
+
+    old_file, new_file = part_command[1], part_command[2]
+
+    if old_file == new_file:
+        return
+
+    if not os.path.exists(old_file):
+        if os.path.exists(new_file):
+            os.remove(new_file)
+        return
+
+    with open(old_file, "r") as source, open(new_file, "w") as target:
+        target.write(source.read())
