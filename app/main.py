@@ -7,6 +7,6 @@ def copy_file(command: str) -> None:
                 content = file_in.read()
                 file_out.write(content)
     except ValueError:
-        pass
+        print("There is a problem with you input.")
     except FileNotFoundError:
-        pass
+        print("Please check paths to files.")
