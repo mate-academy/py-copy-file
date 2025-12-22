@@ -10,4 +10,3 @@ def copy_file(command: str) -> None:
         pass
     except FileNotFoundError:
         pass
-
