@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-from app.main import copy_file
+from app.main import (copy_file)
 
 
 @pytest.fixture
