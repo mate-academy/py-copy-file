@@ -4,7 +4,7 @@ def copy_file(command: str) -> None:
         return
     source_file = parts[1]
     destination_file = parts[2]
-    if src == dst:
+    if source_file == destination_file:
         return
     try:
         with open(source_file, "r") as f_in, open(destination_file, "w") as f_out:
