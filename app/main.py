@@ -5,6 +5,8 @@ def copy_file(command: str) -> None:
 
     ma_file = parts[1]
     copied_file = parts[2]
+    if ma_file == copied_file:
+        return
 
     try:
         with open(ma_file, "r") as file1, open(copied_file, "w") as file2:
