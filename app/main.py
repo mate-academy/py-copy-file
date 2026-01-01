@@ -1,10 +1,11 @@
 def copy_file(command: str) -> None:
+    strings = command.split()
     cp = ""
     name_copy = ""
     name_origin = ""
 
-    if len(command.split()) > 2:
-        cp, name_origin, name_copy = command.split()
+    if len(strings) == 3:
+        cp, name_origin, name_copy = strings
     if name_origin != name_copy and cp == "cp":
         try:
             with (open(name_origin, "rb") as file_origin,
