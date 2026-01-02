@@ -1,1 +1,7 @@
-# write your code here
+def copy_file(command: str) -> None:
+    if len(command.split()) == 3:
+        command_, source_file, destination_file = command.split()
+        if source_file != destination_file and command_ == "cp":
+            with (open(source_file, "r") as file_in,
+                  open(destination_file, "w") as file_out):
+                file_out.write(file_in.read())
