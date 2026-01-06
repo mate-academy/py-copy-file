@@ -1,10 +1,10 @@
 def copy_file(command: str) -> None:
-    commands = command.split(" ")
+    comms = command.split(" ")
     try:
-        if commands[0] == "cp" and commands[1] != commands[2]:
+        if comms[0] == "cp" and comms[1] != comms[2] and len(comms) == 3:
             with (
-                open(commands[1], "r") as file,
-                open(commands[2], "w") as new_file
+                open(comms[1], "r") as file,
+                open(comms[2], "w") as new_file
             ):
                 new_file.write(file.read())
     except (FileNotFoundError, IndexError):
