@@ -8,7 +8,6 @@ def copy_file(command: str) -> None:
 
     first_file = command_name[1]
     second_file = command_name[2]
-    print(first_file, second_file)
 
     if first_file == second_file:
         return
@@ -16,5 +15,5 @@ def copy_file(command: str) -> None:
         with (open(first_file, "r") as file_in,
               open(second_file, "w") as file_out):
             file_out.write(file_in.read())
-    except Exception as e:
-        print(e)
+    except Exception:
+        pass
