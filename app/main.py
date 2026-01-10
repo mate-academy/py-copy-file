@@ -1,17 +1,17 @@
 import shutil
 
 
-def copy_file(com: str) -> None:
-    files = com.split()
+def copy_file(file_to_copy: str) -> None:
+    files = file_to_copy.split()
     if len(files) != 3 or files[0] != "cp":
         return
-    f2 = files.pop()
-    f1 = files.pop()
+    second_file = files.pop()
+    first_file = files.pop()
 
-    if f1 == f2:
+    if first_file == second_file:
         return
 
     try:
-        shutil.copy(f1, f2)
+        shutil.copy(first_file, second_file)
     except Exception as e:
         print(e)
