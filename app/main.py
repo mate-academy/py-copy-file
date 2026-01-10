@@ -1,19 +1,19 @@
 def copy_file(command: str) -> None:
-    command_name = command.split()
+    command_parts = command.split()
 
-    if len(command_name) != 3:
+    if len(command_parts) != 3:
         return
-    if "cp" != command_name[0]:
+    if "cp" != command_parts[0]:
         return
 
-    first_file = command_name[1]
-    second_file = command_name[2]
+    source_file = command_parts[1]
+    destination_file = command_parts[2]
 
-    if first_file == second_file:
+    if source_file == destination_file :
         return
     try:
-        with (open(first_file, "r") as file_in,
-              open(second_file, "w") as file_out):
+        with (open(source_file, "r") as file_in,
+              open(destination_file, "w") as file_out):
             file_out.write(file_in.read())
     except Exception:
         pass
