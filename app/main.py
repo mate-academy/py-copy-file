@@ -10,4 +10,4 @@ def copy_file(command: str) -> None:
                     content = file.read()
                     new_file.write(content)
         except FileNotFoundError as e:
-            return e
+            return
