@@ -4,12 +4,10 @@ def copy_file(command: str) -> None:
         try:
             file_name = command_list[1]
             new_file_name = command_list[2]
-            with (open(file_name, "r") as file,
-                  open(new_file_name, "w") as new_file):
-                if file_name != new_file_name:
+            if file_name != new_file_name:
+                with open(file_name, "r") as file, \
+                     open(new_file_name, "w") as new_file:
                     content = file.read()
                     new_file.write(content)
-        except FileNotFoundError:
-            print("File not found")
-        except IndexError:
-            print("Incorrect command")
+        except FileNotFoundError as e:
+            return e
