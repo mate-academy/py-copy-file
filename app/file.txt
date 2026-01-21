@@ -1,0 +1,1 @@
+Function must copy the whole content to new file. Example:
