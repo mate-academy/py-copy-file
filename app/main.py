@@ -1,1 +1,13 @@
-# write your code here
+def copy_file(command: str) -> None:
+    r_command = command.split(" ")
+    if len(r_command) != 3 or r_command[0] != "cp":
+        print(f"Wrong command: {r_command[0]}. Required command: cp")
+        return
+
+    if r_command[1] == r_command[2]:
+        return
+
+    with (open(r_command[1], "r") as file_in,
+          open(r_command[2], "w") as file_out):
+        for line in file_in.readlines():
+            file_out.write(line)
