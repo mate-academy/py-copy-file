@@ -1,10 +1,7 @@
 def copy_file(command: str) -> None:
     parts = command.split()
 
-    if len(parts) < 2 or parts[0] != "cp":
-        return
-
-    if len(parts) != 3:
+    if len(parts) != 3 or parts[0] != "cp":
         return
 
     if parts[1] == parts[2]:
