@@ -1,6 +1,7 @@
 def copy_file(command: str) -> None:
-    if len(command.split()) == 3:
-        comm, source_file, destination_file = command.split()
+    parts = command.split()
+    if len(parts) == 3:
+        comm, source_file, destination_file = parts
         if comm == "cp" and source_file != destination_file:
             try:
                 with (open(source_file) as file_in,
