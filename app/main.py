@@ -14,8 +14,5 @@ def copy_file(command: str) -> None:
                 source_file, "rb") as file_to_copy,
                 open(destination_file, "wb") as file_after_copy):
             file_after_copy.write(file_to_copy.read())
-
     except FileNotFoundError:
-        print(f"Error: {source_file} does not exist.")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+        pass
