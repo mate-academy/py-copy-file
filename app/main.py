@@ -1,8 +1,8 @@
 import os
 
 
-def copy_file(linux_string: str) -> None:
-    files_txt = linux_string.split()
+def copy_file(command: str) -> None:
+    files_txt = command.split()
     if len(files_txt) == 3:
         file_in_txt, file_out_txt = files_txt[1], files_txt[2]
         if files_txt[0] == "cp":
