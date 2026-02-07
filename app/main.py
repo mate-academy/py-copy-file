@@ -4,7 +4,6 @@ import os
 
 
 def copy_file(command: str) -> None:
-    print(command)
     operators = command.split(" ")
     if len(operators) != 3:
         return
@@ -12,11 +11,9 @@ def copy_file(command: str) -> None:
     cmd, cp_name, file_name = operators
 
     if cmd != "cp":
-        print(cmd)
         return
 
     if not path.exists(cp_name):
-        print(cp_name)
         return
 
     current_path = os.getcwd()
@@ -29,5 +26,3 @@ def copy_file(command: str) -> None:
                     second.write(first.read())
         except Exception as e:
             debug(e)
-
-    print(copy_file)
