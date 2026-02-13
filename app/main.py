@@ -1,24 +1,15 @@
 def copy_file(command: str) -> None:
-    if len(command) == 0:
+    parts = command.split()
+    if len(parts) != 3 or parts[0] != "cp":
+        return
+    source_file = parts[1]
+    destination_file = parts[2]
+    if source_file == destination_file:
         return
     try:
-        nowa = command[3:]
-    except IndexError:
-        return
-    lista = nowa.split()
-    try:
-        file1 = lista[0]
-        file2 = lista[1]
-    except IndexError:
-        return
-    if file1 == file2:
-        return
-    try:
-        plik = open(file1, "r")
-        content = plik.read()
+        with open(source_file, "r") as src:
+            content = src.read()
+        with open(destination_file, "w") as dst:
+            dst.write(content)
     except FileNotFoundError:
         return
-    plik1 = open(file2, "w")
-    plik1.write(content)
-    plik.close()
-    plik1.close()
