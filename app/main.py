@@ -9,5 +9,5 @@ def copy_file(command: str) -> None:
                         open(spl[2], "w") as file_out
                     ):
                         file_out.write(file_in.read())
-                except FileNotFoundError:
-                    print(f"File {spl[2]} not found!")
+                except Exception:
+                    print(f"File {spl[1]} not found!")
