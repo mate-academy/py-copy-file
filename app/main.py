@@ -8,7 +8,7 @@ def copy_file(command: str) -> None:
     cmd, file_input, file_output = keywords_in_command
     if path.exists(file_input) and file_input != file_output:
         with (
-            open(file_input, "r") as f_input,
-            open(file_output, "w") as f_output
+            open(file_input, "r") as source_file,
+            open(file_output, "w") as destination_file
         ):
-            f_output.write(f_input.read())
+            destination_file.write(source_file.read())
