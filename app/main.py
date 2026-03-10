@@ -1,13 +1,16 @@
 def copy_file(command: str) -> None:
-    new_list = command.split()
-    if len(new_list) != 3:
+    command_parts = command.split()
+    if len(command_parts) != 3:
         return
-    if new_list[1] == new_list[2]:
+    if command_parts[1] == command_parts[2]:
         return
-    if new_list[0] != "cp":
+    if command_parts[0] != "cp":
         return
     try:
-        with open(new_list[1], "r") as file1, open(new_list[2], "w") as file2:
-            file2.write(file1.read())
+        with (
+            open(command_parts[1], "r") as source_file,
+            open(command_parts[2], "w") as destination_file,
+        ):
+            destination_file.write(source_file.read())
     except Exception:
         pass
