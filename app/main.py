@@ -1,11 +1,14 @@
 def copy_file(command: str) -> None:
     command_list = command.split(" ")
-    if command_list[0] == "cp" and len(command_list) == 3:
-        if command_list[1] and command_list[2]:
-            if command_list[1] != command_list[2]:
+    cmd = command_list[0]
+    if cmd == "cp" and len(command_list) == 3:
+        source_file = command_list[1]
+        destination_file = command_list[2]
+        if source_file and destination_file:
+            if source_file != destination_file:
                 try:
-                    with (open(command_list[1], "r") as file_source_obj,
-                          open(command_list[2], "w") as file_dest_obj):
-                        file_dest_obj.write(file_source_obj.read())
+                    with (open(source_file, "r") as source_file_obj,
+                          open(destination_file, "w") as dest_file_obj):
+                        dest_file_obj.write(source_file_obj.read())
                 except FileNotFoundError:
                     pass
