@@ -2,15 +2,16 @@
 
 def copy_file(command: str) -> None:
     parts = command.split()
-    if len(parts) == 3:
-        param, old_name, new_name = parts[0], parts[1], parts[2]
+    if len(parts) != 3:
+        return
+    operation, source_filename, destination_filename = parts
 
-        if param == "cp" and old_name != new_name:
-            try:
-                with open(old_name, "rb") as src:
-                    data = src.read()
-                with open(new_name, "wb") as dst:
-                    dst.write(data)
-            except FileNotFoundError:
-                print(f"Source file '{old_name}' not found."
-                      f" Skipping copy.")
+    if operation != "cp" or source_filename == destination_filename:
+        return
+
+    try:
+        with (open(source_filename, "rb") as file_in,
+              open(destination_filename, "wb") as file_out):
+            file_out.write(file_in.read())
+    except FileNotFoundError:
+        return
