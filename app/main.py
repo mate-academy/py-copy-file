@@ -1,5 +1,3 @@
-
-
 def copy_file(command: str) -> None:
     parts = command.split()
     if len(parts) != 3:
