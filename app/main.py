@@ -1,15 +1,16 @@
 def copy_file(command: str) -> None:
 
-    result = command.split()
+    source_file_name = command.split()
 
-    if len(result) != 3 or result[0] != "cp":
+    if len(source_file_name) != 3 or source_file_name[0] != "cp":
         return
 
-    if result[1] == result[2]:
+    if source_file_name[1] == source_file_name[2]:
         return
     else:
         try:
-            with open(result[1], "r") as fi_in, open(result[2], "w") as fi_n:
-                fi_n.write(fi_in.read())
+            with open(source_file_name[1], "r") as file_in:
+                with open(source_file_name[2], "w") as file_out:
+                    file_out.write(file_in.read())
         except OSError:
             return
