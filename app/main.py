@@ -1,9 +1,15 @@
+import os
+
+
 def copy_file(command: str) -> None:
     parts = command.split()
-    src = parts[1]
-    dst = parts[2]
 
-    if src == dst:
+    if len(parts) != 3 or parts[0] != "cp":
+        return
+
+    src, dst = parts[1], parts[2]
+
+    if src == dst or not os.path.exists(src):
         return
 
     with open(src, "r") as file_in, open(dst, "w") as file_out:
