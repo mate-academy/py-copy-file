@@ -9,5 +9,5 @@ def copy_file(command: str) -> None:
                 open(commands[2], "w") as target
             ) :
                 target.write(source.read())
-        except FileNotFoundError as e:
+        except FileNotFoundError:
             pass
