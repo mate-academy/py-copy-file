@@ -10,6 +10,4 @@ def copy_file(command: str) -> None:
             ) :
                 target.write(source.read())
         except FileNotFoundError as e:
-            print(e)
-    else:
-        print("Invalid command")
+            pass
