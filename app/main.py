@@ -1,11 +1,11 @@
 def copy_file(command: str) -> None:
-    parts = command.split()
+    arguments = command.split()
 
-    if len(parts) != 3 or parts[0] != "cp":
+    if len(arguments) != 3 or arguments[0] != "cp":
         return
 
-    source = parts[1]
-    destination = parts[2]
+    source = arguments[1]
+    destination = arguments[2]
 
     if source == destination:
         return
