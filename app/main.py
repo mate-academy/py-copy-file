@@ -1,13 +1,14 @@
 def copy_file(command: str) -> None:
     try:
-        cmd, file_in, file_out = command.split()
-
-        if file_in == file_out or cmd != "cp":
+        if len(command.split()) < 3:
             return
 
-        with open(file_in) as f_in, open(file_out, "w") as f_out:
-            f_out.write(f_in.read())
-    except ValueError:
-        print("Command must be not empty.")
+        command_name, file_input, file_output = command.split()
+
+        if file_input == file_output or command_name != "cp":
+            return
+
+        with open(file_input) as file_from, open(file_output, "w") as file_to:
+            file_to.write(file_from.read())
     except FileNotFoundError:
-        print("No such file.")
+        return
