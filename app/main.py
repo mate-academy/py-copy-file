@@ -11,7 +11,6 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        # Wrap the context managers in parentheses to allow line breaks
         with (
             open(source_file, "r") as file_in,
             open(destination_file, "w") as file_out
