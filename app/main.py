@@ -8,7 +8,7 @@ def copy_file(command: str) -> None:
         try:
             with (
                 open(split_command[1], "r") as file_in,
-                open(split_command[2], "a") as file_out
+                open(split_command[2], "w") as file_out
             ):
                 file_out.write(file_in.read())
         except FileNotFoundError:
