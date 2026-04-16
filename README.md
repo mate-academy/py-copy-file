@@ -12,9 +12,9 @@ name.
 - Function must copy the whole content to new file.
 Example:
 ```python
-copy_file("cp file.txt file.txt")  # Does nothing
+copy_file("file.txt")  # Does nothing
 
-copy_file("cp file.txt new_file.txt")
+copy_file("file1.txt")
 open("file.txt").read() == open("new_file.txt").read()  # True
 ```
 **Note**: You can use two contexts managers simultaneously by separating them by a comma:
