@@ -16,4 +16,5 @@ def copy_file(command: str) -> None:
         open(file_original, "r") as fobj_original,
         open(file_copied, "w") as fobj_copied
     ):
-        fobj_copied.write(fobj_original.read())
+        for line in fobj_original.readlines():
+            fobj_copied.write(line)
