@@ -2,13 +2,13 @@ def copy_file(command: str) -> None:
     parts = command.split()
     if len(parts) != 3 or parts[0] != "cp":
         return
-    f_part, s_part, t_part = parts
-    if s_part == t_part:
+    part, source_file, destination_file = parts
+    if source_file == destination_file:
         return
     try:
-        with open(s_part, "r") as file_in:
+        with open(source_file , "r") as file_in:
             content = file_in.read()
-        with open(t_part, "w") as file_out:
+        with open(destination_file , "w") as file_out:
             file_out.write(content)
     except FileNotFoundError:
         print("File not found")
