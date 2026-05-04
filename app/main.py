@@ -13,12 +13,9 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(source, "r") as file:
-            content = file.read()
-
-        with open(destination, "w") as file:
-
-            file.write(content)
+        with open(source, "r") as source_file, \
+                open(destination, "w") as dest_file:
+            dest_file.write(source_file.read())
 
     except FileNotFoundError:
         return
