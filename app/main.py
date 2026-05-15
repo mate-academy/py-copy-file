@@ -6,8 +6,9 @@ def copy_file(command: str) -> None:
             file_name_2 = words[2]
             if file_name_1 != file_name_2:
                 try:
-                    with open(file_name_1, "r") as file_in, open(file_name_2, "w") as file_out:
+                    with open(file_name_1, "r") as file_in, \
+                            open(file_name_2, "w") as file_out:
                         text = file_in.read()
                         file_out.write(text)
-                except:
+                except FileNotFoundError:
                     print("Missing source file")
