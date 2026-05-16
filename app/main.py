@@ -20,6 +20,3 @@ def copy_file(command: str) -> None:
           open(destination_file, "w") as file_out):
         source_file_data = file_in.read()
         file_out.write(source_file_data)
-
-
-copy_file("cp file.txt file.txt")
