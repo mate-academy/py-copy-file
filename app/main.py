@@ -21,5 +21,3 @@ def copy_file(command: str) -> None:
             cp_file.write(source_file_content)
     except FileNotFoundError:
         print("File not found")
-
-    print(split_command)
