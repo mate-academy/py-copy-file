@@ -45,6 +45,7 @@ def test_do_nothing_if_same_names(setup_and_teardown_files):
 
 
 def test_invalid_command_no_action(setup_and_teardown_files):
+    print(">> HERE <<", setup_and_teardown_files)
     """Test that the function does nothing for an invalid command."""
     _, target_filename, _ = setup_and_teardown_files
 
