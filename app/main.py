@@ -14,11 +14,8 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(source, "r") as r:
-            conteudo = r.read()
-
-        with open(destination, "w") as f:
-            f.write(conteudo)
+        with open(source, "r") as r, open(destination, "w") as f:
+            f.write(r.read())
 
     except FileNotFoundError:
         return
