@@ -3,11 +3,11 @@ def copy_file(command: str) -> None:
     if len(parts) != 3:
         return
 
-    _, source, result = parts
+    command_name, source, result = parts
 
-    if _ != "cp":
+    if command_name != "cp":
         return
- 
+
     if source == result:
         return
 
