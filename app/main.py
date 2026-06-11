@@ -7,12 +7,13 @@ def copy_file(command: str) -> None:
 
     if _ != "cp":
         return
-
-    try:
-        with open(source, "r") as read_file:
-            content = read_file.read()
-    except FileNotFoundError:
+ 
+    if source == result:
         return
 
-    with open(result, "w") as write_file:
-        write_file.write(content)
+    try:
+        with open(source, "r") as read_file, open(result, "w") as write_file:
+            content = read_file.read()
+            write_file.write(content)
+    except FileNotFoundError:
+        return
