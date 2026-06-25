@@ -1,6 +1,3 @@
-from os.path import exists
-
-
 def copy_file(command: str) -> None:
     command_list = command.split()
 
@@ -10,9 +7,12 @@ def copy_file(command: str) -> None:
     source = command_list[1]
     destination = command_list[2]
 
-    if source == destination or not exists(source):
+    if source == destination:
         return
 
-    with (open(source, "r") as source_file,
-          open(destination, "w") as destination_file):
-        destination_file.write(source_file.read())
+    try:
+        with (open(source, "r") as source_file,
+              open(destination, "w") as destination_file):
+            destination_file.write(source_file.read())
+    except FileNotFoundError:
+        return
