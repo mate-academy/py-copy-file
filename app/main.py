@@ -15,4 +15,4 @@ def copy_file(command: str) -> None:
               open(destination, "w") as destination_file):
             destination_file.write(source_file.read())
     except FileNotFoundError:
-        return
+        print(f"File {source} not found")
