@@ -1,4 +1,4 @@
-def copy_file(command: str) -> None:
+def copy_file(command: str) -> str | None:
     parts = command.split()
 
     if len(parts) != 3 or parts[0] != "cp":
@@ -13,4 +13,4 @@ def copy_file(command: str) -> None:
         with open(source, "r") as f, open(copy, "w") as g:
             g.write(f.read())
     except FileNotFoundError:
-        print(f"Помилка: Файл {source} не знайдено.")
+        return
