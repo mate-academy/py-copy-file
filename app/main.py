@@ -12,6 +12,6 @@ def copy_file(command: str) -> None:
     if source == target or not os.path.exists(source):
         return
 
-    with open(source, "r") as file_in:
-        with open(target, "w") as file_out:
-              file_out.write(file_in.read())
+    with open(source, "r") as source_file_object:
+        with open(target, "w") as target_file_object:
+            target_file_object.write(source_file_object.read())
