@@ -1,8 +1,7 @@
 def copy_file(command: str) -> None:
-    command_list = command.strip().split()
-    if command is None:
-        return
-    elif len(command_list) != 3:
+    command_clened = command.strip()
+    command_list = command_clened.split()
+    if len(command_list) != 3:
         return
     elif command_list[0] != "cp":
         return
@@ -16,5 +15,5 @@ def copy_file(command: str) -> None:
             ):
                 old_file_content = old_file.read()
                 new_file.write(old_file_content)
-        except Exception:
+        except FileNotFoundError:
             return
