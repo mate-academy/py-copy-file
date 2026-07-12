@@ -12,17 +12,9 @@ def copy_file(command: str) -> None:
     if not os.path.exists(source):
         return
 
-    directories, _, filename = destination.rpartition("/")
+    destination_path = os.path.join(os.getcwd(), destination)
 
-    if not filename:
-        filename = os.path.basename(source)
-
-    if directories:
-        os.makedirs(directories, exist_ok=True)
-
-    destination_path = os.path.join(directories, filename)
-
-    if os.path.abspath(source) == os.path.abspath(destination):
+    if os.path.abspath(source) == os.path.abspath(destination_path):
         return
 
     with open(source, "r") as source_file:
