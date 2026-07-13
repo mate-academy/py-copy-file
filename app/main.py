@@ -1,12 +1,12 @@
 def copy_file(command: str) -> None:
+    parts = command.split()
+    if len(parts) != 3 or parts[0] != "cp":
+        return
+    if parts[2] == parts[1]:
+        return
     try:
-        cp, name_out, name_in = command.split()
-        if cp == "cp" and name_out != name_in:
-            with (open(name_out, "r") as file_out,
-                  open(name_in, "w") as file_in):
-                for line in file_out:
-                    file_in.write(line)
-    except ValueError:
-        print("Something missed in command")
+        with open(parts[1], "r") as file_out, open(parts[2], "w") as file_in:
+            for line in file_out:
+                file_in.write(line)
     except FileNotFoundError:
-        print("File not found")
+        return
