@@ -1,5 +1,5 @@
-def copy_file(copy_command: str) -> None:
-    command_list = copy_command.split()
+def copy_file(command: str) -> None:
+    command_list = command.split()
     if len(command_list) != 3 or command_list[0] != "cp":
         return
 
@@ -10,8 +10,7 @@ def copy_file(copy_command: str) -> None:
         return
 
     try:
-        with open(old_file, "r") as read_only_file:
-            with open(new_file, "w") as copied_file:
-                copied_file.write(read_only_file.read())
+        with open(old_file, "r") as file_in, open(new_file, "w") as file_out:
+            file_out.write(file_in.read())
     except FileNotFoundError:
         return
