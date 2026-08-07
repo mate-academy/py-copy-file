@@ -1,7 +1,7 @@
 import os
 
 
-def copy_file(command):
+def copy_file(command: str) -> None:
     """Copy a file using a Linux-style cp command string.
 
     Expected format: "cp source.txt destination.txt"
