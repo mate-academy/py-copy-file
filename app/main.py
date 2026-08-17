@@ -9,12 +9,14 @@ def copy_file(command: str) -> None:
 
     source_file = result[1]
     destination_file = result[2]
+    if source_file == destination_file:
+        return
 
     try:
-        with open(source_file, "r") as file1:
-            content = file1.read()
+        with open(source_file, "r") as source_file_object:
+            content = source_file_object.read()
     except FileNotFoundError:
         return
 
-    with open(destination_file, "w") as file2:
-        file2.write(content)
+    with open(destination_file, "w") as destination_file_object:
+        destination_file_object.write(content)
