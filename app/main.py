@@ -1,12 +1,26 @@
-def copy_file(command: str) -> None:
-    parts = command.split()
-    if len(parts) != 3 or parts[0] != "cp":
+import os
+
+
+def copy_file(source: str, destination: str) -> None:
+    if not source or not destination or source == destination:
+        return
+    
+    if not os.path.exists(source):
         return
 
-    _, source, destination = parts
-    if source == destination:
-        return
+    if os.path.isdir(destination):
+        destination = os.path.join(destination, os.path.basename(source))
 
-    with open(source, "r") as source_file, \
-         open(destination, "w") as dest_file:
-        dest_file.write(source_file.read())
+    try:
+        with open(source, "r", encoding="utf-8") as source_file, \
+                open(destination, "w", encoding="utf-8") as dest_file:
+            dest_file.write(source_file.read())
+    except Exception:
+        with open(source, "rb") as source_file, \
+                open(destination, "wb") as dest_file:
+            dest_file.write(source_file.read())
+
+
+if __name__ == "__main__":
+    pass
+
