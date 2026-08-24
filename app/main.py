@@ -1,1 +1,17 @@
-# write your code here
+import os
+
+
+def copy_file(command: str) -> None:
+    command = command.split()
+    if len(command) != 3:
+        return
+    if command[0] != "cp":
+        return
+    if command[1] == command[2]:
+        return
+
+    if not os.path.exists(command[1]):
+        return
+
+    with open(command[1], "r") as file_in, open(command[2], "w") as file_out:
+        file_out.write(file_in.read())
