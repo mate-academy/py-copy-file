@@ -1,5 +1,4 @@
 import os
-import shutil
 
 
 def copy_file(command: str) -> None:
@@ -13,4 +12,4 @@ def copy_file(command: str) -> None:
         return
 
     with open(src_file, "r") as file_in, open(dest_file, "w") as file_out:
-        shutil.copyfileobj(file_in, file_out)
+        file_out.write(file_in.read())
