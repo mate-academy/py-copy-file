@@ -1,24 +1,15 @@
-import os
-import shutil
-
-
-def copy_file(source: str, destination: str) -> None:
-    if not source or not destination:
-        return
-    
-    if not os.path.exists(source) or not os.path.isfile(source):
+﻿def copy_file(command: str) -> None:
+    parts = command.split()
+    if len(parts) != 3 or parts[0] != "cp":
         return
 
-    if os.path.isdir(destination):
-        destination = os.path.join(destination, os.path.basename(source))
-    else:
-        dest_dir = os.path.dirname(destination)
-        if dest_dir and not os.path.exists(dest_dir):
-            os.makedirs(dest_dir, exist_ok=True)
+    source_file_name = parts[1]
+    destination_file_name = parts[2]
 
-    shutil.copy(source, destination)
+    if source_file_name == destination_file_name:
+        return
 
-
-if __name__ == "__main__":
-    pass
-
+    with open(source_file_name, "r") as source_file, open(
+        destination_file_name, "w"
+    ) as destination_file:
+        destination_file.write(source_file.read())
