@@ -1,10 +1,12 @@
 def copy_file(command: str) -> None:
-    parsed_command = command.split(" ")
-    if len(parsed_command) != 3 or parsed_command[0] != "cp":
+    parsed_command = command.split()
+    if (
+            len(parsed_command) != 3
+            or parsed_command[0] != "cp"
+            or parsed_command[1] == parsed_command[2]
+    ):
         return
-    com, source, destination = parsed_command
-    if source == destination:
-        return
+    _, source, destination = parsed_command
     try:
         with (
             open(source) as old_file,
