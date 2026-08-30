@@ -1,12 +1,17 @@
-﻿def copy_file(command: str) -> None:
+import os
+
+
+def copy_file(command: str) -> None:
     parts = command.split()
-    if len(parts) != 3 or parts[0] != "cp":
+    if len(parts) != 3:
         return
 
-    source_file_name = parts[1]
-    destination_file_name = parts[2]
+    _, source_file_name, destination_file_name = parts
 
     if source_file_name == destination_file_name:
+        return
+
+    if not os.path.exists(source_file_name):
         return
 
     with open(source_file_name, "r") as source_file, open(
