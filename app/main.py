@@ -6,8 +6,11 @@ def copy_file(command: str) -> None:
 
     _, origin, destine = names
 
+    if origin == destine:
+        return
+
     try:
-        with open(origin, "r") as origin, open(destine, "w") as destine:
-            destine.write(origin.read())
+        with open(origin, "r") as file_in, open(destine, "w") as file_out:
+            file_out.write(file_in.read())
     except FileNotFoundError:
         return
