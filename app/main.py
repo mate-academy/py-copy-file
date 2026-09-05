@@ -7,5 +7,5 @@ def copy_file(cp: str) -> None:
             with (open(ex_file, "r") as file_in,
                   open(new_file, "w") as file_out):
                 file_out.write(file_in.read())
-    except FileNotFoundError, PermissionError, ValueError:
+    except (FileNotFoundError, PermissionError, ValueError):
         return None
