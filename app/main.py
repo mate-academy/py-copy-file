@@ -8,7 +8,7 @@ def copy_file(command: str) -> None:
     if len(parts_of_command) != 3:
         return
 
-    command_name, source, destination = command.split()
+    command_name, source, destination = parts_of_command
 
     if command_name != "cp":
         return
