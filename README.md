@@ -7,6 +7,13 @@ like Linux cp command: `cp file.txt file-copy.txt`. Function take only one
 argument `command`, that is string with command `cp`, file name to copy and new file
 name, separated by spaces.
 
+
+Напишіть функцію `copy_file`, яка копіюватиме файл у поточному каталозі
+за зразком команди Linux `cp`: `cp file.txt file-copy.txt`. Функція приймає лише один
+аргумент `command` — рядок, що містить команду `cp`, ім’я файлу, який потрібно скопіювати, та ім’я нового файлу,
+розділені пробілами.
+
+
 - It must do nothing in case the user is trying to copy file to file with the same
 name.
 - Function must copy the whole content to new file.
