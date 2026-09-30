@@ -13,8 +13,9 @@ def copy_file(command: str) -> None:
         return
     try:
 
-        with open(data_file_name, "r") as input_file:
-            with open(report_file_name, "w") as output_file:
-                output_file.write(input_file.read())
+        with open(data_file_name, "r") as input_file, open(
+            report_file_name, "w"
+        ) as output_file:
+            output_file.write(input_file.read())
     except FileNotFoundError:
         return
