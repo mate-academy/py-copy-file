@@ -1,21 +1,30 @@
+import os
+import shlex
+
+
 def copy_file(command: str) -> None:
-    parts = command.split()
-
-    if len(parts) < 3:
-        return
-
-    origin_archive = parts[1]
-    destine_archive = parts[2]
-
-    if origin_archive == destine_archive:
+    if not command:
         return
 
     try:
-        with open(origin_archive, "r", encoding="utf-8") as entry, \
-                open(destine_archive, "w", encoding="utf-8") as out:
+        parts = shlex.split(command)
+    except ValueError:
+        return
 
-            final_archive = entry.read()
-            out.write(final_archive)
+    if len(parts) != 3:
+        return
 
-    except FileNotFoundError:
+    source, target = parts[1], parts[2]
+
+    if source == target:
+        return
+
+    if not os.path.exists(source):
+        return
+
+    try:
+        with open(source, "r", encoding="utf-8") as src_file, \
+            open(target, "w", encoding="utf-8") as dst_file:
+            dst_file.write(src_file.read())
+    except OSError:
         return
