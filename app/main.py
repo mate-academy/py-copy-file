@@ -1,10 +1,12 @@
 def copy_file(command: str) -> None:
-    arr = command.split(" ")
+    elements = command.split(" ")
+    if (len(elements) != 3
+            or (elements[0] != "cp" or elements[1] == elements[2])):
+        return
     try:
-        if arr[0] != "cp" or arr[1] == arr[2]:
-            return
-        with open(arr[1], "r") as f1, open(arr[2], "w") as f2:
-            for i in f1.readlines():
-                f2.write(i)
+        with (open(elements[1], "r") as input_file,
+              open(elements[2], "w") as output_file):
+            for i in input_file.readlines():
+                output_file.write(i)
     except Exception:
         return
