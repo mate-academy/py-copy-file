@@ -1,5 +1,10 @@
 def copy_file(command: str) -> None:
-    _, source_file, destination_file = command.split()
+    parts = command.split()
+
+    if len(parts) != 3 or parts[0] != "cp":
+        return
+
+    _, source_file, destination_file = parts
 
     if source_file == destination_file:
         return
