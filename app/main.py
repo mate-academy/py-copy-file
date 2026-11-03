@@ -1,7 +1,7 @@
 def copy_file(command: str) -> None:
     command_split = command.split(" ")
 
-    if len(command_split) != 3 or not command.startswith("cp"):
+    if len(command_split) != 3 or command_split[0] != "cp":
         return
 
     elif command_split[1] == command_split[2]:
