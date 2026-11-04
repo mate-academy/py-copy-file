@@ -1,5 +1,5 @@
 def copy_file(command: str) -> None:
-    command_list = command.split("")
+    command_list = command.split()
     if (
         len(command_list) == 0
         or len(command_list) < 3
