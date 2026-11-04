@@ -7,7 +7,6 @@ def copy_file(command: str) -> None:
     if len(part) != 3 or part[0] != "cp":
         return
 
-
     source = part[1]
     destination = part[2]
     if source == destination:
