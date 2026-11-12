@@ -15,7 +15,11 @@ def copy_file(command: str) -> None:
     if source == destination:
         return
 
-    with open(source, "r", encoding="utf-8") as file_in, open(
-        destination, "w", encoding="utf-8"
-    ) as file_out:
-        file_out.write(file_in.read())
+    try:
+        with open(source, "r", encoding="utf-8") as file_in:
+            content = file_in.read()
+    except FileNotFoundError:
+        return
+
+    with open(destination, "w", encoding="utf-8") as file_out:
+        file_out.write(content)
