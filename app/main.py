@@ -1,1 +1,9 @@
-# write your code here
+def copy_file(command: str) -> None:
+    src_name = command[command.index("cp") + 2:command.index(".txt")]
+    des_name = command[command.index(".txt") + 2:]
+    if des_name != src_name:
+        with open(src_name, "r") as src, open(des_name, "w") as des:
+            content = src.read()
+            src.close()
+            des.write(content)
+            des.close()
