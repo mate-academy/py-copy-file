@@ -8,10 +8,10 @@ def copy_file(command: str) -> None:
     if current_file == copied_file:
         return
     try:
-        with open(current_file, "r") as f:
-            file_content = f.read()
+        with open(current_file, "r") as read_file:
+            file_content = read_file.read()
     except FileNotFoundError:
         return
 
-    with open(copied_file, "w") as f:
-        f.write(file_content)
+    with open(copied_file, "w") as write_file:
+        write_file.write(file_content)
