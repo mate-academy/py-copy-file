@@ -11,8 +11,6 @@ def copy_file(command: str) -> None:
     destination = part[2]
     if source == destination:
         return
-    if not os.path.exists(source):
-        return
 
     with open(source, "r") as file_in, open(destination, "w") as file_out:
         file_out.write(file_in.read())
