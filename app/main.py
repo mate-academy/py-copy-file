@@ -2,17 +2,19 @@ import os
 
 
 def copy_file(command: str) -> None:
-    part = command.split()
+    parts = command.split()
 
-    if len(part) != 3 or part[0] != "cp":
+    if len(parts) != 3 or parts[0] != "cp":
         return
 
-    source = part[1]
-    destination = part[2]
-    if source == destination:
-        return
-    if not os.path.exists(source):
+    source = parts[1]
+    destination = parts[2]
+
+    if source == destination or not os.path.isfile(source):
         return
 
-    with open(source, "r") as file_in, open(destination, "w") as file_out:
+    with (
+        open(source, "r", encoding="utf-8") as file_in,
+        open(destination, "w", encoding="utf-8") as file_out,
+    ):
         file_out.write(file_in.read())
