@@ -8,6 +8,9 @@ def copy_file(command: str) -> None:
     if file_name_from == file_name_to:
         return
 
-    with open(file_name_from, "r") as file_in, \
-            open(file_name_to, "w") as file_out:
-        file_out.write(file_in.read())
+    try:
+        with open(file_name_from, "r") as file_in, \
+                open(file_name_to, "w") as file_out:
+            file_out.write(file_in.read())
+    except FileNotFoundError:
+        pass
