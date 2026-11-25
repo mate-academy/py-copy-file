@@ -17,7 +17,3 @@ def copy_file(command: str) -> None:
             file_out.write(file_in.read())
     except FileNotFoundError:
         return
-
-
-if __name__ == "__main__":
-    copy_file("cp file.txt new_file.txt")
